@@ -1,0 +1,49 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors wuchangjiang (qianduanwcj@126.com)
+ * @date    2016-01-22 10:36:57
+ * @version $Id$
+ */
+.login_info{}
+.login_succ{ text-align: center;}
+.login_succ dl{ display: inline-block; padding-top: 1rem; box-sizing:border-box;}
+.login_succ dl dt{ background-position: 0 -.56rem; width: .98rem; height: .98rem;}
+.login_succ dl dd{ font-size: .38rem; text-align: center; line-height: 1rem; padding-left: .08rem; width: 6.8rem;}
+
+.login_info .common_ulPraent{ /*padding-top: .7rem;*/}
+.login_info .common_ulPraent ul{ display: inline-block;}
+
+.login_info ul li.agree{ font-size: .3rem; padding-top: .56rem;}
+.login_info ul li.agree span{ color: #dd2007;}
+.login_info ul li.agree p{ padding-left: .14rem;}
+.login_info ul li.agree p a{ color:#5d5d5d;}
+.login_info ul li.agree input{}
+.login_info ul li.agree i{ width: .42rem; height: .42rem; display: inline-block; background-position:0 -1.55rem; cursor: pointer; position: relative; top: -1px;}
+.login_info ul li.agree i.active{ background-position:-.49rem -1.55rem}
+
+.login_info .show_password{ display: inline-block; width: .9rem; height: .6rem; line-height: .6rem; color: #fff; font-size: .25rem; background:url(../images/repeat-1.jpg) left top repeat; border-radius: .06rem; position: absolute; left: 5rem; top: .1rem;}
+.login_info .get_verifycode{ display: inline-block; width: .9rem; height: .6rem; line-height: .6rem; color: #fff; font-size: .25rem; background:url(../images/repeat-1.jpg) left top repeat; border-radius: .06rem; position: absolute; left: 5rem; top: .1rem;}
+
+.email_phone{}
+.email_phone h3{ font-size: .25rem; font-weight: normal; height: .8rem; line-height: .8rem;}
+.email_phone p.info{ font-size: .24rem;}
+.email_phone p.info i{ width: .27rem; height: .27rem; display: inline-block; background-position: 0 -2rem; margin-right: .08rem; position: relative; top: .05rem;}
+.email_phone p.time{ height: 1.18rem; line-height: 1.18rem;}
+.email_phone p.time span{ color: #6fabf8;}
+
+.setPassword .common_text{ padding-right: 1rem; width: 4.54rem; text-align: left;}
+
+/*找回密码*/
+.setNewPassword .common_text{ padding-right: 1rem; width: 4.54rem; text-align: left;}
+.setNewPassword .show_password{ left: 4.7rem;}
+
+/*修改密码*/
+.login_info .changeNewPassword{ padding: 0;}
+.changeNewPassword .common_text{ padding-right: 1rem; width: 4.54rem; text-align: left;}
+.changeNewPassword .show_password{ left: 4.7rem;}
+
+/*使用手机升级雷霆账号*/
+.changeNewPassword .common_text{ padding-right: 1rem; width: 4.54rem; text-align: left;}
+.changeNewPassword .show_password{ left: 4.7rem;}
+.upgrade_title_style{}

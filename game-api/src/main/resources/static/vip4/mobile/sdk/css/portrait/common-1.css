@@ -1,0 +1,31 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors wuchangjiang (qianduanwcj@126.com)
+ * @date    2016-01-22 09:36:55
+ * @version $Id$
+ */
+.icon{ background-image: url(../../images/portrait/icon-1.png); background-size: 4.54rem 3.4rem;}
+
+.common_btn{ color: #fff; background: url(../../images/portrait/repeat-1.jpg) left top repeat; width: 5.66rem; height: .78rem; line-height: .78rem; text-align: center; color: #fff; font-size: .3rem; display: inline-block; text-shadow: 1px 1px 1px #255492;}
+.common_text{ color: #9f9f9f; border:1px solid #c7c7c7; width: 5.44rem; height: .56rem; padding: .1rem; background-color: #ffffff; font-size: .25rem; text-align: center; font-family: "microsoft yahei";}
+.common_popUp{ width: 70%; background-color: rgba(0,0,0,.8); position: absolute; left: 50%; top:50%; font-size: .36rem; color: #fff; line-height: .66rem; padding: .65rem .2rem; text-align: center;
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+}
+.back{ width: .30rem; height: .54rem; background-position: 0 0; position: absolute; left: .32rem; top: .4rem;}
+
+body{ max-width: 640px; margin: 0 auto;}
+
+.header{ height: 1.46rem; border-bottom:1px solid #9d9d9d; text-align: center; }
+.header a{ display: inline-block;}
+.header .title{display: inline-block; position: relative; top: .2rem;}
+.header .title .logo{ background-image: url(../../images/portrait/logo3-1.png); width: .72rem; height: 1rem; background-size: .72rem 1rem;}
+.header .title h3{ font-size: .4rem; height: 1rem; line-height:1rem; padding-left: .2rem;}
+
+.error_info{ color:#f62705; line-height: .48rem; /*padding-top: .54rem;*/}
+
+p.time{ height: 1.18rem; line-height: 1.18rem;}
+p.time span{ color: #6fabf8;}
+
+.relative_fl{}

@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: db
+  messages:
+    encoding: UTF-8
+mybatis:
+  configuration:
+    jdbc-type-for-null: 'null'
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

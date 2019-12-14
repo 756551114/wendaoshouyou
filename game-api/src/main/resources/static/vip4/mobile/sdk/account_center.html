@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="liucc">
+<title>账号中心</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta content=" width = device-width , initial-scale = 1.0 , maximum-scale = 1.0 , user-scalable = no " id="viewport" name="viewport">
+<script src="js\zepto.min.js"></script>
+<script src="js\scale_fn.js"></script>
+<link rel="stylesheet" href="css\base.css">
+<link rel="stylesheet" media="all and (orientation:landscape)" href="css\common.css">
+<link rel="stylesheet" media="all and (orientation:landscape)" href="css\paging.css">
+<link rel="stylesheet" media="all and (orientation:portrait)" href="css\portrait\common.css">
+<link rel="stylesheet" media="all and (orientation:portrait)" href="css\portrait\paging.css">
+</head>
+<body>
+	<div class="header pr">
+		<a href="javascript:window.history.back();" class="back icon" id="backBtn"></a>
+		<div class="title clearfix">   
+			<h3 class="fl">账号中心</h3>
+		</div>
+	</div>
+	<div class="account_center_change">
+		<p class="msg" id="account">
+		<ul class="clearfix">
+			<li><a href="javascript:;">
+				<dl>
+					<dt class="dt1"><i class="icon"></i></dt>
+					<dd>修改密码<i class="icon"></i></dd>
+				</dl>
+			</a></li>
+			<li><a href="javascript:;" id="switchAccount">
+				<dl>
+					<dt class="dt2"><i class="icon"></i></dt>
+					<dd>切换账号<i class="icon"></i></dd>
+				</dl>
+			</a></li>
+			<li><a href="javascript:;">
+				<dl>
+					<dt class="dt3"><i class="icon"></i></dt>
+					<dd>暂未开放<i class="icon"></i></dd>
+				</dl>
+			</a></li>
+			<!-- <li><a href="javascript:;">
+				<dl>
+					<dt class="dt4"><i class="icon"></i></dt>
+					<dd>绑定身份证<i class="icon"></i></dd>
+				</dl>
+			</a></li> -->
+		</ul>
+	</div>
+	<!--popoup-->
+	<div class="common_popUp hidden">
+		<p>
+	</div>
+</body>
+<script src="js\paging.js"></script>
+<script>
+$(function(){
+	$('.account_center_change ul li:eq(0)')
+	.on('touchend',function(){
+		location.href='change_password.html?userName='+$('#account').html().split('当前账号：')[1];
+	})
+	
+})
+  
+$('#backBtn').on('click',function(){
+		jsObject.cancel();
+		});
+	
+//切换账号
+$('#switchAccount').on('click',function(){
+		jsObject.switchAccount();
+	});
+
+$(function(){
+
+	//弹出层
+	var setTime_time=null;
+	function popup_fn(msg){
+		$('.common_popUp p').html(msg).parent().fadeIn(30).removeClass('hidden');
+		setTime_time=setInterval(function(){
+			$('.common_popUp').fadeOut(30).addClass('hidden');
+		},3000);
+	};
+	
+	$('.account_center_change ul li:eq(2)')
+	.on('touchend',function(){
+		var bindStatus = jsObject.getBindStatus();
+		if(bindStatus == "1"){
+			jsObject.showMsg('该账号已绑定');
+			//popup_fn('该账号已绑定');
+		}else if(bindStatus == "2"){
+			location.href='bind_phone.html';
+	//		jsObject.bindPhone();
+		}else{
+			popup_fn('当前手机网络异常，请切换网络重试!');
+		}
+	
+	})
+	
+})
+</script>
+</html>

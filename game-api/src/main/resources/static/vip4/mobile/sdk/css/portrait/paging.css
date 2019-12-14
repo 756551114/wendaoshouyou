@@ -1,0 +1,34 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors wuchangjiang (qianduanwcj@126.com)
+ * @date    2016年1月26日16:52:57
+ * @version $Id$
+ */
+.login_info .user_info{}
+.login_info .user_info p{ font-size: .25rem; line-height: .8rem;}
+.login_info .user_info a.new_btn{ font-size: .3rem; color: #6fabf8;}
+.login_info .user_info i.triangle_blue{ width: .2rem; height: .3rem; display: inline-block; background-position: -.98rem -1.6rem; margin-left: .14rem;}
+.login_info .user_info i.triangle_white{ width: .2rem; height: .31rem; display: inline-block; background-position: -1.2rem -1.6rem; margin-left: .12rem;}
+
+/*账号中心 2*/
+.account_center_change{ text-align: center;}
+.account_center_change .msg{ line-height:1rem; font-size:.3rem;}
+.account_center_change ul{ display: inline-block;}
+.account_center_change ul li{margin-top: .6rem;float: left;width: 50%;}
+.account_center_change ul li dl{}
+.account_center_change ul li dt{ width: 1.1rem; height: 1.1rem; border-radius: 50%; text-align: center; margin: 0 auto;}
+.account_center_change ul li dt i{ width: .6rem; height: .72rem; display: inline-block; margin: .2rem auto 0;}
+.account_center_change ul li dt.dt1{ background-color: #ff5454;}
+.account_center_change ul li dt.dt1 i{ background-position: -1.24rem -.67rem; }
+.account_center_change ul li dt.dt2{ background-color: #5acc7d;}
+.account_center_change ul li dt.dt2 i{ background-position: -1.84rem -.67rem;}
+.account_center_change ul li dt.dt3{ background-color: #ccb05a;}
+.account_center_change ul li dt.dt3 i{ background-position: -2.45rem -.67rem;}
+.account_center_change ul li dt.dt4{ background-color: #1fa6fd;}
+.account_center_change ul li dt.dt4 i{ background-position: -3rem -1.8rem; width:.72rem}
+.account_center_change ul li dd{ font-size: .26rem; color: #2d2d2d; height: .74rem; line-height: .74rem;}
+.account_center_change ul li dd i{ display: inline-block; width: .13rem; height: .23rem; background-position: -1.44rem -1.61rem; margin-left: .06rem;}
+
+
+

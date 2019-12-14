@@ -1,0 +1,83 @@
+@charset "utf-8";
+/*
+	  date:  2016年1月22日
+	author:  wuchangjiang
+	 emali:  qianduanwcj@126.con   
+*/
+
+body{font-size:.24rem;}
+body{font-family: 'microsoft yahei', Verdana, Arial, Helvetica, sans-serif;
+	color: #5d5d5d;-webkit-text-size-adjust: none;}
+
+*{ margin:0; padding:0;}
+html { color:#333;}
+ul,ol,li{ list-style:none;}
+a{ text-decoration:none;color:#5d5d5d;} 
+i, em{ font-style:normal;}
+img{ border:none;vertical-align:top;}
+input{ background:none; border:none; outline:none;}
+textarea{ outline:none; resize:none;}
+.clearfix:after{content:""; display:block; clear:both;}
+.clearfix{zoom:1;} 
+
+.fl{ float:left;}
+.fr{ float:right;}
+.pr { position:relative}
+.pa { position:absolute}
+
+.empty_20{ height:.2rem; overflow:hidden;}
+.hidden{ display: none;}
+/*边距*/
+
+
+.mt10{ margin-top:.1rem;}
+.mt15{ margin-top:.15rem;}
+.mt20{ margin-top:.2rem;}
+
+.mr10{ margin-right:.1rem;}
+.mr15{ margin-right:.15rem;}
+.mr20{ margin-right:.2rem;}
+
+.mb10{ margin-bottom:.1rem;}
+.mb15{ margin-bottom:.15rem;}
+.mb20{ margin-bottom:.2rem;}
+
+.ml10{ margin-left:.1rem;}
+.ml15{ margin-left:.15rem;}
+.ml20{ margin-left:.2rem;}
+
+.pt10{ padding-top:.1rem;}
+.pt15{ padding-top:.15rem;}
+.pt20{ padding-top:.2rem;}
+
+.pr10{ padding-right:.1rem;}
+.pr15{ padding-right:.15rem;}
+.pr20{ padding-right:.2rem;}
+
+.pb10{ padding-bottom:.1rem;}
+.pb15{ padding-bottom:.15rem;}
+.pb20{ padding-bottom:.2rem;}
+.pb30{ padding-bottom:.3rem;}
+
+.pl10{ padding-left:.1rem;}
+.pl15{ padding-left:.15rem;}
+.pl20{ padding-left:.2rem;}
+/*color*/
+.red {color:#CE0004!important}
+.blue {color:#2162B6!important}
+.black {color:#000!important}
+.gray3 {color:#333!important}
+.gray6 {color:#666!important}
+.gray9 {color:#999!important}
+
+/*文字排版*/
+.yahei{font-family:'Microsoft Yahei';}
+.f12 {font-size:.12rem;}
+.f14 {font-size:.14rem;}
+.f16 {font-size:.16rem;}
+.f18 {font-size:.18rem;}
+.fb {font-weight:bold}
+.fn {font-weight:normal}
+.hideText{text-indent:-999em; overflow:hidden;}
+.text2{text-indent:2em;}
+.ali_center{ text-align: center;}

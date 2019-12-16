@@ -1,7 +1,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>game-api</artifactId>
+    <artifactId>game-web</artifactId>
     <packaging>jar</packaging>
     <parent>
         <groupId>org.game</groupId>
@@ -18,7 +18,7 @@
 
         <dependency>
             <groupId>org.game</groupId>
-            <artifactId>game-utils</artifactId>
+            <artifactId>game-core</artifactId>
             <exclusions>
                 <exclusion>
                     <artifactId>commons-lang</artifactId>

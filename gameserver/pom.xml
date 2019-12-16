@@ -26,7 +26,7 @@
         </dependency>
         <dependency>
             <groupId>org.game</groupId>
-            <artifactId>game-utils</artifactId>
+            <artifactId>game-core</artifactId>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>

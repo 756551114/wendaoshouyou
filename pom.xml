@@ -27,9 +27,9 @@
 
     <modules>
         <module>game-community</module>
-        <module>game-api</module>
+        <module>game-web</module>
 <!--        <module>game-db</module>-->
-        <module>game-utils</module>
+        <module>game-core</module>
 <!--        <module>game-all</module>-->
         <module>gameserver</module>
 
@@ -49,12 +49,12 @@
 <!--            </dependency>-->
             <dependency>
                 <groupId>org.game</groupId>
-                <artifactId>game-utils</artifactId>
+                <artifactId>game-core</artifactId>
                 <version>0.1.0</version>
             </dependency>
             <dependency>
                 <groupId>org.game</groupId>
-                <artifactId>game-api</artifactId>
+                <artifactId>game-web</artifactId>
             </dependency>
 <!--            <dependency>-->
 <!--                <groupId>org.game</groupId>-->

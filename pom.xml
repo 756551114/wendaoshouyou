@@ -31,7 +31,7 @@
 <!--        <module>game-db</module>-->
         <module>game-core</module>
 <!--        <module>game-all</module>-->
-        <module>gameserver</module>
+        <module>game-server</module>
 
     </modules>
 

@@ -29,8 +29,8 @@ public class ApplicationNetty implements ApplicationRunner {
     @Value("${netty.port}")
     private int port;
 
-    @Value("${netty.url}")
-    private String url;
+    @Value("${netty.ip}")
+    private String ip;
 
     @Autowired
     private NettyServer server;
@@ -39,8 +39,8 @@ public class ApplicationNetty implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args)  {
-        InetSocketAddress address = new InetSocketAddress(url,port);
-        log.debug("run .... . ... "+url);
+        InetSocketAddress address = new InetSocketAddress(ip,port);
+        log.debug("run .... . ... "+ip);
         server.start(address);
         gameCore.init(server);
     }

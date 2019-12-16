@@ -1,7 +1,7 @@
 package org.linlinjava.litemall.gameserver.game;
 
 import io.netty.buffer.ByteBuf;
-import org.linlinjava.litemall.db.util.JSONUtils;
+import org.linlinjava.litemall.core.util.JSONUtils;
 import org.linlinjava.litemall.gameserver.netty.BaseWrite;
 
 import java.util.List;

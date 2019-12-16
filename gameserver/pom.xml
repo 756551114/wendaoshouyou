@@ -22,7 +22,7 @@
         </dependency>
         <dependency>
             <groupId>org.game</groupId>
-            <artifactId>game-db</artifactId>
+            <artifactId>game-community</artifactId>
         </dependency>
         <dependency>
             <groupId>org.game</groupId>
@@ -44,10 +44,30 @@
             <version>3.2.2</version>
             <scope>compile</scope>
         </dependency>
+
+
+        <!--        dubbo-->
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.sgroschupf</groupId>
+            <artifactId>zkclient</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.gitee.reger</groupId>
+            <artifactId>spring-boot-starter-dubbo</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
-
 
 
             <!--            <plugin>-->

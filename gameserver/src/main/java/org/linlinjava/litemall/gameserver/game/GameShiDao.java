@@ -1,11 +1,15 @@
 package org.linlinjava.litemall.gameserver.game;
 
-import org.linlinjava.litemall.db.domain.Map;
-import org.linlinjava.litemall.db.domain.RenwuMonster;
-import org.linlinjava.litemall.gameserver.data.vo.*;
-import org.linlinjava.litemall.gameserver.data.write.*;
+import com.cool.wendao.community.model.RenwuMonster;
+import org.linlinjava.litemall.gameserver.data.vo.Vo_16383_0;
+import org.linlinjava.litemall.gameserver.data.vo.Vo_65529_0;
+import org.linlinjava.litemall.gameserver.data.write.M16383_0;
+import org.linlinjava.litemall.gameserver.data.write.M65529_0;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 public class GameShiDao {
     public int shuaXingzhuangtai = 0;
@@ -57,7 +61,7 @@ public class GameShiDao {
             vo_65529_0.leixing = random.nextInt(5) + 1;
             List<RenwuMonster> renwuMonsters = GameData.that.baseRenwuMonsterService.findByType(9);
             RenwuMonster renwuMonster = renwuMonsters.get(random.nextInt(renwuMonsters.size()));
-            Map map = GameData.that.baseMapService.findOneByName(renwuMonster.getMapName());
+            com.cool.wendao.community.model.Map map = GameData.that.baseMapService.findOneByName(renwuMonster.getMapName());
             vo_65529_0.mapid = map.getMapId();
             vo_65529_0.x = renwuMonster.getX();
             vo_65529_0.y = renwuMonster.getY();

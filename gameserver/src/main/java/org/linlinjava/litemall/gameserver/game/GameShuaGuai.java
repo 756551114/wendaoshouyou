@@ -1,8 +1,8 @@
 package org.linlinjava.litemall.gameserver.game;
 
-import org.linlinjava.litemall.db.domain.Map;
-import org.linlinjava.litemall.db.domain.RenwuMonster;
-import org.linlinjava.litemall.db.domain.ZhuangbeiInfo;
+import com.cool.wendao.community.model.Map;
+import com.cool.wendao.community.model.RenwuMonster;
+import com.cool.wendao.community.model.ZhuangbeiInfo;
 import org.linlinjava.litemall.gameserver.data.game.SuitEffectUtils;
 import org.linlinjava.litemall.gameserver.data.vo.*;
 import org.linlinjava.litemall.gameserver.data.write.*;

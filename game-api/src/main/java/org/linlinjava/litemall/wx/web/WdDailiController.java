@@ -5,46 +5,74 @@
 
 package org.linlinjava.litemall.wx.web;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-import java.util.concurrent.CopyOnWriteArrayList;
-import javax.servlet.http.HttpServletRequest;
+import com.alibaba.fastjson.JSONObject;
+import com.cool.wendao.community.model.Daili;
+import com.cool.wendao.community.model.Notice;
+import com.cool.wendao.community.server.BaseDailiService;
+import com.cool.wendao.community.server.BaseNoticeService;
+import com.cool.wendao.community.server.CustomDailiMapper;
+import com.reger.dubbo.annotation.Inject;
 import org.linlinjava.litemall.core.util.JacksonUtil;
 import org.linlinjava.litemall.core.util.ResponseUtil;
-import org.linlinjava.litemall.db.dao.custom.CustomDailiMapper;
-import org.linlinjava.litemall.db.domain.Daili;
-import org.linlinjava.litemall.db.domain.Notice;
-import org.linlinjava.litemall.db.service.base.BaseAccountsService;
-import org.linlinjava.litemall.db.service.base.BaseDailiService;
-import org.linlinjava.litemall.db.service.base.BaseNoticeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
+
 @RestController
 @RequestMapping
 @Validated
 public class WdDailiController {
-    @Autowired
-    private BaseAccountsService baseAccountsService;
-    @Autowired
-    private BaseNoticeService baseNoticeService;
     private static final String ADMIN_TOKEN = "tasdjbaqwuibzxcvnbibasouwerka";
-    @Autowired
-    private BaseDailiService baseDailiService;
-    @Autowired
-    private CustomDailiMapper customDailiMapper;
     public static final List<String> zimu = new CopyOnWriteArrayList();
+
+    static {
+        zimu.add("A");
+        zimu.add("B");
+        zimu.add("C");
+        zimu.add("D");
+        zimu.add("E");
+        zimu.add("F");
+        zimu.add("G");
+        zimu.add("H");
+        zimu.add("I");
+        zimu.add("J");
+        zimu.add("K");
+        zimu.add("L");
+        zimu.add("M");
+        zimu.add("N");
+        zimu.add("O");
+        zimu.add("P");
+        zimu.add("Q");
+        zimu.add("R");
+        zimu.add("S");
+        zimu.add("T");
+        zimu.add("U");
+        zimu.add("V");
+        zimu.add("W");
+        zimu.add("X");
+        zimu.add("Y");
+        zimu.add("Z");
+    }
+
+    @Inject
+    private BaseNoticeService baseNoticeService;
+
+    @Inject
+    private BaseDailiService baseDailiService;
+
+    @Inject
+    private CustomDailiMapper customDailiMapper;
+
+
     private static boolean charge;
 
     public WdDailiController() {
@@ -57,29 +85,18 @@ public class WdDailiController {
         if (username != null && password != null) {
             HashMap<Object, Object> data = new HashMap();
             ArrayList<Map> list = new ArrayList();
-            List maps;
-            Iterator var11;
-            Map map;
+            List<Map> maps;
             if (username.equals("QWERASDF1234") && password.equals("123QWEASD")) {
-                new HashMap();
-                Iterator var16 = zimu.iterator();
-
-                while(var16.hasNext()) {
-                    String zm = (String)var16.next();
-                    maps = this.customDailiMapper.selectAccount(zm);
-                    var11 = maps.iterator();
-
-                    while(var11.hasNext()) {
-                        map = (Map)var11.next();
-                        Object numobj = map.get("num");
-                        int num = Integer.valueOf(numobj.toString());
+                for (String zm : zimu) {
+                    maps =  this.customDailiMapper.selectAccount(zm);
+                    maps.forEach(map ->{
+                        JSONObject jsonObject = new JSONObject(map);
                         HashMap hashMap = new HashMap();
-                        hashMap.put("code", map.get("code"));
-                        hashMap.put("number", num);
+                        hashMap.put("code", jsonObject.get("code"));
+                        hashMap.put("number", jsonObject.getIntValue("num"));
                         list.add(hashMap);
-                    }
+                    });
                 }
-
                 data.put("name", username);
                 data.put("list", list);
                 data.put("token", "tasdjbaqwuibzxcvnbibasouwerka");
@@ -91,21 +108,16 @@ public class WdDailiController {
                 if (daili == null || !daili.getPasswd().equals(password)) {
                     return ResponseUtil.fail();
                 }
-
                 String uuid = UUID.randomUUID().toString();
                 daili.setToken(uuid);
                 this.baseDailiService.updateById(daili);
                 HashMap hashMap = new HashMap();
                 maps = this.customDailiMapper.selectAccount(username);
-                var11 = maps.iterator();
-
-                while(var11.hasNext()) {
-                    map = (Map)var11.next();
+                for (Map map : maps) {
                     hashMap.put("code", map.get("code"));
                     hashMap.put("number", map.get("num"));
                     list.add(hashMap);
                 }
-
                 data.put("name", username);
                 data.put("list", list);
                 data.put("token", uuid);
@@ -169,13 +181,9 @@ public class WdDailiController {
             hashMap.put("list", listin);
             list.add(hashMap);
             int alltotal = 0;
-            Iterator var10 = zimu.iterator();
-
-            while(var10.hasNext()) {
-                String zm = (String)var10.next();
+            for (String zm : zimu) {
                 List<Map> maps = this.customDailiMapper.selectMoney(zm, day - 1);
                 int total = 0;
-
                 int num;
                 for(Iterator var14 = maps.iterator(); var14.hasNext(); alltotal += num) {
                     Map map = (Map)var14.next();
@@ -183,13 +191,11 @@ public class WdDailiController {
                     num = Integer.valueOf(numobj.toString());
                     total += num;
                 }
-
                 zidaihashMap = new HashMap();
                 listin.add(zidaihashMap);
                 zidaihashMap.put("code", zm);
                 zidaihashMap.put("count", total);
             }
-
             hashMap.put("countTotal", alltotal);
         } else {
             Daili daili = this.baseDailiService.findOneByToken(token);
@@ -280,32 +286,5 @@ public class WdDailiController {
         return md5code;
     }
 
-    static {
-        zimu.add("A");
-        zimu.add("B");
-        zimu.add("C");
-        zimu.add("D");
-        zimu.add("E");
-        zimu.add("F");
-        zimu.add("G");
-        zimu.add("H");
-        zimu.add("I");
-        zimu.add("J");
-        zimu.add("K");
-        zimu.add("L");
-        zimu.add("M");
-        zimu.add("N");
-        zimu.add("O");
-        zimu.add("P");
-        zimu.add("Q");
-        zimu.add("R");
-        zimu.add("S");
-        zimu.add("T");
-        zimu.add("U");
-        zimu.add("V");
-        zimu.add("W");
-        zimu.add("X");
-        zimu.add("Y");
-        zimu.add("Z");
-    }
+
 }

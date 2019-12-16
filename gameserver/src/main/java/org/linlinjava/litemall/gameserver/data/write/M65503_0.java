@@ -1,11 +1,11 @@
 package org.linlinjava.litemall.gameserver.data.write;
 
-import org.linlinjava.litemall.db.domain.GroceriesShop;
-import org.linlinjava.litemall.db.domain.MedicineShop;
+import com.cool.wendao.community.model.GroceriesShop;
+import com.cool.wendao.community.model.MedicineShop;
+import io.netty.buffer.ByteBuf;
 import org.linlinjava.litemall.gameserver.data.GameWriteTool;
 import org.linlinjava.litemall.gameserver.netty.BaseWrite;
 import org.springframework.stereotype.Service;
-import io.netty.buffer.ByteBuf;
 
 import java.util.List;
 
@@ -38,7 +38,7 @@ public class M65503_0 extends BaseWrite{
 
                 GameWriteTool.writeInt(writeBuf, obj.getPayType());
 
-                GameWriteTool.writeShort(writeBuf, obj.getItemcount());
+                GameWriteTool.writeShort(writeBuf, obj.getItemCount());
 
                 GameWriteTool.writeString(writeBuf, obj.getName());
 
@@ -53,7 +53,7 @@ public class M65503_0 extends BaseWrite{
 
                 GameWriteTool.writeInt(writeBuf, obj.getPayType());
 
-                GameWriteTool.writeShort(writeBuf, obj.getItemcount());
+                GameWriteTool.writeShort(writeBuf, obj.getItemCount());
 
                 GameWriteTool.writeString(writeBuf, obj.getName());
 

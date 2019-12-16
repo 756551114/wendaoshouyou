@@ -1,10 +1,10 @@
 package org.linlinjava.litemall.gameserver.process;
 
+import com.cool.wendao.community.model.Npc;
+import com.cool.wendao.community.model.NpcDialogueFrame;
+import com.cool.wendao.community.model.Renwu;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
-import org.linlinjava.litemall.db.domain.Npc;
-import org.linlinjava.litemall.db.domain.NpcDialogueFrame;
-import org.linlinjava.litemall.db.domain.Renwu;
 import org.linlinjava.litemall.gameserver.GameHandler;
 import org.linlinjava.litemall.gameserver.data.GameReadTool;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_8247_0;

@@ -5,36 +5,34 @@
 
 package org.linlinjava.litemall.wx.web;
 
+import com.cool.wendao.community.model.Accounts;
+import com.cool.wendao.community.server.BaseAccountsService;
+import com.reger.dubbo.annotation.Inject;
+import org.linlinjava.litemall.core.util.DesUtil;
+import org.linlinjava.litemall.core.util.JSONUtils;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-import org.linlinjava.litemall.core.util.DesUtil;
-import org.linlinjava.litemall.core.util.JSONUtils;
-import org.linlinjava.litemall.db.domain.Accounts;
-import org.linlinjava.litemall.db.service.base.BaseAccountsService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+import java.util.*;
 
 @RestController
 @RequestMapping
 @Validated
 public class WdAuthController {
-    @Autowired
+
+    @Inject
     private BaseAccountsService baseAccountsService;
+
     @Value("${netty.ip}")
     private String ip;
+
+    @Value("${netty.url}")
+    private String url;
 
     public WdAuthController() {
     }
@@ -43,10 +41,10 @@ public class WdAuthController {
     public Object d() {
         Map<String, Object> data = new HashMap();
         List list = new ArrayList();
-        list.add("s.fiuwbjadshf.com");
-        list.add("s.fiuwbjadshf.com");
-        list.add("s.fiuwbjadshf.com");
-        data.put("host", "s.fiuwbjadshf.com");
+        list.add("url");
+        list.add("url");
+        list.add("url");
+        data.put("host", "url");
         data.put("ips", list);
         data.put("ttl", 17);
         data.put("origin_ttl", 100);

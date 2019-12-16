@@ -26,10 +26,9 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
         <dependency>
             <groupId>org.game</groupId>
-            <artifactId>game-db</artifactId>
+            <artifactId>game-community</artifactId>
         </dependency>
 
         <dependency>
@@ -53,16 +52,26 @@
             <version>4.3.10.RELEASE</version>
             <scope>test</scope>
         </dependency>
+
+<!--        dubbo-->
         <dependency>
-            <groupId>org.game</groupId>
-            <artifactId>gameserver</artifactId>
-            <version>0.1.0</version>
-            <scope>compile</scope>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
         </dependency>
-        <!--        <dependency>
-                    <groupId>com.belerweb</groupId>
-                    <artifactId>pinyin4j</artifactId>
-                </dependency>-->
+        <dependency>
+            <groupId>com.github.sgroschupf</groupId>
+            <artifactId>zkclient</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.gitee.reger</groupId>
+            <artifactId>spring-boot-starter-dubbo</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
 
     <build>

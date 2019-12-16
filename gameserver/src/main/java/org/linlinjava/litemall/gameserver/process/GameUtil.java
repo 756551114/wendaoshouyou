@@ -1,8 +1,8 @@
 package org.linlinjava.litemall.gameserver.process;
 
+import com.cool.wendao.community.model.*;
 import org.json.JSONObject;
-import org.linlinjava.litemall.db.domain.*;
-import org.linlinjava.litemall.db.util.JSONUtils;
+import org.linlinjava.litemall.core.util.JSONUtils;
 import org.linlinjava.litemall.gameserver.data.UtilObjMapshuxing;
 import org.linlinjava.litemall.gameserver.data.game.*;
 import org.linlinjava.litemall.gameserver.data.vo.*;
@@ -516,7 +516,7 @@ public class GameUtil {
         RenwuMonster renwuMonster = all.get(k);
         String name = renwuMonster.getName() + GameUtil.getRandomJianHan();
         Renwu tasks = GameData.that.baseRenwuService.findOneByCurrentTask(chara1.current_task);
-        org.linlinjava.litemall.db.domain.Map map = GameData.that.baseMapService.findOneByName(renwuMonster.getMapName());
+        com.cool.wendao.community.model.Map map = GameData.that.baseMapService.findOneByName(renwuMonster.getMapName());
 
         GameObjectChar.sendduiwu(new M12285_1(), chara1.npcchubao.get(0).id, chara1.id);
 

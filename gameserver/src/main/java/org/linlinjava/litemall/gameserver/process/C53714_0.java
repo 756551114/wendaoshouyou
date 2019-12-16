@@ -1,8 +1,8 @@
 package org.linlinjava.litemall.gameserver.process;
 
+import com.cool.wendao.community.model.PackModification;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
-import org.linlinjava.litemall.db.domain.PackModification;
 import org.linlinjava.litemall.gameserver.GameHandler;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_41505_0;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_53713_0;

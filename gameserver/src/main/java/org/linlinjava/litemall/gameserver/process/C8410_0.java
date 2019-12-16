@@ -1,20 +1,20 @@
 package org.linlinjava.litemall.gameserver.process;
 
+import com.cool.wendao.community.model.StoreGoods;
+import com.cool.wendao.community.model.StoreInfo;
+import com.cool.wendao.community.model.ZhuangbeiInfo;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
-import org.linlinjava.litemall.db.domain.StoreGoods;
-import org.linlinjava.litemall.db.domain.StoreInfo;
-import org.linlinjava.litemall.db.domain.ZhuangbeiInfo;
 import org.linlinjava.litemall.gameserver.GameHandler;
 import org.linlinjava.litemall.gameserver.data.GameReadTool;
 import org.linlinjava.litemall.gameserver.data.vo.ListVo_65527_0;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_20480_0;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_40964_0;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_8165_0;
-import org.linlinjava.litemall.gameserver.data.write.M8165_0;
-import org.linlinjava.litemall.gameserver.data.write.M40964_0;
 import org.linlinjava.litemall.gameserver.data.write.M20480_0;
+import org.linlinjava.litemall.gameserver.data.write.M40964_0;
 import org.linlinjava.litemall.gameserver.data.write.M65527_0;
+import org.linlinjava.litemall.gameserver.data.write.M8165_0;
 import org.linlinjava.litemall.gameserver.domain.Chara;
 import org.linlinjava.litemall.gameserver.game.GameData;
 import org.linlinjava.litemall.gameserver.game.GameObjectChar;
@@ -197,12 +197,12 @@ public class C8410_0 implements GameHandler {
         } else {
             StoreInfo storeInfo = GameData.that.baseStoreInfoService.findOneByName(oneByBarcode.getName());
             GameUtil.huodedaoju(chara, storeInfo, amount);
-            Vo_40964_0 vo_40964_0 = new Vo_40964_0();
-            vo_40964_0.type = 1;
-            vo_40964_0.name = storeInfo.getName();
-            vo_40964_0.param = "-1";
-            vo_40964_0.rightNow = 0;
-            GameObjectChar.send(new M40964_0(), vo_40964_0);
+            Vo_40964_0 vo409640 = new Vo_40964_0();
+            vo409640.type = 1;
+            vo409640.name = storeInfo.getName();
+            vo409640.param = "-1";
+            vo409640.rightNow = 0;
+            GameObjectChar.send(new M40964_0(), vo409640);
         }
 
 

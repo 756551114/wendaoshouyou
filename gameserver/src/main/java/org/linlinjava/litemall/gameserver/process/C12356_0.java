@@ -1,10 +1,10 @@
 package org.linlinjava.litemall.gameserver.process;
 
+import com.cool.wendao.community.model.GroceriesShop;
+import com.cool.wendao.community.model.MedicineShop;
+import com.cool.wendao.community.model.StoreInfo;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
-import org.linlinjava.litemall.db.domain.GroceriesShop;
-import org.linlinjava.litemall.db.domain.MedicineShop;
-import org.linlinjava.litemall.db.domain.StoreInfo;
 import org.linlinjava.litemall.gameserver.GameHandler;
 import org.linlinjava.litemall.gameserver.data.GameReadTool;
 import org.linlinjava.litemall.gameserver.data.vo.ListVo_65527_0;
@@ -113,10 +113,10 @@ public class C12356_0 implements GameHandler {
 
             StoreInfo storeInfo = GameData.that.baseStoreInfoService.findOneByName(medicineShop.getName());
             GameUtil.huodedaoju(chara, storeInfo, amount);
-            Vo_20480_0 vo_20480_0 = new Vo_20480_0();
-            vo_20480_0.msg = "你购买了" + storeInfo.getName() + "#n";
-            vo_20480_0.time = 1562593376;
-            GameObjectChar.send(new M20480_0(), vo_20480_0);
+            Vo_20480_0 vo204800 = new Vo_20480_0();
+            vo204800.msg = "你购买了" + storeInfo.getName() + "#n";
+            vo204800.time = 1562593376;
+            GameObjectChar.send(new M20480_0(), vo204800);
             Vo_40964_0 vo_40964_0 = new Vo_40964_0();
             vo_40964_0.type = 1;
             vo_40964_0.name = storeInfo.getName();

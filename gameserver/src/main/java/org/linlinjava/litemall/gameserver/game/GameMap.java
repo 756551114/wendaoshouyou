@@ -1,10 +1,13 @@
 package org.linlinjava.litemall.gameserver.game;
 
+import com.cool.wendao.community.model.Npc;
+import com.cool.wendao.community.model.NpcPoint;
 import io.netty.buffer.ByteBuf;
 import io.netty.util.ReferenceCountUtil;
-import org.linlinjava.litemall.db.domain.Npc;
-import org.linlinjava.litemall.db.domain.NpcPoint;
-import org.linlinjava.litemall.gameserver.data.vo.*;
+import org.linlinjava.litemall.gameserver.data.vo.Vo_45157_0;
+import org.linlinjava.litemall.gameserver.data.vo.Vo_61671_0;
+import org.linlinjava.litemall.gameserver.data.vo.Vo_65505_0;
+import org.linlinjava.litemall.gameserver.data.vo.Vo_65529_0;
 import org.linlinjava.litemall.gameserver.data.write.*;
 import org.linlinjava.litemall.gameserver.domain.Chara;
 import org.linlinjava.litemall.gameserver.netty.BaseWrite;

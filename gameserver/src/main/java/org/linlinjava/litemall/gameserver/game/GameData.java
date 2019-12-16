@@ -5,110 +5,77 @@
 
 package org.linlinjava.litemall.gameserver.game;
 
-import javax.annotation.PostConstruct;
-import org.linlinjava.litemall.db.service.CharacterService;
-import org.linlinjava.litemall.db.service.SaleGoodService;
-import org.linlinjava.litemall.db.service.base.BaseAccountsService;
-import org.linlinjava.litemall.db.service.base.BaseCharactersService;
-import org.linlinjava.litemall.db.service.base.BaseChargeService;
-import org.linlinjava.litemall.db.service.base.BaseChoujiangService;
-import org.linlinjava.litemall.db.service.base.BaseCreepsStoreService;
-import org.linlinjava.litemall.db.service.base.BaseDaySignPrizeService;
-import org.linlinjava.litemall.db.service.base.BaseExperienceService;
-import org.linlinjava.litemall.db.service.base.BaseExperienceTreasureService;
-import org.linlinjava.litemall.db.service.base.BaseGroceriesShopService;
-import org.linlinjava.litemall.db.service.base.BaseMapService;
-import org.linlinjava.litemall.db.service.base.BaseMedicineShopService;
-import org.linlinjava.litemall.db.service.base.BaseNoticeService;
-import org.linlinjava.litemall.db.service.base.BaseNpcDialogueFrameService;
-import org.linlinjava.litemall.db.service.base.BaseNpcDialogueService;
-import org.linlinjava.litemall.db.service.base.BaseNpcPointService;
-import org.linlinjava.litemall.db.service.base.BaseNpcService;
-import org.linlinjava.litemall.db.service.base.BasePackModificationService;
-import org.linlinjava.litemall.db.service.base.BasePetHelpTypeService;
-import org.linlinjava.litemall.db.service.base.BasePetService;
-import org.linlinjava.litemall.db.service.base.BaseRenwuMonsterService;
-import org.linlinjava.litemall.db.service.base.BaseRenwuService;
-import org.linlinjava.litemall.db.service.base.BaseSaleClassifyGoodService;
-import org.linlinjava.litemall.db.service.base.BaseSaleGoodService;
-import org.linlinjava.litemall.db.service.base.BaseShowTasksService;
-import org.linlinjava.litemall.db.service.base.BaseShuxingduiyingService;
-import org.linlinjava.litemall.db.service.base.BaseSkillMonsterService;
-import org.linlinjava.litemall.db.service.base.BaseStoreGoodsService;
-import org.linlinjava.litemall.db.service.base.BaseStoreInfoService;
-import org.linlinjava.litemall.db.service.base.BaseZhuangbeiInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.cool.wendao.community.server.*;
 import org.springframework.stereotype.Service;
+import com.reger.dubbo.annotation.Inject;
+
+import javax.annotation.PostConstruct;
 
 @Service
 public class GameData {
     public static GameData that;
-    @Qualifier("baseCharactersService")
-    @Autowired
+
+    @Inject
     public BaseCharactersService baseCharactersService;
-    @Qualifier("characterService")
-    @Autowired
+    @Inject
     public CharacterService characterService;
-    @Autowired
+    @Inject
     public BasePetService basePetService;
-    @Autowired
+    @Inject
     public BaseExperienceService baseExperienceService;
-    @Autowired
+    @Inject
     public BaseStoreInfoService baseStoreInfoService;
-    @Autowired
+    @Inject
     public BaseZhuangbeiInfoService baseZhuangbeiInfoService;
-    @Autowired
+    @Inject
     public BaseChoujiangService baseChoujiangService;
-    @Autowired
+    @Inject
     public BaseShowTasksService baseShowTasksService;
-    @Autowired
+    @Inject
     public BasePetHelpTypeService basePetHelpTypeService;
-    @Autowired
+    @Inject
     public BaseDaySignPrizeService baseDaySignPrizeService;
-    @Qualifier("baseSaleGoodService")
-    @Autowired
+    @Inject
     public BaseSaleGoodService baseSaleGoodService;
-    @Qualifier("saleGoodService")
-    @Autowired
+    @Inject
     public SaleGoodService saleGoodService;
-    @Autowired
+    @Inject
     public BaseNpcService baseNpcService;
-    @Autowired
+    @Inject
     public BaseMapService baseMapService;
-    @Autowired
+    @Inject
     public BaseAccountsService baseAccountsService;
-    @Autowired
+    @Inject
     public BaseNpcPointService baseNpcPointService;
-    @Autowired
+    @Inject
     public BaseNpcDialogueService baseNpcDialogueService;
-    @Autowired
+    @Inject
     public BaseNpcDialogueFrameService baseNpcDialogueFrameService;
-    @Autowired
+    @Inject
     public BaseCreepsStoreService baseCreepsStoreService;
-    @Autowired
+    @Inject
     public BaseGroceriesShopService baseGroceriesShopService;
-    @Autowired
+    @Inject
     public BaseMedicineShopService baseMedicineShopService;
-    @Autowired
+    @Inject
     public BaseSaleClassifyGoodService baseSaleClassifyGoodService;
-    @Autowired
+    @Inject
     public BaseStoreGoodsService baseStoreGoodsService;
-    @Autowired
+    @Inject
     public BaseShuxingduiyingService baseShuxingduiyingService;
-    @Autowired
+    @Inject
     public BasePackModificationService basePackModificationService;
-    @Autowired
+    @Inject
     public BaseSkillMonsterService baseSkillMonsterService;
-    @Autowired
+    @Inject
     public BaseRenwuService baseRenwuService;
-    @Autowired
+    @Inject
     public BaseRenwuMonsterService baseRenwuMonsterService;
-    @Autowired
+    @Inject
     public BaseExperienceTreasureService baseExperienceTreasureService;
-    @Autowired
+    @Inject
     public BaseNoticeService baseNoticeService;
-    @Autowired
+    @Inject
     public BaseChargeService baseChargeService;
 
     public GameData() {

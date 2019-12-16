@@ -1,8 +1,8 @@
 package org.linlinjava.litemall.gameserver.process;
 
+import com.cool.wendao.community.model.*;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
-import org.linlinjava.litemall.db.domain.*;
 import org.linlinjava.litemall.gameserver.GameHandler;
 import org.linlinjava.litemall.gameserver.data.GameReadTool;
 import org.linlinjava.litemall.gameserver.data.vo.*;
@@ -18,6 +18,7 @@ import org.linlinjava.litemall.gameserver.game.GameObjectChar;
 import org.linlinjava.litemall.gameserver.game.GameObjectCharMng;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -166,11 +167,11 @@ public class C12344_0<main> implements GameHandler {
                 int yuanbao = 0;
                 for (Charge charge : chargeList) {
                     if (charge.getState() == 0) {
-                        yuanbao += charge.getCoin();
+                        charge.getCoin().add(BigInteger.valueOf(yuanbao));
                         charge.setState(1);
                         for (int i = 0; i < coins.length; i++) {
-                            if (charge.getCoin() == coins[i]) {
-                                charge.setMoney(jiage[i]);
+                            if (charge.getCoin().intValue() == coins[i]) {
+                                charge.setMoney(BigInteger.valueOf(jiage[i]));
                                 break;
                             }
                         }
@@ -828,7 +829,7 @@ public class C12344_0<main> implements GameHandler {
         if (id == 958) {
             if (menu_item.equals("助人为乐_s0")) {
                 //1
-                if (chara1.baibangmang >= 1||chara1.level<40) {
+                if (chara1.baibangmang >= 1 || chara1.level < 40) {
                     Vo_20481_0 vo_20481_0 = new Vo_20481_0();
                     vo_20481_0.msg = "你今天已经帮了我大忙了，还是先休息休息吧。";
                     vo_20481_0.time = (int) (System.currentTimeMillis() / 1000);
@@ -1290,8 +1291,6 @@ public class C12344_0<main> implements GameHandler {
         GameObjectChar.send(new M65527_0(), vo_65527_0);
 
 
-
-
     }
 
     @Override
@@ -1332,7 +1331,6 @@ public class C12344_0<main> implements GameHandler {
             }
         }
     }
-
 
 
 }

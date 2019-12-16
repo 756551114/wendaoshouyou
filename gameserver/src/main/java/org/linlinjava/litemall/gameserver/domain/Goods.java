@@ -5,9 +5,10 @@
 
 package org.linlinjava.litemall.gameserver.domain;
 
+import com.cool.wendao.community.model.StoreInfo;
+import com.cool.wendao.community.model.ZhuangbeiInfo;
+
 import java.util.UUID;
-import org.linlinjava.litemall.db.domain.StoreInfo;
-import org.linlinjava.litemall.db.domain.ZhuangbeiInfo;
 
 public class Goods {
     public int pos = 45;

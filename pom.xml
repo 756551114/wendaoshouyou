@@ -19,23 +19,34 @@
         <maven.test.skip>true</maven.test.skip>
         <lombok.version>1.18.8</lombok.version>
         <hutool.version>4.6.6</hutool.version>
+
+        <zookeeper.version>3.5.6</zookeeper.version>
+        <spring-boot-starter-dubbo.version>1.1.3</spring-boot-starter-dubbo.version>
+
     </properties>
 
     <modules>
+        <module>game-community</module>
         <module>game-api</module>
-        <module>game-db</module>
+<!--        <module>game-db</module>-->
         <module>game-utils</module>
-        <module>game-all</module>
+<!--        <module>game-all</module>-->
         <module>gameserver</module>
+
     </modules>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.game</groupId>
-                <artifactId>game-db</artifactId>
+                <artifactId>game-community</artifactId>
                 <version>0.1.0</version>
             </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.game</groupId>-->
+<!--                <artifactId>game-db</artifactId>-->
+<!--                <version>0.1.0</version>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>org.game</groupId>
                 <artifactId>game-utils</artifactId>
@@ -45,11 +56,11 @@
                 <groupId>org.game</groupId>
                 <artifactId>game-api</artifactId>
             </dependency>
-            <dependency>
-                <groupId>org.game</groupId>
-                <artifactId>game-all</artifactId>
-                <version>0.1.0</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.game</groupId>-->
+<!--                <artifactId>game-all</artifactId>-->
+<!--                <version>0.1.0</version>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>org.game</groupId>
                 <artifactId>gameserver</artifactId>
@@ -135,6 +146,30 @@
                 <artifactId>spring-boot-starter-mail</artifactId>
                 <version>2.0.4.RELEASE</version>
             </dependency>
+
+
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.github.sgroschupf</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.gitee.reger</groupId>
+                <artifactId>spring-boot-starter-dubbo</artifactId>
+                <version>${spring-boot-starter-dubbo.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

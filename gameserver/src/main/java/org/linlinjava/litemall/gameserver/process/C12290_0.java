@@ -1,10 +1,10 @@
 package org.linlinjava.litemall.gameserver.process;
 
+import com.cool.wendao.community.model.Accounts;
+import com.cool.wendao.community.model.Characters;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.Attribute;
-import org.linlinjava.litemall.db.domain.Accounts;
-import org.linlinjava.litemall.db.domain.Characters;
 import org.linlinjava.litemall.gameserver.GameHandler;
 import org.linlinjava.litemall.gameserver.data.GameReadTool;
 import org.linlinjava.litemall.gameserver.data.vo.ListVo_61537_0;

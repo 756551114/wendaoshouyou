@@ -1,0 +1,22 @@
+spring:
+  messages:
+    encoding: UTF-8
+  dubbo:
+    application:
+      name: gameserver
+    base-package: org.linlinjava.litemall.gameserver
+    registry:
+      address: 127.0.0.1
+      port: 2181
+    consumer:
+      timeout: 1000
+      check: false
+      retries: 2
+server:
+  http:
+    port: 81
+  port: 81
+netty:
+  port: 14721
+  url: s.fiuwbjadshf.com
+  ip: 0.0.0.0

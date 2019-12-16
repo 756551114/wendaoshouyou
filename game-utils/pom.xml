@@ -68,10 +68,7 @@
 			<groupId>com.github.binarywang</groupId>
 			<artifactId>weixin-java-pay</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.game</groupId>
-			<artifactId>game-db</artifactId>
-		</dependency>
+
 	</dependencies>
 
 </project>

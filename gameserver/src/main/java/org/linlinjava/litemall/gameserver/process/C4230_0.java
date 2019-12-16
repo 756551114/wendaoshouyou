@@ -1,16 +1,16 @@
 package org.linlinjava.litemall.gameserver.process;
 
+import com.cool.wendao.community.model.StoreInfo;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
-import org.linlinjava.litemall.db.domain.StoreInfo;
 import org.linlinjava.litemall.gameserver.GameHandler;
 import org.linlinjava.litemall.gameserver.data.GameReadTool;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_12269_0;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_20481_0;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_40964_0;
-import org.linlinjava.litemall.gameserver.data.write.M40964_0;
-import org.linlinjava.litemall.gameserver.data.write.M20481_0;
 import org.linlinjava.litemall.gameserver.data.write.M12269_0;
+import org.linlinjava.litemall.gameserver.data.write.M20481_0;
+import org.linlinjava.litemall.gameserver.data.write.M40964_0;
 import org.linlinjava.litemall.gameserver.domain.Chara;
 import org.linlinjava.litemall.gameserver.game.GameData;
 import org.linlinjava.litemall.gameserver.game.GameObjectChar;

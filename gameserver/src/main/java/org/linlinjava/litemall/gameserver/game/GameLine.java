@@ -5,13 +5,10 @@
 
 package org.linlinjava.litemall.gameserver.game;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+
+import java.util.*;
 
 @Service("glllbawsdfawelllll")
 @Scope("prototype")
@@ -26,11 +23,8 @@ public class GameLine {
     }
 
     public void init() {
-        List<org.linlinjava.litemall.db.domain.Map> all = GameData.that.baseMapService.findAll();
-        Iterator var2 = all.iterator();
-
-        while(var2.hasNext()) {
-            org.linlinjava.litemall.db.domain.Map map = (org.linlinjava.litemall.db.domain.Map)var2.next();
+        List<com.cool.wendao.community.model.Map> all = GameData.that.baseMapService.findAll();
+        for (com.cool.wendao.community.model.Map map : all) {
             GameMap gameMap = (GameMap)GameCore.getBean("gmmmasdfasdfmmmm", GameMap.class);
             gameMap.id = map.getMapId();
             gameMap.name = map.getName();
@@ -39,7 +33,6 @@ public class GameLine {
             this.gameRoomList.add(gameMap);
             this.gameRoomNameMap.put(gameMap.name, gameMap);
         }
-
     }
 
     public static GameMap getGameMapname(int line, String mapidname) {

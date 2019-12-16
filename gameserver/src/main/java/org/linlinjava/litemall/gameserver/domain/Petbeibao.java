@@ -1,6 +1,6 @@
 package org.linlinjava.litemall.gameserver.domain;
 
-import org.linlinjava.litemall.db.domain.Pet;
+import com.cool.wendao.community.model.Pet;
 import org.linlinjava.litemall.gameserver.data.game.BasicAttributesUtils;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_12023_0;
 import org.linlinjava.litemall.gameserver.process.GameUtil;

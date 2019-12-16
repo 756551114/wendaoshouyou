@@ -1,10 +1,10 @@
 package org.linlinjava.litemall.gameserver.process;
 
+import com.cool.wendao.community.model.StoreInfo;
+import com.cool.wendao.community.model.ZhuangbeiInfo;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
-import org.linlinjava.litemall.db.domain.StoreInfo;
-import org.linlinjava.litemall.db.domain.ZhuangbeiInfo;
-import org.linlinjava.litemall.db.util.JSONUtils;
+import org.linlinjava.litemall.core.util.JSONUtils;
 import org.linlinjava.litemall.gameserver.GameHandler;
 import org.linlinjava.litemall.gameserver.data.GameReadTool;
 import org.linlinjava.litemall.gameserver.data.UtilObjMapshuxing;

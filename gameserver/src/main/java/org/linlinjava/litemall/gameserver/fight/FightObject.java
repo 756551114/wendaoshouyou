@@ -5,35 +5,23 @@
 
 package org.linlinjava.litemall.gameserver.fight;
 
+import com.cool.wendao.community.model.Pet;
+import com.cool.wendao.community.model.SkillMonster;
+import com.cool.wendao.community.model.ZhuangbeiInfo;
+import org.json.JSONObject;
+import org.linlinjava.litemall.gameserver.data.game.BasicAttributesUtils;
+import org.linlinjava.litemall.gameserver.data.game.PetAndHelpSkillUtils;
+import org.linlinjava.litemall.gameserver.data.game.SuitEffectUtils;
+import org.linlinjava.litemall.gameserver.data.vo.*;
+import org.linlinjava.litemall.gameserver.data.write.*;
+import org.linlinjava.litemall.gameserver.domain.*;
+import org.linlinjava.litemall.gameserver.game.GameData;
+import org.linlinjava.litemall.gameserver.game.GameShuaGuai;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import org.json.JSONObject;
-import org.linlinjava.litemall.db.domain.Pet;
-import org.linlinjava.litemall.db.domain.SkillMonster;
-import org.linlinjava.litemall.db.domain.ZhuangbeiInfo;
-import org.linlinjava.litemall.gameserver.data.game.BasicAttributesUtils;
-import org.linlinjava.litemall.gameserver.data.game.PetAndHelpSkillUtils;
-import org.linlinjava.litemall.gameserver.data.game.SuitEffectUtils;
-import org.linlinjava.litemall.gameserver.data.vo.Vo_11757_0;
-import org.linlinjava.litemall.gameserver.data.vo.Vo_19959_0;
-import org.linlinjava.litemall.gameserver.data.vo.Vo_65529_0;
-import org.linlinjava.litemall.gameserver.data.vo.Vo_7655_0;
-import org.linlinjava.litemall.gameserver.data.vo.Vo_7667_0;
-import org.linlinjava.litemall.gameserver.data.write.M11757_0;
-import org.linlinjava.litemall.gameserver.data.write.M19959_0;
-import org.linlinjava.litemall.gameserver.data.write.M64981_Fight_Blood;
-import org.linlinjava.litemall.gameserver.data.write.M7655_0;
-import org.linlinjava.litemall.gameserver.data.write.M7667_0;
-import org.linlinjava.litemall.gameserver.domain.Chara;
-import org.linlinjava.litemall.gameserver.domain.JiNeng;
-import org.linlinjava.litemall.gameserver.domain.PetShuXing;
-import org.linlinjava.litemall.gameserver.domain.Petbeibao;
-import org.linlinjava.litemall.gameserver.domain.ShouHu;
-import org.linlinjava.litemall.gameserver.domain.ShouHuShuXing;
-import org.linlinjava.litemall.gameserver.game.GameData;
-import org.linlinjava.litemall.gameserver.game.GameShuaGuai;
 
 public class FightObject {
     public int id;

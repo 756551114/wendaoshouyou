@@ -4,7 +4,7 @@ spring:
   dubbo:
     application:
       name: gameserver
-    base-package: org.linlinjava.litemall.gameserver
+    base-package: org.linlinjava.litemall.gameserver.game
     registry:
       address: 127.0.0.1
       port: 2181

@@ -1,47 +1,20 @@
 package org.linlinjava.litemall.gameserver;
 
-import org.linlinjava.litemall.gameserver.game.GameCore;
-import org.linlinjava.litemall.gameserver.netty.NettyServer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
+import org.linlinjava.litemall.gameserver.netty.NettyStart;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
+import org.springframework.context.ConfigurableApplicationContext;
 
-import java.net.InetSocketAddress;
 @SpringBootApplication
-@Component
-@Order(value = 1)
-public class ApplicationNetty implements ApplicationRunner {
-
-    @Autowired
-    private GameCore gameCore;
+public class ApplicationNetty  {
 
     public static void main(String[] args) {
-        System.out.println("run .... . ... :");
-        SpringApplication.run(ApplicationNetty.class, args);
+        ConfigurableApplicationContext run = SpringApplication.run(ApplicationNetty.class, args);
+        NettyStart bean = run.getBean(NettyStart.class);
+        bean.run();
     }
-    @Value("${netty.port}")
-    private int port;
 
-    @Value("${netty.ip}")
-    private String ip;
 
-    @Autowired
-    private NettyServer server;
 
-    private static final Logger log = LoggerFactory.getLogger(ApplicationNetty.class);
 
-    @Override
-    public void run(ApplicationArguments args)  {
-        InetSocketAddress address = new InetSocketAddress(ip,port);
-        log.debug("run .... . ... "+ip);
-        server.start(address);
-        gameCore.init(server);
-    }
 }

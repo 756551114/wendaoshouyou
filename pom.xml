@@ -32,6 +32,7 @@
         <module>game-core</module>
 <!--        <module>game-all</module>-->
         <module>game-server</module>
+        <module>game-data</module>
 
     </modules>
 
@@ -52,20 +53,20 @@
                 <artifactId>game-core</artifactId>
                 <version>0.1.0</version>
             </dependency>
-            <dependency>
-                <groupId>org.game</groupId>
-                <artifactId>game-web</artifactId>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.game</groupId>-->
+<!--                <artifactId>game-web</artifactId>-->
+<!--            </dependency>-->
 <!--            <dependency>-->
 <!--                <groupId>org.game</groupId>-->
 <!--                <artifactId>game-all</artifactId>-->
 <!--                <version>0.1.0</version>-->
 <!--            </dependency>-->
-            <dependency>
-                <groupId>org.game</groupId>
-                <artifactId>gameserver</artifactId>
-                <version>0.1.0</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.game</groupId>-->
+<!--                <artifactId>gameserver</artifactId>-->
+<!--                <version>0.1.0</version>-->
+<!--            </dependency>-->
             <!-- Spring Boot Mybatis 依赖 -->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>

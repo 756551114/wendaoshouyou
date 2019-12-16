@@ -1,0 +1,32 @@
+server:
+spring:
+  dubbo:
+    application:
+      name: servicedata
+    base-package: com.cool.wendao.data.impl
+    registry:
+      address: 127.0.0.1
+      port: 2181
+    protocol:
+      name: dubbo
+      serialization: hessian2
+    provider:
+      retries: 0
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    password: admin123456
+    username: admin
+    url: jdbc:mysql://127.0.0.1/gserver?useUnicode=true&serverTimezone=UTC&allowPublicKeyRetrieval=true&verifyServerCertificate=false&useSSL=false&characterEncoding=UTF-8&useAffectedRows=true
+logging:
+  level:
+    root: info
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations:
+    - classpath*:com/cool/wendao/data/dao/mapper/*.xml

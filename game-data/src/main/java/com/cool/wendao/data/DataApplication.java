@@ -8,9 +8,13 @@ import tk.mybatis.spring.annotation.MapperScan;
 @SpringBootApplication
 @MapperScan("com.cool.wendao.data.dao")
 public class DataApplication {
+    private static Object lock = new Object();
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(DataApplication.class, args);
+        synchronized (lock) {
+            lock.wait();
+        }
     }
 
 

@@ -5,6 +5,6 @@ import com.cool.wendao.community.model.Renwu;
 public interface BaseRenwuService {
 
 
-    Renwu findOneByCurrentTask(String renwu);
+    Renwu findOneByCurrentTask(String currentTask);
 
 }

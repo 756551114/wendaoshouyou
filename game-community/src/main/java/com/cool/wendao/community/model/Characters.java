@@ -25,8 +25,6 @@ public class Characters extends BaseModel {
     private Integer accountId;
 
 
-    private Integer deleted;
-
     private String gid;
 
     private String data;

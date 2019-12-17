@@ -7,7 +7,6 @@ import com.cool.wendao.community.model.Accounts;
 import com.cool.wendao.community.server.BaseAccountsService;
 import com.cool.wendao.community.server.CacheService;
 import com.cool.wendao.data.dao.AccountsMapper;
-import com.reger.dubbo.annotation.Inject;
 import org.springframework.beans.factory.annotation.Autowired;
 import tk.mybatis.mapper.entity.Example;
 
@@ -19,7 +18,7 @@ public class BaseAccountsServiceImpl implements BaseAccountsService {
     @Autowired
     private AccountsMapper accountsMapper;
 
-    @Inject
+    @Autowired
     private CacheService cacheService;
 
     @Override

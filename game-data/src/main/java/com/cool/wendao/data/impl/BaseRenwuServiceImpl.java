@@ -16,7 +16,7 @@ public class BaseRenwuServiceImpl implements BaseRenwuService {
     @Override
     public Renwu findOneByCurrentTask(String currentTask) {
         Example example = new Example(Renwu.class);
-        example.createCriteria().andCondition("deleted=", Deleted.NOT_DELETED.value()).andCondition("current_task=",renwu);
+        example.createCriteria().andCondition("deleted=", Deleted.NOT_DELETED.value()).andCondition("current_task=",currentTask);
         return renwuMapper.selectOneByExample(example);
     }
 }

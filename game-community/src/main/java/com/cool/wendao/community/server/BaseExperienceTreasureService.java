@@ -1,7 +1,7 @@
 package com.cool.wendao.community.server;
 
-import com.cool.wendao.community.model.Experience;
+import com.cool.wendao.community.model.ExperienceTreasure;
 
 public interface BaseExperienceTreasureService {
-    Experience findOneByAttrib(Integer skill);
+    ExperienceTreasure findOneByAttrib(Integer skill);
 }

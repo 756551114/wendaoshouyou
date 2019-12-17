@@ -5,8 +5,11 @@
 
 package org.linlinjava.litemall.wx.web;
 
+import cn.hutool.core.util.IdUtil;
+import com.cool.wendao.community.enums.CacheEnum;
 import com.cool.wendao.community.model.Accounts;
 import com.cool.wendao.community.server.BaseAccountsService;
+import com.cool.wendao.community.server.CacheService;
 import com.reger.dubbo.annotation.Inject;
 import org.linlinjava.litemall.core.util.DesUtil;
 import org.linlinjava.litemall.core.util.JSONUtils;
@@ -15,10 +18,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping
@@ -27,6 +30,9 @@ public class WdAuthController {
 
     @Inject
     private BaseAccountsService baseAccountsService;
+
+    @Inject
+    private CacheService cacheService;
 
     @Value("${netty.ip}")
     private String ip;
@@ -41,10 +47,10 @@ public class WdAuthController {
     public Object d() {
         Map<String, Object> data = new HashMap();
         List list = new ArrayList();
-        list.add("url");
-        list.add("url");
-        list.add("url");
-        data.put("host", "url");
+        list.add(url);
+        list.add(url);
+        list.add(url);
+        data.put("host", url);
         data.put("ips", list);
         data.put("ttl", 17);
         data.put("origin_ttl", 100);
@@ -79,7 +85,8 @@ public class WdAuthController {
             accounts.setKeyword(safe);
             accounts.setCode(check.toUpperCase());
             String uuid = utest();
-            accounts.setToken(uuid);
+            accounts = this.baseAccountsService.findById(accounts.getId());
+            cacheService.setCache(CacheEnum.USER_TOKEN.getName() + uuid,CacheEnum.USER_TOKEN.getTime(), accounts);
             this.baseAccountsService.add(accounts);
         }
 
@@ -90,12 +97,12 @@ public class WdAuthController {
         String[] strs = body.split("&");
         Map<String, String> map = new HashMap();
 
-        for(int i = 0; i < strs.length; ++i) {
+        for (int i = 0; i < strs.length; ++i) {
             String[] strss = strs[i].split("=");
             map.put(strss[0], strss[1]);
         }
 
-        return (String)map.get(arr);
+        return (String) map.get(arr);
     }
 
     @PostMapping({"/vip4/login/login.php"})
@@ -114,10 +121,15 @@ public class WdAuthController {
             data.put("status", "fail");
             data.put("type", "10001");
         } else {
+
+            String uuid = utest();
+            accounts = this.baseAccountsService.findById(accounts.getId());
+            cacheService.setCache(CacheEnum.USER_TOKEN.getName() + uuid, CacheEnum.USER_TOKEN.getTime(),accounts);
+
             Map<String, Object> message = new HashMap();
-            message.put("token", accounts.getToken());
+            message.put("token", uuid);
             message.put("realNameAuth", "1");
-            message.put("sid", accounts.getToken());
+            message.put("sid", uuid);
             message.put("adult", "1");
             message.put("age", 32);
             message.put("bind", "1");
@@ -146,10 +158,15 @@ public class WdAuthController {
             data.put("status", "fail");
             data.put("type", "10001");
         } else {
+
+            String uuid = utest();
+            accounts = this.baseAccountsService.findById(accounts.getId());
+            cacheService.setCache(CacheEnum.USER_TOKEN.getName() + uuid, CacheEnum.USER_TOKEN.getTime(),accounts);
+
             Map<String, Object> message = new HashMap();
-            message.put("token", accounts.getToken());
+            message.put("token", uuid);
             message.put("realNameAuth", "1");
-            message.put("sid", accounts.getToken());
+            message.put("sid", uuid);
             message.put("adult", "1");
             message.put("age", 32);
             message.put("bind", "1");
@@ -164,28 +181,8 @@ public class WdAuthController {
     }
 
     public static String utest() {
-        UUID uuid = UUID.randomUUID();
-        return uuid.toString();
+        return IdUtil.fastSimpleUUID();
     }
 
-    public static String md5(String plainText) {
-        Object var1 = null;
 
-        byte[] secretBytes;
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            md.update(plainText.getBytes());
-            secretBytes = md.digest();
-        } catch (NoSuchAlgorithmException var4) {
-            throw new RuntimeException("没有md5这个算法！");
-        }
-
-        String md5code = (new BigInteger(1, secretBytes)).toString(16);
-
-        for(int i = 0; i < 32 - md5code.length(); ++i) {
-            md5code = "0" + md5code;
-        }
-
-        return md5code;
-    }
 }

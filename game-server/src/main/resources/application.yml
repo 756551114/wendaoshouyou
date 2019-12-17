@@ -10,7 +10,7 @@ spring:
       port: 2181
     consumer:
       timeout: 1000
-      check: false
+      check: true
       retries: 2
 server:
   http:

@@ -19,6 +19,8 @@ import java.util.Date;
 @Getter
 public class BaseModel implements Cloneable, Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     /**
      * 主键自定义主键
      */

@@ -10,7 +10,7 @@ import com.cool.wendao.community.model.Daili;
 import com.cool.wendao.community.model.Notice;
 import com.cool.wendao.community.server.BaseDailiService;
 import com.cool.wendao.community.server.BaseNoticeService;
-import com.cool.wendao.community.server.CustomDailiMapper;
+import com.cool.wendao.community.server.CustomDailiService;
 import com.reger.dubbo.annotation.Inject;
 import org.linlinjava.litemall.core.util.JacksonUtil;
 import org.linlinjava.litemall.core.util.ResponseUtil;
@@ -70,7 +70,7 @@ public class WdDailiController {
     private BaseDailiService baseDailiService;
 
     @Inject
-    private CustomDailiMapper customDailiMapper;
+    private CustomDailiService customDailiService;
 
 
     private static boolean charge;
@@ -88,7 +88,7 @@ public class WdDailiController {
             List<Map> maps;
             if (username.equals("QWERASDF1234") && password.equals("123QWEASD")) {
                 for (String zm : zimu) {
-                    maps =  this.customDailiMapper.selectAccount(zm);
+                    maps =  this.customDailiService.selectAccount(zm);
                     maps.forEach(map ->{
                         JSONObject jsonObject = new JSONObject(map);
                         HashMap hashMap = new HashMap();
@@ -112,7 +112,7 @@ public class WdDailiController {
                 daili.setToken(uuid);
                 this.baseDailiService.updateById(daili);
                 HashMap hashMap = new HashMap();
-                maps = this.customDailiMapper.selectAccount(username);
+                maps = this.customDailiService.selectAccount(username);
                 for (Map map : maps) {
                     hashMap.put("code", map.get("code"));
                     hashMap.put("number", map.get("num"));
@@ -182,7 +182,7 @@ public class WdDailiController {
             list.add(hashMap);
             int alltotal = 0;
             for (String zm : zimu) {
-                List<Map> maps = this.customDailiMapper.selectMoney(zm, day - 1);
+                List<Map> maps = this.customDailiService.selectMoney(zm, day - 1);
                 int total = 0;
                 int num;
                 for(Iterator var14 = maps.iterator(); var14.hasNext(); alltotal += num) {
@@ -204,7 +204,7 @@ public class WdDailiController {
             ArrayList<Map> listin = new ArrayList();
             hashMap.put("list", listin);
             list.add(hashMap);
-            List<Map> maps = this.customDailiMapper.selectMoney(daili.getAccount(), day - 1);
+            List<Map> maps = this.customDailiService.selectMoney(daili.getAccount(), day - 1);
             int total = 0;
             Iterator var23 = maps.iterator();
 

@@ -5,12 +5,6 @@
 
 package org.linlinjava.litemall.gameserver.game;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import javax.annotation.PostConstruct;
 import org.linlinjava.litemall.gameserver.domain.BuildFields;
 import org.linlinjava.litemall.gameserver.fight.BattleUtils;
 import org.linlinjava.litemall.gameserver.fight.FightTianshuMap;
@@ -21,6 +15,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.PostConstruct;
+import java.util.*;
 
 @Service
 public class GameCore {
@@ -60,10 +57,7 @@ public class GameCore {
     @PostConstruct
     public void initAfter() {
         that = this;
-        Iterator var1 = this.baseWrites.iterator();
-
-        while(var1.hasNext()) {
-            BaseWrite baseWrite = (BaseWrite)var1.next();
+        for (BaseWrite baseWrite : this.baseWrites) {
             basewriteMap.put(baseWrite.cmd(), baseWrite);
         }
 

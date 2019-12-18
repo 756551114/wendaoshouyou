@@ -6,12 +6,11 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.Attribute;
 import io.netty.util.AttributeKey;
+import lombok.extern.log4j.Log4j2;
 import org.linlinjava.litemall.gameserver.GameHandler;
 import org.linlinjava.litemall.gameserver.data.GameReadTool;
 import org.linlinjava.litemall.gameserver.game.GameObjectChar;
 import org.linlinjava.litemall.gameserver.game.GameObjectCharMng;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -21,10 +20,17 @@ import java.util.List;
 @Qualifier("serverHandler")
 @ChannelHandler.Sharable
 @Component
+@Log4j2
 public class ServerHandler extends ChannelInboundHandlerAdapter {
-    private static final Logger log = LoggerFactory.getLogger(ServerHandler.class);
     public static final AttributeKey<GameObjectChar> akey = AttributeKey.newInstance("session");
 
+
+    /**
+     * 黑名单过滤
+     *
+     * @param ctx
+     * @throws Exception
+     */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         super.channelActive(ctx);
@@ -61,6 +67,9 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
         GameReadTool.readInt(buff);
         GameReadTool.readShort(buff);
         int cmd = GameReadTool.readShort(buff);
+
+        log.info("封包类型------------------->" + cmd);
+
         for (GameHandler waitLine : gameHandlers) {
             if (cmd == waitLine.cmd()) {
                 if (session != null) {

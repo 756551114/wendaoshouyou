@@ -13,6 +13,10 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
 
@@ -31,21 +35,21 @@
             <artifactId>game-community</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.github.binarywang</groupId>
-            <artifactId>weixin-java-pay</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>qrcode-utils</artifactId>
-                    <groupId>com.github.binarywang</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.binarywang</groupId>-->
+<!--            <artifactId>weixin-java-pay</artifactId>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>qrcode-utils</artifactId>-->
+<!--                    <groupId>com.github.binarywang</groupId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>com.github.binarywang</groupId>
-            <artifactId>weixin-java-miniapp</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.binarywang</groupId>-->
+<!--            <artifactId>weixin-java-miniapp</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
@@ -86,7 +90,7 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
-                    <include>application.yml</include>
+                    <include>application*</include>
                 </includes>
                 <targetPath>${project.build.directory}/config</targetPath>
             </resource>

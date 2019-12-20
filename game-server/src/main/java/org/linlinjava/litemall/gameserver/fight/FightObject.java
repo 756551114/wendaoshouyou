@@ -5,11 +5,11 @@
 
 package org.linlinjava.litemall.gameserver.fight;
 
+import com.alibaba.fastjson.JSONObject;
 import com.cool.wendao.community.model.Pet;
 import com.cool.wendao.community.model.SkillMonster;
 import com.cool.wendao.community.model.ZhuangbeiInfo;
 import io.netty.channel.ChannelHandlerContext;
-import org.json.JSONObject;
 import org.linlinjava.litemall.gameserver.data.game.BasicAttributesUtils;
 import org.linlinjava.litemall.gameserver.data.game.PetAndHelpSkillUtils;
 import org.linlinjava.litemall.gameserver.data.game.SuitEffectUtils;
@@ -551,12 +551,12 @@ public class FightObject {
 
         for(int i = 0; i < nomelSkills.size(); ++i) {
             JiNeng jiNeng = new JiNeng();
-            JSONObject jsonObject = (JSONObject)nomelSkills.get(i);
+            JSONObject jsonObject = nomelSkills.get(i);
             jiNeng.id = id;
-            jiNeng.skill_no = Integer.parseInt((String)jsonObject.get("skillNo"));
-            jiNeng.skill_attrib = (Integer)jsonObject.get("skillLevel");
-            jiNeng.skill_level = (Integer)jsonObject.get("skillLevel");
-            jiNeng.skillRound = jsonObject.optInt("skillRound");
+            jiNeng.skill_no = jsonObject.getIntValue("skillNo");
+            jiNeng.skill_attrib = jsonObject.getInteger("skillLevel");
+            jiNeng.skill_level = jsonObject.getInteger("skillLevel");
+            jiNeng.skillRound = jsonObject.getIntValue("skillRound");
             jiNeng.level_improved = 0;
             jiNeng.skill_mana_cost = (Integer)jsonObject.get("skillBlue");
             jiNeng.skill_nimbus = 42949672;

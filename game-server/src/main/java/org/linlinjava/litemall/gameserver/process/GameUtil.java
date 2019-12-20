@@ -1,8 +1,8 @@
 package org.linlinjava.litemall.gameserver.process;
 
+import com.alibaba.fastjson.JSONObject;
 import com.cool.wendao.community.model.*;
 import io.netty.channel.ChannelHandlerContext;
-import org.json.JSONObject;
 import org.linlinjava.litemall.core.util.JSONUtils;
 import org.linlinjava.litemall.gameserver.data.UtilObjMapshuxing;
 import org.linlinjava.litemall.gameserver.data.game.*;
@@ -1185,18 +1185,18 @@ public class GameUtil {
             JiNeng jiNeng = new JiNeng();
             JSONObject jsonObject = nomelSkills.get(i);
             jiNeng.id = id;
-            jiNeng.skill_no = Integer.parseInt((String) jsonObject.get("skillNo"));
+            jiNeng.skill_no = jsonObject.getIntValue("skillNo");
             JSONObject jsonObject1 = PetAndHelpSkillUtils.jsonArray(jiNeng.skill_no);
-            jiNeng.skill_attrib1 = Integer.parseInt((String) jsonObject1.get("skill_attrib"));
-            jiNeng.skill_attrib = (int) jsonObject.get("skillLevel");
-            jiNeng.skill_level = (int) jsonObject.get("skillLevel");
-            jiNeng.skillRound = jsonObject.optInt("skillRound");
+            jiNeng.skill_attrib1 =  jsonObject1.getIntValue("skill_attrib");
+            jiNeng.skill_attrib =  jsonObject.getIntValue("skillLevel");
+            jiNeng.skill_level = jsonObject.getIntValue("skillLevel");
+            jiNeng.skillRound = jsonObject.getIntValue("skillRound");
             jiNeng.level_improved = 0;
-            jiNeng.skill_mana_cost = (int) jsonObject.get("skillBlue");
+            jiNeng.skill_mana_cost =  jsonObject.getIntValue("skillBlue");
             jiNeng.skill_nimbus = 42949672;
             jiNeng.skill_disabled = 0;
-            jiNeng.range = (int) jsonObject.get("skillNum");
-            jiNeng.max_range = (int) jsonObject.get("skillNum");
+            jiNeng.range = jsonObject.getIntValue("skillNum");
+            jiNeng.max_range =  jsonObject.getIntValue("skillNum");
             jiNengList.add(jiNeng);
         }
         List<Vo_32747_0> vo_32747_0List = GameUtil.a32747(jiNengList);

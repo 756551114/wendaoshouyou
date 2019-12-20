@@ -1,10 +1,4 @@
-package org.linlinjava.litemall.core.config;
-
-import java.util.Set;
-
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
-import javax.validation.ValidationException;
+package org.linlinjava.litemall.wx.core;
 
 import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.linlinjava.litemall.core.util.ResponseUtil;
@@ -18,6 +12,11 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import javax.validation.ValidationException;
+import java.util.Set;
 
 @ControllerAdvice
 @Order( value = Ordered.LOWEST_PRECEDENCE )

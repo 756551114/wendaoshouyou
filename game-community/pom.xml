@@ -14,15 +14,11 @@
     <packaging>jar</packaging>
 
     <properties>
-        <fastjson.version>1.2.62</fastjson.version>
+
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>javax.persistence</groupId>
             <artifactId>persistence-api</artifactId>

@@ -1,9 +1,10 @@
 package org.linlinjava.litemall.gameserver.process;
 
+import com.alibaba.fastjson.JSONObject;
 import com.cool.wendao.community.model.Pet;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
-import org.json.JSONObject;
+import lombok.extern.log4j.Log4j;
 import org.linlinjava.litemall.gameserver.GameHandler;
 import org.linlinjava.litemall.gameserver.data.GameReadTool;
 import org.linlinjava.litemall.gameserver.data.game.BasicAttributesUtils;
@@ -22,6 +23,7 @@ import java.util.List;
 import java.util.Random;
 
 @Service
+@Log4j
 public class C8270_0 implements GameHandler {
 
     @Override
@@ -253,6 +255,7 @@ public class C8270_0 implements GameHandler {
                     shuXing.max_mana = shuXing.dex;
                     list.add(petbeibao);
 //更新技能 没写； //32747   //12023
+                    log.error("-----更新技能未实现-----32747---12023->");
 
                     boolean isfagong = shuXing.rank > shuXing.pet_mag_shape;
 
@@ -262,7 +265,7 @@ public class C8270_0 implements GameHandler {
                         JiNeng jiNeng = new JiNeng();
                         JSONObject jsonObject = nomelSkills.get(j);
                         jiNeng.id = petbeibao.id;
-                        jiNeng.skill_no = Integer.parseInt((String) jsonObject.get("skillNo"));
+                        jiNeng.skill_no = jsonObject.getIntValue("skillNo");
                         jiNeng.skill_attrib = 0;
                         jiNeng.skill_level = 0;
                         jiNeng.level_improved = 0;
@@ -341,6 +344,7 @@ public class C8270_0 implements GameHandler {
 
                     list.add(petbeibao);
 //更新技能 没写； //32747   //12023
+                    log.error("-----更新技能未实现-----32747---12023->");
                     GameObjectChar.send(new M65507_0(), list);
                     Vo_40991_0 vo_40991_0 = new Vo_40991_0();
                     vo_40991_0.result = 0;
@@ -357,7 +361,7 @@ public class C8270_0 implements GameHandler {
 
         //强化
         if (57 == pos) {
-
+            log.error("-----强化未实现-----pos57---->");
         }
 
 

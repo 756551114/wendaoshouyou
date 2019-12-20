@@ -30,7 +30,7 @@ public class C53712_0 implements GameHandler {
 
         PackModification packModification = GameData.that.basePackModificationService.findOneByAlias(name);
         chara.extra_life = chara.extra_life - packModification.getGoodsPrice();
-        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
 
 
         for (int i = 0; i < chara.backpack.size(); i++) {

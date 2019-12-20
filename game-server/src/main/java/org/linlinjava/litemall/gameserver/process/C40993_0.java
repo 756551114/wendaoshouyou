@@ -27,7 +27,7 @@ public class C40993_0 implements GameHandler {
         Chara chara = GameObjectChar.getGameObjectChar().chara;
 
         chara.balance = chara.balance - amount;
-        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
         GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
         int prize = prize();

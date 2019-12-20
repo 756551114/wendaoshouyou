@@ -77,7 +77,7 @@ public class C16582_0 implements GameHandler {
                         }
                     }
                     chara.balance = chara.balance - coin;
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
                     GameUtil.removemunber(chara,chara.backpack.get(i),1);
@@ -112,7 +112,7 @@ public class C16582_0 implements GameHandler {
                 coin = 100000;
             }
             chara.balance = chara.balance - coin;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             for (int i = 0; i < chara.pets.size(); i++) {
                 if (chara.pets.get(i).id == inventoryPos) {
                     Petbeibao pet = chara.pets.get(i);

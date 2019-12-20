@@ -25,7 +25,7 @@ public class C8708_0 implements GameHandler {
             return;
         }
         if(fightContainer.state.compareAndSet(3, 1) || fightContainer.state.get() == 4){
-            FightManager.nextRoundOrSendOver(FightManager.getFightContainer());
+            FightManager.nextRoundOrSendOver(FightManager.getFightContainer(),ctx);
         }
     }
 

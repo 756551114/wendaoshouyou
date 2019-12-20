@@ -39,7 +39,7 @@ public class C8410_0 implements GameHandler {
         if (barcode.equals("C0000001")) {
             chara.balance = chara.balance + 3000000;
             chara.extra_life = chara.extra_life - 300;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
             Vo_40964_0 vo_40964_0 = new Vo_40964_0();
             vo_40964_0.type = 3;
@@ -60,7 +60,7 @@ public class C8410_0 implements GameHandler {
         if (barcode.equals("C0000002")) {
             chara.balance = chara.balance + 6000000;
             chara.extra_life = chara.extra_life - 600;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
             Vo_40964_0 vo_40964_0 = new Vo_40964_0();
             vo_40964_0.type = 3;
@@ -81,7 +81,7 @@ public class C8410_0 implements GameHandler {
         if (barcode.equals("C0000003")) {
             chara.balance = chara.balance + 10000000;
             chara.extra_life = chara.extra_life - 1100;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
             Vo_40964_0 vo_40964_0 = new Vo_40964_0();
             vo_40964_0.type = 3;
@@ -102,7 +102,7 @@ public class C8410_0 implements GameHandler {
         if (barcode.equals("C0000004")) {
             chara.balance = chara.balance + 30000000;
             chara.extra_life = chara.extra_life - 3300;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
             Vo_40964_0 vo_40964_0 = new Vo_40964_0();
             vo_40964_0.type = 3;
@@ -123,7 +123,7 @@ public class C8410_0 implements GameHandler {
         if (barcode.equals("C0000005")) {
             chara.balance = chara.balance + 60000000;
             chara.extra_life = chara.extra_life - 7200;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
             Vo_40964_0 vo_40964_0 = new Vo_40964_0();
             vo_40964_0.type = 3;
@@ -144,7 +144,7 @@ public class C8410_0 implements GameHandler {
         if (barcode.equals("C0000006")) {
             chara.balance = chara.balance + 100000000;
             chara.extra_life = chara.extra_life - 7200;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
             Vo_40964_0 vo_40964_0 = new Vo_40964_0();
             vo_40964_0.type = 3;
@@ -206,7 +206,7 @@ public class C8410_0 implements GameHandler {
         }
 
 
-        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
         GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
     }

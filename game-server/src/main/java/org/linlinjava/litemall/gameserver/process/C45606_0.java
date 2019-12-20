@@ -46,7 +46,7 @@ public class C45606_0 implements GameHandler {
 
         chara.texiao_icon = Integer.valueOf(packModification.getFasionType());
         chara.extra_life = chara.extra_life - packModification.getGoodsPrice();
-        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
         Goods goods = new Goods();
         goods.goodsInfo.owner_id = 1;
         goods.goodsInfo.value = 2097924;

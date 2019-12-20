@@ -63,7 +63,7 @@ public class C4382_0 implements GameHandler {
         GameObjectChar.getGameObjectChar().gameMap.send(new M8425_0(), vo_8425_0);
 
 
-      GameUtil.a65511(chara);
+      GameUtil.a65511(chara,ctx);
 
 
         Vo_45177_0 vo_45177_0 = new Vo_45177_0();

@@ -64,7 +64,7 @@ public class C61634_0 implements GameHandler {
         GameObjectChar.getGameObjectChar().gameMap.send(new M16431_0(), vo_16431_0);
         if (chara.qumoxiang != 1) {
             if (FightMove.move(chara.id)) {
-                FightManager.goFight(GameObjectChar.getGameObjectChar().chara, GameObjectChar.getGameObjectChar().chara.mapName);
+                FightManager.goFight(GameObjectChar.getGameObjectChar().chara, GameObjectChar.getGameObjectChar().chara.mapName,ctx);
                 return;
             }
         }

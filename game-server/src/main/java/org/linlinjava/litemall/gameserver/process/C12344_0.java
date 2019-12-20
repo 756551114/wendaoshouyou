@@ -59,7 +59,7 @@ public class C12344_0<main> implements GameHandler {
                 int jieshu = 6;
                 Pet pet = GameData.that.basePetService.findOneByName(name);
                 Petbeibao petbeibao = new Petbeibao();
-                petbeibao.PetCreate(pet, chara1, 0, 2);
+                petbeibao.PetCreate(pet, chara1, 0, 2,ctx);
                 List<Petbeibao> list = new ArrayList<>();
                 chara1.pets.add(petbeibao);
                 list.add(petbeibao);
@@ -100,7 +100,7 @@ public class C12344_0<main> implements GameHandler {
                 String name = mounts_name[random.nextInt(mounts_name.length)];
                 Pet pet = GameData.that.basePetService.findOneByName(name);
                 Petbeibao petbeibao = new Petbeibao();
-                petbeibao.PetCreate(pet, chara1, 0, 4);
+                petbeibao.PetCreate(pet, chara1, 0, 4,ctx);
                 List<Petbeibao> list = new ArrayList<>();
                 chara1.pets.add(petbeibao);
                 list.add(petbeibao);
@@ -127,7 +127,7 @@ public class C12344_0<main> implements GameHandler {
                 int jieshu = 8;
                 Pet pet = GameData.that.basePetService.findOneByName(name);
                 Petbeibao petbeibao = new Petbeibao();
-                petbeibao.PetCreate(pet, chara1, 0, 2);
+                petbeibao.PetCreate(pet, chara1, 0, 2,ctx);
                 List<Petbeibao> list = new ArrayList<>();
                 chara1.pets.add(petbeibao);
                 list.add(petbeibao);
@@ -194,7 +194,7 @@ public class C12344_0<main> implements GameHandler {
 
                     chara1.shadow_self += jifen;
                     chara1.chongzhijifen += jifen;
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara1);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara1,ctx);
                     GameObjectCharMng.getGameObjectChar(chara1.id).sendOne(new M65527_0(), listVo_65527_0);
                     accounts.setChongzhiyuanbao(0);
                     GameData.that.baseAccountsService.updateById(accounts);
@@ -213,7 +213,7 @@ public class C12344_0<main> implements GameHandler {
 
         if (id == 1170) {
             if (menu_item.equals("离开战场")) {
-                GameUtilRenWu.shidaohuicheng(chara1);
+                GameUtilRenWu.shidaohuicheng(chara1,ctx);
             }
         }
         if (menu_item.equals("开始战斗")) {
@@ -221,7 +221,7 @@ public class C12344_0<main> implements GameHandler {
             for (int j = 0; j < 10; j++) {
                 list.add("试道元魔");
             }
-            FightManager.goFight(chara1, list);
+            FightManager.goFight(chara1, list,ctx);
             GameObjectChar.getGameObjectChar().gameMap.send(new M12285_1(), id);
             for (int i = 0; i < GameObjectChar.getGameObjectChar().gameMap.gameShiDao.shidaoyuanmo.size(); i++) {
                 if (id == GameObjectChar.getGameObjectChar().gameMap.gameShiDao.shidaoyuanmo.get(i).id) {
@@ -245,7 +245,7 @@ public class C12344_0<main> implements GameHandler {
                 }
                 chara1.y = map.getY();
                 chara1.x = map.getX();
-                GameLine.getGameMapname(chara1.line, map.getName()).join(GameObjectChar.getGameObjectChar());
+                GameLine.getGameMapname(chara1.line, map.getName()).join(GameObjectChar.getGameObjectChar(),ctx);
                 Vo_49177_0 vo_49177_0 = new Vo_49177_0();
                 vo_49177_0.isPK = 3;
                 vo_49177_0.stageId = 3;
@@ -269,7 +269,7 @@ public class C12344_0<main> implements GameHandler {
                     if (chara1.backpack.get(i).pos == 9) {
                         if (chara1.extra_life > 500) {
                             chara1.extra_life = chara1.extra_life - 500;
-                            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara1);
+                            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara1,ctx);
                             GameObjectChar.send(new M65527_0(), listVo_65527_0);
                             chara1.backpack.get(i).goodsInfo.shape = chara1.backpack.get(i).goodsInfo.shape + 1000;
                             Vo_20481_0 vo_20481_0 = new Vo_20481_0();
@@ -297,7 +297,7 @@ public class C12344_0<main> implements GameHandler {
                     for (int j = 0; j < 9; j++) {
                         list.add("星");
                     }
-                    FightManager.goFight(chara1, list, GameLine.gameShuaGuai.shuaXing.get(i));
+                    FightManager.goFight(chara1, list, GameLine.gameShuaGuai.shuaXing.get(i),ctx);
                 }
             }
         }
@@ -311,7 +311,7 @@ public class C12344_0<main> implements GameHandler {
                     for (int j = 0; j < 5; j++) {
                         list.add("仙界叛逆");
                     }
-                    FightManager.goFight(chara1, list);
+                    FightManager.goFight(chara1, list,ctx);
                 }
             }
         }
@@ -322,7 +322,7 @@ public class C12344_0<main> implements GameHandler {
             if (menu_item.equals("我想领取悬赏经验") && chara1.npcXuanShangName.equals("领取奖励")) {
                 chara1.npcXuanShangName = "";
                 int jingyan = 7975 * chara1.level;
-                GameUtil.huodejingyan(chara1, jingyan);
+                GameUtil.huodejingyan(chara1, jingyan,ctx);
 
             }
             if (menu_item.equals("我想领取悬赏道行") && chara1.npcXuanShangName.equals("领取奖励")) {
@@ -343,7 +343,7 @@ public class C12344_0<main> implements GameHandler {
                         GameObjectCharMng.getGameObjectChar(chara1.id).sendOne(new M20481_0(), vo_20481_0);
                     }
                 }
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara1);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara1,ctx);
                 GameObjectCharMng.getGameObjectChar(chara1.id).sendOne(new M65527_0(), listVo_65527_0);
             }
             if (menu_item.equals("领取悬赏任务")) {
@@ -478,7 +478,7 @@ public class C12344_0<main> implements GameHandler {
                         list.add("疯灵");
                     }
                 }
-                FightManager.goFight(chara1, list);
+                FightManager.goFight(chara1, list,ctx);
             }
         }
         if (id == 866) {
@@ -681,7 +681,7 @@ public class C12344_0<main> implements GameHandler {
                     }
                 }
                 if (banlijie && xuehunsilian) {
-                    GameUtil.shuafabao(chara1);
+                    GameUtil.shuafabao(chara1,ctx);
                     GameUtil.removemunber(chara1, "蟠螭结", 1);
                     GameUtil.removemunber(chara1, "雪魂丝链", 1);
                     Vo_61553_0 vo_61553_10 = new Vo_61553_0();
@@ -773,9 +773,9 @@ public class C12344_0<main> implements GameHandler {
             vo_61553_10.tasktask_extra_para = "";
             vo_61553_10.tasktask_state = "1";
             GameObjectChar.send(new M61553_0(), vo_61553_10);
-            GameUtil.huodejingyan(chara1, (int) (1420 * chara1.level * (1 + 0.1 * chara1.shimencishu)));
+            GameUtil.huodejingyan(chara1, (int) (1420 * chara1.level * (1 + 0.1 * chara1.shimencishu)),ctx);
             chara1.use_money_type = chara1.use_money_type + (int) (chara1.level / 10 * 4374 * (1 + 0.1 * chara1.shimencishu));
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara1);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara1,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
         }
 
@@ -863,10 +863,10 @@ public class C12344_0<main> implements GameHandler {
                 } else {
                     chara1.use_money_type = chara1.use_money_type - chara1.level / 10 * 25;
                 }
-                GameUtil.huodejingyan(chara1, 15689 * chara1.level);
+                GameUtil.huodejingyan(chara1, 15689 * chara1.level,ctx);
                 GameUtil.weijianding(chara1);
 //
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara1);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara1,ctx);
                 GameObjectChar.send(new M65527_0(), listVo_65527_0);
 //
                 chara1.baibangmang = 1;
@@ -903,7 +903,7 @@ public class C12344_0<main> implements GameHandler {
                 vo_20481_0.msg = "获得道行#R" + 3392 * chara1.level / 1440 + "天";
                 vo_20481_0.time = (int) (System.currentTimeMillis() / 1000);
                 GameObjectChar.getGameObjectChar().send(new M20481_0(), vo_20481_0);
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara1);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara1,ctx);
                 GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
                 GameUtil.weijianding(chara1);
@@ -934,7 +934,7 @@ public class C12344_0<main> implements GameHandler {
                 vo_20481_0.time = 1562987118;
                 GameObjectChar.getGameObjectChar().send(new M20481_0(), vo_20481_0);
 
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara1);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara1,ctx);
                 GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
                 GameUtil.weijianding(chara1);
@@ -959,7 +959,7 @@ public class C12344_0<main> implements GameHandler {
                             list.add("喽啰");
                         }
                     }
-                    FightManager.goFight(chara1, list);
+                    FightManager.goFight(chara1, list,ctx);
                 }
             }
         }
@@ -986,7 +986,7 @@ public class C12344_0<main> implements GameHandler {
                                 list.add("蓝精");
                             }
                         }
-                        FightManager.goFight(chara1, list);
+                        FightManager.goFight(chara1, list,ctx);
                     }
                     if (chara1.npcshuadao.get(0).leixing == 3 || chara1.npcshuadao.get(0).leixing == 4) {
                         list.add(chara1.npcshuadao.get(0).name);
@@ -1013,7 +1013,7 @@ public class C12344_0<main> implements GameHandler {
                                 list.add("疯灵");
                             }
                         }
-                        FightManager.goFight(chara1, list);
+                        FightManager.goFight(chara1, list,ctx);
                     }
 
                 }
@@ -1242,7 +1242,7 @@ public class C12344_0<main> implements GameHandler {
                     geizhuangb(chara);
                 }
 
-                GameUtil.renwujiangli(chara);
+                GameUtil.renwujiangli(chara,ctx);
                 if (chara.current_task.equals("主线—浮生若梦_s22")) {
                     String[] chenghao = {"五龙山云霄洞第一代弟子", "终南山玉柱洞第一代弟子", "凤凰山斗阙宫第一代弟子", "乾元山金光洞第一代弟子", "骷髅山白骨洞第一代弟子"};
                     String chenhao = chenghao[(chara.menpai - 1)];
@@ -1280,14 +1280,14 @@ public class C12344_0<main> implements GameHandler {
 
             }
             //跳下一个任务
-            ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), vo_65527_0);
-            GameUtil.a65511(chara);
+            GameUtil.a65511(chara,ctx);
         }
         Vo_45056_0 vo_45056_0 = GameUtil.a45056(chara);
         GameObjectChar.send(new M45056_0(), vo_45056_0);
 
-        ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara,ctx);
         GameObjectChar.send(new M65527_0(), vo_65527_0);
 
 

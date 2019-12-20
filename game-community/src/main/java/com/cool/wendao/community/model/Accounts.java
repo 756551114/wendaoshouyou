@@ -29,6 +29,11 @@ public class Accounts  extends BaseModel {
      */
     private Integer block;
 
+    /**
+     * vip等级
+     */
+    private Integer vip;
+
     private String code;
 
     public Accounts() {

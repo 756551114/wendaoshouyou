@@ -31,7 +31,7 @@ public class C4288_0 implements GameHandler {
         if (!haschenhao) {
             chara.chenhao = "";
         }
-        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
         GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
         Vo_61661_0 vo_61661_0 = GameUtil.a61661(chara);

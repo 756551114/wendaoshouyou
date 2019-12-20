@@ -77,6 +77,8 @@ public class GameData {
     public BaseNoticeService baseNoticeService;
     @Inject
     public BaseChargeService baseChargeService;
+    @Inject
+    public BaseVipAddService baseVipAddService;
 
     public GameData() {
     }

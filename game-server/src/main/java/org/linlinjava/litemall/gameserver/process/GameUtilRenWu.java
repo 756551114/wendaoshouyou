@@ -1,6 +1,7 @@
 package org.linlinjava.litemall.gameserver.process;
 
 import com.cool.wendao.community.model.Map;
+import io.netty.channel.ChannelHandlerContext;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_61553_0;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_61661_0;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_61671_0;
@@ -237,17 +238,17 @@ public class GameUtilRenWu {
 
 
     //回城
-    public static void huicheng(Chara chara) {
+    public static void huicheng(Chara chara, ChannelHandlerContext ctx) {
         Map map = GameData.that.baseMapService.findOneByName("天墉城");
         chara.y = map.getY();
         chara.x = map.getX();
-        GameLine.getGameMapname(chara.line, map.getName()).join(GameObjectCharMng.getGameObjectChar(chara.id));
+        GameLine.getGameMapname(chara.line, map.getName()).join(GameObjectCharMng.getGameObjectChar(chara.id),ctx);
     }
 
     //试道回城
-    public static void shidaohuicheng(Chara chara) {
+    public static void shidaohuicheng(Chara chara, ChannelHandlerContext ctx) {
         chara.shidaodaguaijifen = 0;
-        huicheng(chara);
+        huicheng(chara,ctx);
     }
 
     /**

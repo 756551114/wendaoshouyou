@@ -66,7 +66,7 @@ public class C32984_0 implements GameHandler {
                 fightRequest.action = action;
                 fightRequest.para = para;
                 FightManager.generateActionDM(FightManager.getFightContainer(), fightObject, fightRequest);
-                FightManager.addRequest(FightManager.getFightContainer(), fightRequest);
+                FightManager.addRequest(FightManager.getFightContainer(), fightRequest,ctx);
             }
         }
     }

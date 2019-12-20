@@ -103,7 +103,7 @@ public class C12490_0 implements GameHandler {
         GameObjectChar.send(new M20481_0(), vo_20481_0);
 
         chara.balance = chara.balance - price;
-        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
         GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
         GameData.that.saleGoodService.deleteById(saleGood.getId());

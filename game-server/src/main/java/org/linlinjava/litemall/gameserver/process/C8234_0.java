@@ -48,9 +48,9 @@ public class C8234_0 implements GameHandler {
 
             }
         }
-         GameUtil.a65511(chara);
+         GameUtil.a65511(chara,ctx);
 
-        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
         GameObjectChar.send(new M65527_0(), listVo_65527_0);
     }
 

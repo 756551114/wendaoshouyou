@@ -1,6 +1,7 @@
 package org.linlinjava.litemall.gameserver.fight;
 
 import com.cool.wendao.community.model.Pet;
+import io.netty.channel.ChannelHandlerContext;
 import org.linlinjava.litemall.gameserver.data.vo.*;
 import org.linlinjava.litemall.gameserver.data.write.*;
 import org.linlinjava.litemall.gameserver.domain.Chara;
@@ -30,12 +31,12 @@ public class FightManager {
     public static final List<Integer> PERSON_POS = new CopyOnWriteArrayList<>(new Integer[]{3, 2, 4, 1, 5});
     public static final Random RANDOM = new Random();
 
-    public static void goFight(Chara chara, String mapName) {
+    public static void goFight(Chara chara, String mapName,ChannelHandlerContext ctx) {
         int monsterNum = 6;
-        goFight(chara, mapName, monsterNum);
+        goFight(chara, mapName, monsterNum,ctx);
     }
 
-    public static void goFight(Chara chara, String mapName, int monsterNum) {
+    public static void goFight(Chara chara, String mapName, int monsterNum,ChannelHandlerContext ctx) {
         final List<Pet> monsterList = GameData.that.basePetService.findByZoon(mapName);
         List<String> monsterNameList = new ArrayList<>();
         if (monsterList.size() == 0) {
@@ -45,7 +46,7 @@ public class FightManager {
             Pet pet = monsterList.get(RANDOM.nextInt(monsterList.size()));
             monsterNameList.add(pet.getName());
         }
-        goFight(chara, monsterNameList);
+        goFight(chara, monsterNameList,ctx);
     }
 
     private static void addFabao(FightContainer fc, Chara chara, FightObject fightObject) {
@@ -65,7 +66,7 @@ public class FightManager {
         }
     }
 
-    public static void goFight(Chara chara, List<String> monsterList) {
+    public static void goFight(Chara chara, List<String> monsterList,ChannelHandlerContext ctx) {
         {
             FightContainer fightContainer = getFightContainer(chara.id);
             while (fightContainer != null) {
@@ -170,7 +171,7 @@ public class FightManager {
 
         int monsterIndex = 0;
         for (String monsterName : monsterList) {
-            final FightObject fightObject = new FightObject(chara, monsterName);
+            final FightObject fightObject = new FightObject(chara, monsterName,ctx);
             fightObject.pos = MONSTER_POS.get(monsterIndex);
             fightObject.fid = fc.id++;
             if (monsterIndex == 1) {
@@ -204,7 +205,7 @@ public class FightManager {
 
 
         GameUtil.a24505(chara);
-        GameUtil.a65511(chara);
+        GameUtil.a65511(chara,ctx);
 
         final Vo_3583_0 vo_3583_0 = new Vo_3583_0();
         vo_3583_0.a = 1;
@@ -309,7 +310,7 @@ public class FightManager {
     }
 
 
-    public static void addRequest(FightContainer fightContainer, FightRequest fightRequest) {
+    public static void addRequest(FightContainer fightContainer, FightRequest fightRequest,ChannelHandlerContext ctx) {
         if (fightContainer.state.get() != 1) {
             return;
         }
@@ -326,14 +327,14 @@ public class FightManager {
             List<FightObject> doActionList = getAllFightObject(fightContainer);
             sortActions(doActionList);
             fightContainer.doActionList = doActionList;
-            if (!fabao(fightContainer)) {
+            if (!fabao(fightContainer,ctx)) {
                 doAction(fightContainer);
             }
             endaction(fightContainer);
         }
     }
 
-    public static void doAutoSkill(FightContainer fightContainer) {
+    public static void doAutoSkill(FightContainer fightContainer,ChannelHandlerContext ctx) {
         final List<FightObject> allFightObject = getAllFightObject(fightContainer);
         for (FightObject fightObject : allFightObject) {
             if (fightObject.type == 1 || fightObject.type == 2) {
@@ -346,10 +347,10 @@ public class FightManager {
                 }
             }
         }
-        addRequest(fightContainer, null);
+        addRequest(fightContainer, null,ctx);
     }
 
-    public static void doTimeupSkill(FightContainer fightContainer) {
+    public static void doTimeupSkill(FightContainer fightContainer,ChannelHandlerContext ctx) {
         final List<FightObject> allFightObject = getAllFightObject(fightContainer);
         for (FightObject fightObject : allFightObject) {
             if (fightObject.type == 1 || fightObject.type == 2 && fightObject.fightRequest == null) {
@@ -360,7 +361,7 @@ public class FightManager {
                 generateActionDM(fightContainer, fightObject, fightObject.fightRequest);
             }
         }
-        addRequest(fightContainer, null);
+        addRequest(fightContainer, null,ctx);
     }
 
     private static void sortActions(List<FightObject> doActionList) {
@@ -575,10 +576,10 @@ public class FightManager {
         }
     }
 
-    public static void nextRoundOrSendOver(FightContainer fightContainer) {
+    public static void nextRoundOrSendOver(FightContainer fightContainer,ChannelHandlerContext ctx) {
         if (fightContainer.state.compareAndSet(4, 5)) {
             FightManager.listFight.remove(fightContainer);
-            sendOver(fightContainer);
+            sendOver(fightContainer,ctx);
         } else if (fightContainer.state.get() == 1) {
             fightContainer.round++;
             round(fightContainer);
@@ -602,7 +603,7 @@ public class FightManager {
         }
     }
 
-    private static boolean fabao(FightContainer fightContainer) {
+    private static boolean fabao(FightContainer fightContainer,ChannelHandlerContext ctx) {
         final List<FightObject> allFightObject = getAllFightObject(fightContainer);
         for (FightObject fightObject : allFightObject) {
             final List<FightRoundSkill> fightSkillList = fightObject.getRoundSkill();
@@ -616,7 +617,7 @@ public class FightManager {
         }
         if (isOver(fightContainer)) {
             doOver(fightContainer);
-            nextRoundOrSendOver(fightContainer);
+            nextRoundOrSendOver(fightContainer,ctx);
             return true;
         }
         return false;
@@ -690,7 +691,7 @@ public class FightManager {
         }
     }
 
-    private static void sendOver(FightContainer fightContainer) {
+    private static void sendOver(FightContainer fightContainer,ChannelHandlerContext ctx) {
         final List<FightObject> allFightObject = getAllFightObject(fightContainer);
         for (FightObject fightObject : allFightObject) {
             if (fightObject.type == 1) {
@@ -723,7 +724,7 @@ public class FightManager {
                 fightObject.update(fightContainer);
             }
         }
-        afterFight(fightContainer);
+        afterFight(fightContainer,ctx);
 
     }
 
@@ -981,7 +982,7 @@ public class FightManager {
 
 
     //战斗结束
-    private static void afterFight(FightContainer fightContainer) {
+    private static void afterFight(FightContainer fightContainer, ChannelHandlerContext ctx) {
 
         List<FightTeam> teamList = fightContainer.teamList;
         for (FightTeam fightTeam : teamList) {
@@ -1019,10 +1020,10 @@ public class FightManager {
                 if (guaiwu != null && chara1.npcchubao.get(0).name.equals(guaiwu.get(0).str)) {
                     if (GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam != null && GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu != null) {
                         for (int i = 0; i < GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.size(); i++) {
-                            GameUtil.chubaorenwu(chara1, GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.get(i));
+                            GameUtil.chubaorenwu(chara1, GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.get(i),ctx);
                         }
                     } else {
-                        GameUtil.chubaorenwu(chara1, chara1);
+                        GameUtil.chubaorenwu(chara1, chara1,ctx);
                     }
                     return;
                 }
@@ -1031,10 +1032,10 @@ public class FightManager {
                 if (guaiwu != null && chara1.npcshuadao.get(0).name.equals(guaiwu.get(0).str)) {
                     if (GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam != null && GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu != null) {
                         for (int i = 0; i < GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.size(); i++) {
-                            GameUtil.nextshuadao(chara1, GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.get(i));
+                            GameUtil.nextshuadao(chara1, GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.get(i),ctx);
                         }
                     } else {
-                        GameUtil.nextshuadao(chara1, chara1);
+                        GameUtil.nextshuadao(chara1, chara1,ctx);
                     }
                     return;
                 }
@@ -1044,10 +1045,10 @@ public class FightManager {
                 if ("仙界叛逆".equals(guaiwu.get(0).str)) {
                     if (GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam != null && GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu != null) {
                         for (int i = 0; i < GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.size(); i++) {
-                            GameUtil.nextxuanshang(chara1, GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.get(i));
+                            GameUtil.nextxuanshang(chara1, GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.get(i),ctx);
                         }
                     } else {
-                        GameUtil.nextxuanshang(chara1, chara1);
+                        GameUtil.nextxuanshang(chara1, chara1,ctx);
                     }
                     return;
                 }
@@ -1055,10 +1056,10 @@ public class FightManager {
             if (guaiwu != null && chara1.xiuxingNpcname.equals(guaiwu.get(0).str)) {
                 if (GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam != null && GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu != null) {
                     for (int i = 0; i < GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.size(); i++) {
-                        GameUtil.nextxiuxing(chara1, GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.get(i));
+                        GameUtil.nextxiuxing(chara1, GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.get(i),ctx);
                     }
                 } else {
-                    GameUtil.nextxiuxing(chara1, chara1);
+                    GameUtil.nextxiuxing(chara1, chara1,ctx);
                 }
                 return;
             }
@@ -1072,10 +1073,10 @@ public class FightManager {
 
                     if (GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam != null && GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu != null) {
                         for (int i = 0; i < GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.size(); i++) {
-                            GameUtil.nextshaxing(chara1, GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.get(i), guaiwu.get(0).guaiwulevel, replace);
+                            GameUtil.nextshaxing(chara1, GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.get(i), guaiwu.get(0).guaiwulevel, replace,ctx);
                         }
                     } else {
-                        GameUtil.nextshaxing(chara1, chara1, guaiwu.get(0).guaiwulevel, replace);
+                        GameUtil.nextshaxing(chara1, chara1, guaiwu.get(0).guaiwulevel, replace,ctx);
                     }
                     GameObjectChar.sendduiwu(new M12285_1(), GameLine.gameShuaGuai.shuaXing.get(j).id, chara1.id);
                     GameLine.gameShuaGuai.shuaXing.remove(GameLine.gameShuaGuai.shuaXing.get(j));
@@ -1086,10 +1087,10 @@ public class FightManager {
             if (guaiwu != null && "试道元魔".equals(guaiwu.get(0).str)) {
                 if (GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam != null && GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu != null) {
                     for (int i = 0; i < GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.size(); i++) {
-                        GameUtil.shidaojingyan(chara1, GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.get(i), guaiwu.get(0).id);
+                        GameUtil.shidaojingyan(chara1, GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.get(i), guaiwu.get(0).id,ctx);
                     }
                 } else {
-                    GameUtil.shidaojingyan(chara1, chara1, guaiwu.get(0).id);
+                    GameUtil.shidaojingyan(chara1, chara1, guaiwu.get(0).id,ctx);
                 }
                 return;
             }
@@ -1154,7 +1155,7 @@ public class FightManager {
                                     vo_20481_9.msg = "你获得了50000元宝。";
                                     vo_20481_9.time = (int) (System.currentTimeMillis() / 1000);
                                     GameObjectCharMng.getGameObjectChar(fightObject.id).sendOne(new M20481_0(), vo_20481_9);
-                                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(GameObjectCharMng.getGameObjectChar(fightObject.id).chara);
+                                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(GameObjectCharMng.getGameObjectChar(fightObject.id).chara,ctx);
                                     GameObjectCharMng.getGameObjectChar(fightObject.id).sendOne(new M65527_0(), listVo_65527_0);
                                 }
                                 if (mingci == 2) {
@@ -1169,7 +1170,7 @@ public class FightManager {
                                     vo_20481_9.msg = "你获得了100000元宝。";
                                     vo_20481_9.time = (int) (System.currentTimeMillis() / 1000);
                                     GameObjectCharMng.getGameObjectChar(fightObject.id).sendOne(new M20481_0(), vo_20481_9);
-                                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(GameObjectCharMng.getGameObjectChar(fightObject.id).chara);
+                                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(GameObjectCharMng.getGameObjectChar(fightObject.id).chara,ctx);
                                     GameObjectCharMng.getGameObjectChar(fightObject.id).sendOne(new M65527_0(), listVo_65527_0);
                                 }
 
@@ -1178,7 +1179,7 @@ public class FightManager {
                                 vo_20481_0.time = (int) (System.currentTimeMillis() / 1000);
                                 GameObjectCharMng.getGameObjectChar(fightObject.id).sendOne(new M20481_0(), vo_20481_0);
                                 if (GameObjectCharMng.getGameObjectChar(fightObject.id).chara.shidaocishu <= 0) {
-                                    GameUtilRenWu.shidaohuicheng(GameObjectCharMng.getGameObjectChar(fightObject.id).chara);
+                                    GameUtilRenWu.shidaohuicheng(GameObjectCharMng.getGameObjectChar(fightObject.id).chara,ctx);
                                 }
                             }
                         }
@@ -1192,10 +1193,10 @@ public class FightManager {
             if (guaiwu != null) {
                 if (GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam != null && GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu != null) {
                     for (int i = 0; i < GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.size(); i++) {
-                        GameUtil.shuayeguai(chara1, GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.get(i), guaiwu.get(0).guaiwulevel);
+                        GameUtil.shuayeguai(chara1, GameObjectCharMng.getGameObjectChar(chara1.id).gameTeam.duiwu.get(i), guaiwu.get(0).guaiwulevel,ctx);
                     }
                 } else {
-                    GameUtil.shuayeguai(chara1, chara1, guaiwu.get(0).guaiwulevel);
+                    GameUtil.shuayeguai(chara1, chara1, guaiwu.get(0).guaiwulevel,ctx);
                 }
             }
 
@@ -1543,7 +1544,7 @@ public class FightManager {
     }
 
     //杀星
-    public static void goFight(Chara chara, List<String> monsterList, Vo_65529_0 vo_65529_0) {
+    public static void goFight(Chara chara, List<String> monsterList, Vo_65529_0 vo_65529_0,ChannelHandlerContext ctx) {
         {
             FightContainer fightContainer = getFightContainer(chara.id);
             while (fightContainer != null) {
@@ -1615,7 +1616,7 @@ public class FightManager {
 
         int monsterIndex = 0;
         for (String monsterName : monsterList) {
-            final FightObject fightObject = new FightObject(chara, monsterName, vo_65529_0);
+            final FightObject fightObject = new FightObject(chara, monsterName, vo_65529_0,ctx);
             fightObject.pos = MONSTER_POS.get(monsterIndex);
             fightObject.fid = fc.id++;
             if (monsterIndex == 1) {
@@ -1649,7 +1650,7 @@ public class FightManager {
 
 
         GameUtil.a24505(chara);
-        GameUtil.a65511(chara);
+        GameUtil.a65511(chara,ctx);
 
         final Vo_3583_0 vo_3583_0 = new Vo_3583_0();
         vo_3583_0.a = 1;

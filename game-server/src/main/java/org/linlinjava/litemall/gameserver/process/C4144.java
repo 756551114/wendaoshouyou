@@ -38,7 +38,7 @@ public class C4144 implements GameHandler {
                 }
             }
         }
-        gameMap.join(session);
+        gameMap.join(session,ctx);
     }
 
     public Vo_65505_0 a65505(Chara chara) {

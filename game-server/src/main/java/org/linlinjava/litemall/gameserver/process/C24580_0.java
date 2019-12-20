@@ -16,7 +16,7 @@ public class C24580_0 implements GameHandler {
     @Override
     public void process(ChannelHandlerContext ctx, ByteBuf buff) {
         final Chara chara = GameObjectChar.getGameObjectChar().chara;
-        ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara,ctx);
         GameObjectChar.send(new M65527_0(), vo_65527_0);
     }
 

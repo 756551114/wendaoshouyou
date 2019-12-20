@@ -53,7 +53,7 @@ public class C41481_0 implements GameHandler {
                         name = "经验";
                         Experience experience1 = GameData.that.baseExperienceService.findOneByAttrib(chara.level);
                         potentialPoint = experience1.getMaxLevel() * 2 / (chara.level + 9);
-                        GameUtil.huodejingyan(chara, potentialPoint);
+                        GameUtil.huodejingyan(chara, potentialPoint,ctx);
                     }
                     chara.shenmiliwu.get(index - 1).name = name;
                     chara.shenmiliwu.get(index - 1).brate = 1;
@@ -66,13 +66,13 @@ public class C41481_0 implements GameHandler {
                     GameObjectChar.send(new M41482_0(), vo_41482_0);
 
 
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
                     List<Vo_32747_0> vo_32747_0List = GameUtil.a32747(chara);
                     GameObjectChar.send(new M32747_0(), vo_32747_0List);
 
-                    GameUtil.a65511(chara);
+                    GameUtil.a65511(chara,ctx);
 
                     Vo_8165_0 vo_8165_0 = new Vo_8165_0();
                     vo_8165_0.msg = "恭喜，你意外获得了#R" + name + "#n奖励";
@@ -126,7 +126,7 @@ public class C41481_0 implements GameHandler {
                 name = "经验";
                 Experience experience1 = GameData.that.baseExperienceService.findOneByAttrib(chara.level);
                 potentialPoint = experience1.getMaxLevel() * 2 / (chara.level + 9);
-                GameUtil.huodejingyan(chara, potentialPoint);
+                GameUtil.huodejingyan(chara, potentialPoint,ctx);
             }
             chara.shenmiliwu.get(index - 1).name = name;
             chara.shenmiliwu.get(index - 1).brate = 1;
@@ -139,13 +139,13 @@ public class C41481_0 implements GameHandler {
             GameObjectChar.send(new M41482_0(), vo_41482_0);
 
 
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
             List<Vo_32747_0> vo_32747_0List = GameUtil.a32747(chara);
             GameObjectChar.send(new M32747_0(), vo_32747_0List);
 
-            GameUtil.a65511(chara);
+            GameUtil.a65511(chara,ctx);
 
             Vo_8165_0 vo_8165_0 = new Vo_8165_0();
             vo_8165_0.msg = "恭喜，你意外获得了#R" + name + "#n奖励";

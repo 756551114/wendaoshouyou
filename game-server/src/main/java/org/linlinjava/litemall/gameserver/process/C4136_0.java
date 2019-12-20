@@ -39,7 +39,7 @@ public class C4136_0 implements GameHandler {
 
         if (chara.current_task.equals("主线—浮生若梦_s2")) {
 
-            GameUtil.renwujiangli(chara);
+            GameUtil.renwujiangli(chara,ctx);
 
             chara.current_task = GameUtil.nextrenw(chara.current_task);
 
@@ -85,11 +85,11 @@ public class C4136_0 implements GameHandler {
 
         GameObjectChar.send(new M65525_0(), chara.backpack);
 
-        GameUtil.a65511(chara);
-        ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara);
+        GameUtil.a65511(chara,ctx);
+        ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara,ctx);
         GameObjectChar.send(new M65527_0(), vo_65527_0);
 
-        Vo_65529_0 vo_65529_0 = GameUtil.a65529(chara);
+        Vo_65529_0 vo_65529_0 = GameUtil.a65529(chara,ctx);
         GameObjectChar.send(new M65529_0(), vo_65529_0);
 
     }

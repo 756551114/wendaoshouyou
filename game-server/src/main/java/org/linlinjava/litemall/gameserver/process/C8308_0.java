@@ -77,20 +77,20 @@ public class C8308_0 implements GameHandler {
             sjjiNeng.isTempSkill = 0;
             chara.jiNengList.add(sjjiNeng);
             if (skill_no == 301 || skill_no == 302) {
-                GameUtil.a65511(chara);
+                GameUtil.a65511(chara,ctx);
                 sjjiNeng.s1 = "voucher_or_cash";
                 if (chara.use_money_type < cash) {
                     chara.balance = chara.balance - cash;
                 } else {
                     chara.use_money_type = chara.use_money_type - cash;
                 }
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                 GameObjectChar.send(new M65527_0(), listVo_65527_0);
             } else {
                 chara.cash -= cash;
             }
 
-            ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), vo_65527_0);
             List<Vo_32747_0> vo_32747_0List = GameUtil.a32747(chara);
             GameObjectChar.send(new M32747_0(), vo_32747_0List);
@@ -135,19 +135,19 @@ public class C8308_0 implements GameHandler {
             sjjiNeng.s2 = blueAndPointsLan[1];
 
             if (skill_no == 301 || skill_no == 302) {
-                GameUtil.a65511(chara);
+                GameUtil.a65511(chara,ctx);
                 sjjiNeng.s1 = "voucher_or_cash";
                 if (chara.use_money_type < cash) {
                     chara.balance = chara.balance - cash;
                 } else {
                     chara.use_money_type = chara.use_money_type - cash;
                 }
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                 GameObjectChar.send(new M65527_0(), listVo_65527_0);
             } else {
                 chara.cash -= cash;
             }
-            ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), vo_65527_0);
             List<Vo_32747_0> vo_32747_0List = GameUtil.a32747(chara);
             GameObjectChar.send(new M32747_0(), vo_32747_0List);
@@ -159,7 +159,7 @@ public class C8308_0 implements GameHandler {
         }
 
 
-        ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara,ctx);
         GameObjectChar.send(new M65527_0(), vo_65527_0);
 //        ListVo_65527_0 vo_65527_0 = new ListVo_65527_0();
 //        vo_65527_0.id = chara.id;

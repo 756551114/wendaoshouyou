@@ -104,7 +104,7 @@ public class C12356_0 implements GameHandler {
             } else {
                 chara.use_money_type = chara.use_money_type - storeInfo.getRebuildLevel();
             }
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
         }
         if (shipper == 15907) {
@@ -129,7 +129,7 @@ public class C12356_0 implements GameHandler {
             } else {
                 chara.use_money_type = chara.use_money_type - storeInfo.getRebuildLevel();
             }
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
         }
 

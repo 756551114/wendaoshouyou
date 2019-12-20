@@ -12,7 +12,18 @@ public class BasicAttributesUtils {
     public BasicAttributesUtils() {
     }
 
-    public static int[] calculationAttributes(int attrib, int constitution, int mag_power, int phy_power, int speed, int wood, int water, int fire, int earth, int resist_metal) {
+    public static int[] calculationAttributes(
+            int attrib,
+            int constitution,
+            int mag_power,
+            int phy_power,
+            int speed,
+            int wood,
+            int water,
+            int fire,
+            int earth,
+            int resist_metal
+    ) {
         int[] attributes = new int[]{100, 80, 40, 40, 48, 20};
         int accurate_phy_power = phy_power * 5 + 40;
         int accurate_resist_metal = (int)((double)phy_power * 0.45D * (double)resist_metal);
@@ -63,11 +74,15 @@ public class BasicAttributesUtils {
         return attributes;
     }
 
-    public static void petshuxing(PetShuXing petShuXing) {
+    public static void petshuxing(PetShuXing petShuXing, Double add) {
+        if(add == null){
+            add = 1D;
+        }
+
         boolean fagong = petShuXing.rank > petShuXing.pet_mag_shape;
         int[] attributes = org.linlinjava.litemall.gameserver.data.game.PetAttributesUtils.petAttributes(fagong, petShuXing.skill, petShuXing.life, petShuXing.mag_power, petShuXing.phy_power, petShuXing.speed, petShuXing.pet_mana_shape, petShuXing.pet_speed_shape, petShuXing.pet_phy_shape, petShuXing.pet_mag_shape, petShuXing.rank);
-        petShuXing.def = attributes[0];
-        petShuXing.dex = attributes[1];
+        petShuXing.def = (int)(attributes[0]* add);
+        petShuXing.dex = (int)(attributes[1]* add);
         if (petShuXing.max_life >= petShuXing.def) {
             petShuXing.max_life = petShuXing.def;
         }
@@ -76,16 +91,20 @@ public class BasicAttributesUtils {
             petShuXing.max_mana = petShuXing.dex;
         }
 
-        petShuXing.accurate = attributes[2];
-        petShuXing.mana = attributes[3];
-        petShuXing.parry = attributes[4];
-        petShuXing.wiz = attributes[5];
+        petShuXing.accurate = (int)(attributes[2] * add);
+        petShuXing.mana = (int)(attributes[3]* add);
+        petShuXing.parry = (int)(attributes[4]* add);
+        petShuXing.wiz = (int)(attributes[5]* add);
     }
 
-    public static void shuxing(Chara chara) {
+    public static void shuxing(Chara chara, Double add) {
+        if(add == null){
+            add = 1D;
+        }
+
         int[] attributes = calculationAttributes(chara.level, chara.life + chara.zbAttribute.life, chara.mag_power + chara.zbAttribute.mag_power, chara.phy_power + chara.zbAttribute.phy_power, chara.speed + chara.zbAttribute.speed, chara.wood + chara.zbAttribute.wood, chara.water + chara.zbAttribute.water, chara.fire + chara.zbAttribute.fire, chara.earth + chara.zbAttribute.earth, chara.resist_metal + chara.zbAttribute.resist_metal);
-        chara.def = attributes[0];
-        chara.dex = attributes[1];
+        chara.def = (int)(attributes[0]* add);
+        chara.dex = (int)(attributes[1]* add);
         if (chara.max_life > chara.def) {
             chara.max_life = chara.def + chara.zbAttribute.def;
         }
@@ -94,10 +113,10 @@ public class BasicAttributesUtils {
             chara.max_mana = chara.dex + chara.zbAttribute.dex;
         }
 
-        chara.accurate = attributes[2];
-        chara.mana = attributes[3];
-        chara.parry = attributes[4];
-        chara.wiz = attributes[5];
+        chara.accurate = (int)(attributes[2]* add);
+        chara.mana = (int)(attributes[3]* add);
+        chara.parry =(int)( attributes[4]* add);
+        chara.wiz = (int)(attributes[5]* add);
     }
 
     public static int[] changeCalculationAttributes(int attrib, int constitution, int mag_power, int phy_power, int speed) {

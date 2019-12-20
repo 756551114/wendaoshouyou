@@ -1,6 +1,7 @@
 package org.linlinjava.litemall.gameserver.process;
 
 import com.cool.wendao.community.model.*;
+import io.netty.channel.ChannelHandlerContext;
 import org.json.JSONObject;
 import org.linlinjava.litemall.core.util.JSONUtils;
 import org.linlinjava.litemall.gameserver.data.UtilObjMapshuxing;
@@ -8,6 +9,7 @@ import org.linlinjava.litemall.gameserver.data.game.*;
 import org.linlinjava.litemall.gameserver.data.vo.*;
 import org.linlinjava.litemall.gameserver.data.write.*;
 import org.linlinjava.litemall.gameserver.domain.*;
+import org.linlinjava.litemall.gameserver.fight.VipAddUils;
 import org.linlinjava.litemall.gameserver.game.GameData;
 import org.linlinjava.litemall.gameserver.game.GameObjectChar;
 import org.linlinjava.litemall.gameserver.game.GameObjectCharMng;
@@ -65,8 +67,8 @@ public class GameUtil {
     }
 
 
-    public static void addfabaojingyan(Chara chara1, int jingyan) {
-        Boolean has = fabaojingyan(chara1, jingyan);
+    public static void addfabaojingyan(Chara chara1, int jingyan,ChannelHandlerContext ctx) {
+        Boolean has = fabaojingyan(chara1, jingyan,ctx);
         if (has) {
             Vo_20481_0 vo_20481_0 = new Vo_20481_0();
             vo_20481_0.msg = "你的法宝获得了#R" + jingyan + "#n经验";
@@ -77,14 +79,14 @@ public class GameUtil {
     }
 
 
-    public static Boolean fabaojingyan(Chara chara1, int jingyan) {
+    public static Boolean fabaojingyan(Chara chara1, int jingyan,ChannelHandlerContext ctx) {
         Boolean has = false;
         for (int i = 0; i < chara1.backpack.size(); i++) {
             if (chara1.backpack.get(i).pos == 9) {
                 if (chara1.backpack.get(i).goodsInfo.skill >= 24) {
                     return has;
                 }
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara1);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara1,ctx);
                 GameObjectCharMng.getGameObjectChar(chara1.id).sendOne(new M65527_0(), listVo_65527_0);
                 chara1.backpack.get(i).goodsInfo.pot = chara1.backpack.get(i).goodsInfo.pot + jingyan;
                 List<Goods> list = new ArrayList<>();
@@ -96,7 +98,7 @@ public class GameUtil {
                     jingyan = jingyan - chara1.backpack.get(i).goodsInfo.resist_poison;
                     chara1.backpack.get(i).goodsInfo.resist_poison = GameData.that.baseExperienceTreasureService.findOneByAttrib(chara1.backpack.get(i).goodsInfo.skill).getMaxLevel();
 
-                    fabaojingyan(chara1, jingyan);
+                    fabaojingyan(chara1, jingyan,ctx);
                 }
                 has = true;
                 break;
@@ -146,7 +148,7 @@ public class GameUtil {
     }
 
 
-    public static void nextshaxing(Chara chara1, Chara duiyuan, int level, String replace) {
+    public static void nextshaxing(Chara chara1, Chara duiyuan, int level, String replace,ChannelHandlerContext ctx) {
 
         Random random = new Random();
 
@@ -167,8 +169,8 @@ public class GameUtil {
             if (duiyuan.level - level > 29) {
                 jingyan = 1;
             }
-            huodejingyan(duiyuan, jingyan);
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(duiyuan);
+            huodejingyan(duiyuan, jingyan,ctx);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(duiyuan,ctx);
         }
         if (replace.equals("地星")) {
             int i = Math.abs(duiyuan.level - level) / 5;
@@ -185,8 +187,8 @@ public class GameUtil {
             if (duiyuan.level - level > 29) {
                 jingyan = 1;
             }
-            huodejingyan(duiyuan, jingyan);
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(duiyuan);
+            huodejingyan(duiyuan, jingyan,ctx);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(duiyuan,ctx);
 
             int base_dh = (int) (0.29 * duiyuan.level * duiyuan.level * duiyuan.level);
             int owner_name = (int) (3272 * level / i / (duiyuan.friend > base_dh ? duiyuan.friend / base_dh : 1));
@@ -202,7 +204,7 @@ public class GameUtil {
                     vo_20481_0.time = (int) (System.currentTimeMillis() / 1000);
                     GameObjectCharMng.getGameObjectChar(duiyuan.id).sendOne(new M20481_0(), vo_20481_0);
                 }
-                listVo_65527_0 = GameUtil.a65527(duiyuan);
+                listVo_65527_0 = GameUtil.a65527(duiyuan,ctx);
                 GameObjectCharMng.getGameObjectChar(duiyuan.id).sendOne(new M65527_0(), listVo_65527_0);
             }
         }
@@ -211,7 +213,7 @@ public class GameUtil {
     }
 
     
-    public static void shuayeguai(Chara chara1, Chara duiyuan, int level) {
+    public static void shuayeguai(Chara chara1, Chara duiyuan, int level,ChannelHandlerContext ctx) {
 
         Random random = new Random();
 
@@ -228,8 +230,8 @@ public class GameUtil {
         
         jingyan = shuangbei(chara1, jingyan);
 
-        huodejingyan(duiyuan, jingyan);
-        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(duiyuan);
+        huodejingyan(duiyuan, jingyan,ctx);
+        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(duiyuan,ctx);
         GameObjectCharMng.getGameObjectChar(duiyuan.id).sendOne(new M65527_0(), listVo_65527_0);
         i = random.nextInt(1000);
         if (i < 5 && level >= 60) {
@@ -240,7 +242,7 @@ public class GameUtil {
     }
 
 
-    public static void shidaojingyan(Chara chara1, Chara duiyuan, int id) {
+    public static void shidaojingyan(Chara chara1, Chara duiyuan, int id,ChannelHandlerContext ctx) {
 
         Random random = new Random();
 
@@ -259,7 +261,7 @@ public class GameUtil {
             jingyan = 1;
         }
         jingyan = shuangbei(chara1, jingyan);
-        huodejingyan(duiyuan, jingyan);
+        huodejingyan(duiyuan, jingyan,ctx);
 
         for (int i = 0; i < duiyuan.pets.size(); i++) {
             if (duiyuan.pets.get(i).id == duiyuan.chongwuchanzhanId) {
@@ -272,12 +274,12 @@ public class GameUtil {
                 vo_20481_0.time = (int) (System.currentTimeMillis() / 1000);
                 GameObjectCharMng.getGameObjectChar(duiyuan.id).sendOne(new M20481_0(), vo_20481_0);
             }
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(duiyuan);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(duiyuan,ctx);
             GameObjectCharMng.getGameObjectChar(duiyuan.id).sendOne(new M65527_0(), listVo_65527_0);
         }
     }
 
-    public static void nextxuanshang(Chara chara1, Chara duiyuan) {
+    public static void nextxuanshang(Chara chara1, Chara duiyuan,ChannelHandlerContext ctx) {
 
         Random random = new Random();
 
@@ -302,7 +304,7 @@ public class GameUtil {
                 vo_20481_0.time = (int) (System.currentTimeMillis() / 1000);
                 GameObjectCharMng.getGameObjectChar(duiyuan.id).sendOne(new M20481_0(), vo_20481_0);
             }
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(duiyuan);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(duiyuan,ctx);
             GameObjectCharMng.getGameObjectChar(duiyuan.id).sendOne(new M65527_0(), listVo_65527_0);
         }
         GameUtilRenWu.renwukuangkuang("悬赏祍务", "", "", duiyuan);
@@ -359,7 +361,7 @@ public class GameUtil {
 
 
     
-    public static void nextxiuxing(Chara chara1, Chara duiyuan) {
+    public static void nextxiuxing(Chara chara1, Chara duiyuan,ChannelHandlerContext ctx) {
 
         Random random = new Random();
 
@@ -375,8 +377,8 @@ public class GameUtil {
             int jingyan = (int) (1281 * duiyuan.level * (1 + 0.05 * chubao));
             
             jingyan = shuangbei(chara1, jingyan);
-            huodejingyan(duiyuan, jingyan);
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(duiyuan);
+            huodejingyan(duiyuan, jingyan,ctx);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(duiyuan,ctx);
             GameObjectCharMng.getGameObjectChar(duiyuan.id).sendOne(new M65527_0(), listVo_65527_0);
             if (duiyuan.xiuxingcishu == 20 || duiyuan.xiuxingcishu == 40) {
                 GameUtil.weijianding(duiyuan);
@@ -409,7 +411,7 @@ public class GameUtil {
     }
 
     
-    public static void nextshuadao(Chara chara1, Chara duiyuan) {
+    public static void nextshuadao(Chara chara1, Chara duiyuan,ChannelHandlerContext ctx) {
 
         Random random = new Random();
         int chubao = (chara1.shuadao - 1) % 10;
@@ -439,7 +441,7 @@ public class GameUtil {
             adddaohang(duiyuan, owner_name);
 
 
-            addfabaojingyan(duiyuan, (int) (beishu * chara1.level * 3));
+            addfabaojingyan(duiyuan, (int) (beishu * chara1.level * 3),ctx);
 
 
             for (int i = 0; i < duiyuan.pets.size(); i++) {
@@ -469,7 +471,7 @@ public class GameUtil {
             GameObjectCharMng.getGameObjectChar(duiyuan.id).sendOne(new M20481_0(), vo_20481_0);
             int cash = (int) ((int) (673 * duiyuan.level * (1 + 0.2 * chubao)) * beishu);
             duiyuan.cash += cash;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(duiyuan);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(duiyuan,ctx);
             GameObjectCharMng.getGameObjectChar(duiyuan.id).sendOne(new M65527_0(), listVo_65527_0);
         }
 
@@ -505,7 +507,7 @@ public class GameUtil {
 
     }
 
-    public static void chubaorenwu(Chara chara1, Chara duiyuan) {
+    public static void chubaorenwu(Chara chara1, Chara duiyuan,ChannelHandlerContext ctx) {
         Random random = new Random();
         int chubao = (chara1.chubao - 1) % 10;
 
@@ -550,8 +552,8 @@ public class GameUtil {
             int jingyan = (int) (546 * duiyuan.level * (1 + 0.2 * chubao));
             
             jingyan = shuangbei(chara1, jingyan);
-            huodejingyan(duiyuan, jingyan);
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(duiyuan);
+            huodejingyan(duiyuan, jingyan,ctx);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(duiyuan,ctx);
             GameObjectCharMng.getGameObjectChar(duiyuan.id).sendOne(new M65527_0(), listVo_65527_0);
         }
         chara1.npcchubao = new ArrayList<>();
@@ -623,7 +625,7 @@ public class GameUtil {
     }
 
     
-    public static void shuafabao(Chara chara) {
+    public static void shuafabao(Chara chara,ChannelHandlerContext ctx) {
         String[] fb = {"番天印", "定海珠", "混元金斗", "阴阳镜", "九龙神火罩", "卸甲金葫"};
         Random random = new Random();
         int i = random.nextInt(5);
@@ -684,13 +686,13 @@ public class GameUtil {
         GameUtil.huodezhuangbei(chara, zhuangbeiInfo, 1, 1);
     }
 
-    public static void renwujiangli(Chara chara) {
+    public static void renwujiangli(Chara chara,ChannelHandlerContext ctx) {
         Renwu renwu = GameData.that.baseRenwuService.findOneByCurrentTask(chara.current_task);
         String reward = renwu.getReward();
         String[] split = reward.split("\\,");
         for (int i = 0; i < split.length; i++) {
             String[] jiangli = split[i].split("\\#");
-            GameUtil.huodechoujiang(jiangli, chara);
+            GameUtil.huodechoujiang(jiangli, chara,ctx);
         }
     }
 
@@ -715,13 +717,13 @@ public class GameUtil {
     }
 
 
-    public static void removemoney(Chara chara, int monet) {
+    public static void removemoney(Chara chara, int monet,ChannelHandlerContext ctx) {
         if (chara.lock_exp == 0) {
             chara.balance = chara.balance - monet;
         } else {
             chara.use_money_type = chara.use_money_type - monet;
         }
-        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
         GameObjectChar.send(new M65527_0(), listVo_65527_0);
     }
 
@@ -798,7 +800,7 @@ public class GameUtil {
     }
 
     
-    public static void addpetjingyan(Petbeibao petbeibao, int jingyan, Chara chara) {
+    public static void addpetjingyan(Petbeibao petbeibao, int jingyan, Chara chara, ChannelHandlerContext ctx) {
         PetShuXing petShuXing = petbeibao.petShuXing.get(0);
         petShuXing.pot += jingyan;
 
@@ -822,9 +824,9 @@ public class GameUtil {
                 petShuXing.stamina++;
             }
             if (petShuXing.pot >= petShuXing.resist_poison) {
-                addpetjingyan(petbeibao, 0, chara);
+                addpetjingyan(petbeibao, 0, chara,ctx);
             }
-            BasicAttributesUtils.petshuxing(petShuXing);
+            BasicAttributesUtils.petshuxing(petShuXing, VipAddUils.getUserVipAdd(ctx));
             petShuXing.max_life = petShuXing.def;
             petShuXing.max_mana = petShuXing.dex;
             if (petbeibao.petShuXing.get(0).suit_light_effect != 0) {
@@ -850,14 +852,14 @@ public class GameUtil {
     }
 
     
-    public static void huodejingyan(Chara chara, int jingyan) {
+    public static void huodejingyan(Chara chara, int jingyan,ChannelHandlerContext ctx) {
         jingyan = jingyan * 5;
-        addjingyan(chara, jingyan);
+        addjingyan(chara, jingyan,ctx);
         for (int i = 0; i < chara.pets.size(); i++) {
             if (chara.pets.get(i).id == chara.chongwuchanzhanId) {
                 chara.pets.get(i).petShuXing.get(0).shape += 10;
                 Vo_20481_0 vo_20481_0 = new Vo_20481_0();
-                addpetjingyan(chara.pets.get(i), jingyan, chara);
+                addpetjingyan(chara.pets.get(i), jingyan, chara,ctx);
                 vo_20481_0.msg = "宠物获得#R" + jingyan / 2 + "#n经验";
                 vo_20481_0.time = (int) (System.currentTimeMillis() / 1000);
                 GameObjectCharMng.getGameObjectChar(chara.id).sendOne(new M20481_0(), vo_20481_0);
@@ -872,7 +874,7 @@ public class GameUtil {
 
 
     
-    public static void addjingyan(Chara chara, int jingyan) {
+    public static void addjingyan(Chara chara, int jingyan,ChannelHandlerContext ctx) {
         chara.pot += jingyan;
         if (chara.pot >= chara.resist_poison && chara.level < 128) {
             chara.pot = chara.pot - chara.resist_poison;
@@ -894,14 +896,14 @@ public class GameUtil {
                 chara.stamina++;
             }
             if (chara.pot >= chara.resist_poison) {
-                addjingyan(chara, 0);
+                addjingyan(chara, 0,ctx);
             }
-            BasicAttributesUtils.shuxing(chara);
+            BasicAttributesUtils.shuxing(chara, VipAddUils.getUserVipAdd(ctx));
             chara.max_life = chara.def + chara.zbAttribute.def;
             chara.max_mana = chara.dex + chara.zbAttribute.dex;
             GameUtil.addshouhu(chara);
 
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectCharMng.getGameObjectChar(chara.id).sendOne(new M65527_0(), listVo_65527_0);
 
         }
@@ -2536,7 +2538,7 @@ public class GameUtil {
         return vo_8247_0;
     }
 
-    public static Vo_65529_0 a65529(Chara chara) {
+    public static Vo_65529_0 a65529(Chara chara,ChannelHandlerContext ctx) {
         Vo_65529_0 vo_65529_0 = new Vo_65529_0();
         vo_65529_0.id = chara.id;
         vo_65529_0.x = chara.x;
@@ -2592,12 +2594,12 @@ public class GameUtil {
         return vo_65529_0;
     }
 
-    public static Vo_65511_0 a65511(Chara chara) {
+    public static Vo_65511_0 a65511(Chara chara,ChannelHandlerContext ctx) {
         GameUtil.zhuangbeiValue(chara);
         chara.zbAttribute.id = chara.id;
         GameObjectChar.send(new M65511_0(), chara.zbAttribute);
 
-        ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara,ctx);
         GameObjectChar.send(new M65527_0(), vo_65527_0);
         Vo_61661_0 vo_61661_0 = GameUtil.a61661(chara);
         GameObjectChar.send(new M61661_0(), vo_61661_0);
@@ -2617,9 +2619,9 @@ public class GameUtil {
     }
 
     
-    public static ListVo_65527_0 a65527(Chara chara) {
+    public static ListVo_65527_0 a65527(Chara chara,ChannelHandlerContext ctx) {
         ListVo_65527_0 vo_65527_0 = new ListVo_65527_0();
-        BasicAttributesUtils.shuxing(chara);
+        BasicAttributesUtils.shuxing(chara, VipAddUils.getUserVipAdd(ctx));
         if (chara.max_mana < chara.dex + chara.zbAttribute.dex && chara.have_coin_pwd > 0) {
             int pwd = chara.dex + chara.zbAttribute.def - chara.max_mana;
             if (chara.have_coin_pwd < pwd) {
@@ -4112,11 +4114,11 @@ public class GameUtil {
     }
 
 
-    public static void huodechoujiang(String[] strings, Chara chara) {
+    public static void huodechoujiang(String[] strings, Chara chara,ChannelHandlerContext ctx) {
         if (strings[1].equals("宝宝")) {
             Pet pet = GameData.that.basePetService.findOneByName(strings[0]);
             Petbeibao petbeibao = new Petbeibao();
-            petbeibao.PetCreate(pet, chara, 0, 2);
+            petbeibao.PetCreate(pet, chara, 0, 2,ctx);
             List<Petbeibao> list = new ArrayList<>();
             chara.pets.add(petbeibao);
             list.add(petbeibao);
@@ -4127,13 +4129,13 @@ public class GameUtil {
             GameObjectChar.send(new M8165_0(), vo_8165_0);
         }
         if (strings[1].equals("经验")) {
-            huodejingyan(chara, Integer.valueOf(strings[0]));
+            huodejingyan(chara, Integer.valueOf(strings[0]),ctx);
         }
         if (strings[1].equals("精怪")) {
             int jieshu = stageMounts(strings[0]);
             Pet pet = GameData.that.basePetService.findOneByName(strings[0]);
             Petbeibao petbeibao = new Petbeibao();
-            petbeibao.PetCreate(pet, chara, 0, 2);
+            petbeibao.PetCreate(pet, chara, 0, 2,ctx);
             List<Petbeibao> list = new ArrayList<>();
             chara.pets.add(petbeibao);
             list.add(petbeibao);
@@ -4156,7 +4158,7 @@ public class GameUtil {
         if (strings[1].equals("变异")) {
             Pet pet = GameData.that.basePetService.findOneByName(strings[0]);
             Petbeibao petbeibao = new Petbeibao();
-            petbeibao.PetCreate(pet, chara, 0, 3);
+            petbeibao.PetCreate(pet, chara, 0, 3,ctx);
             List<Petbeibao> list = new ArrayList<>();
             chara.pets.add(petbeibao);
             list.add(petbeibao);
@@ -4173,12 +4175,12 @@ public class GameUtil {
         }
         if (strings[0].equals("代金券")) {
             chara.use_money_type = chara.use_money_type + Integer.valueOf(strings[1]);
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
         }
         if (strings[1].equals("金币")) {
             chara.balance = chara.balance + Integer.valueOf(strings[0]);
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
         }
 

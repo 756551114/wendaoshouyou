@@ -59,7 +59,7 @@ public class C63752_0 implements GameHandler {
             vo_61553_0.tasktask_state = "1";
             GameObjectChar.getGameObjectChar().send(new M61553_0(), vo_61553_0);
             String[] strings = GameUtilRenWu.luckFindDraw();
-            GameUtil.huodechoujiang(strings, chara);
+            GameUtil.huodechoujiang(strings, chara,ctx);
             Vo_8165_0 vo_8165_0 = new Vo_8165_0();
             vo_8165_0.msg = "喜从天降,恭喜#Y" + chara.name + "#n在高级挖宝中获得#R" + strings[1] + "#n ";
             vo_8165_0.active = 0;
@@ -187,7 +187,7 @@ public class C63752_0 implements GameHandler {
             characters.setName(para1);
             GameUtil.removemunber(chara, "改头换面卡", 1);
             chara.name = para1;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
             Vo_8165_0 vo_8165_0 = new Vo_8165_0();
             vo_8165_0.msg = "修改成功";
@@ -288,7 +288,7 @@ public class C63752_0 implements GameHandler {
                 vo_20480_0.msg = "你获得了#R" + split[0];
                 vo_20480_0.time = (int) System.currentTimeMillis();
                 GameObjectChar.send(new M20480_0(), vo_20480_0);
-                GameUtil.huodechoujiang(split, chara);
+                GameUtil.huodechoujiang(split, chara,ctx);
 
             }
         }
@@ -326,7 +326,7 @@ public class C63752_0 implements GameHandler {
                 return;
             }
             if (fightObject.fightRequest != null) {
-                FightManager.addRequest(FightManager.getFightContainer(), null);
+                FightManager.addRequest(FightManager.getFightContainer(), null,ctx);
             }
 
             FightRequest fightRequest = new FightRequest();
@@ -334,7 +334,7 @@ public class C63752_0 implements GameHandler {
             fightRequest.action = fightObject.autofight_skillaction;
             fightRequest.para = fightObject.autofight_skillno;
             FightManager.generateActionDM(FightManager.getFightContainer(), fightObject, fightRequest);
-            FightManager.addRequest(FightManager.getFightContainer(), fightRequest);
+            FightManager.addRequest(FightManager.getFightContainer(), fightRequest,ctx);
 
             if (fightObjectPet != null) {
                 fightRequest = new FightRequest();
@@ -342,7 +342,7 @@ public class C63752_0 implements GameHandler {
                 fightRequest.action = fightObjectPet.autofight_skillaction;
                 fightRequest.para = fightObjectPet.autofight_skillno;
                 FightManager.generateActionDM(fightContainer, fightObjectPet, fightRequest);
-                FightManager.addRequest(FightManager.getFightContainer(), fightRequest);
+                FightManager.addRequest(FightManager.getFightContainer(), fightRequest,ctx);
             }
         }
         if (10007 == type) {
@@ -351,21 +351,21 @@ public class C63752_0 implements GameHandler {
                 if (chara.extra_mana > 90000000) {
                     chara.extra_mana = 90000000;
                 }
-                GameUtil.removemoney(chara, 120000);
+                GameUtil.removemoney(chara, 120000,ctx);
             }
             if (para1.equals("2")) {
                 chara.have_coin_pwd += 300000;
                 if (chara.have_coin_pwd > 90000000) {
                     chara.have_coin_pwd = 90000000;
                 }
-                GameUtil.removemoney(chara, 360000);
+                GameUtil.removemoney(chara, 360000,ctx);
             }
             if (para1.equals("3")) {
                 chara.use_skill_d += 300000;
                 if (chara.use_skill_d > 3000000) {
                     chara.use_skill_d = 3000000;
                 }
-                GameUtil.removemoney(chara, 1800000);
+                GameUtil.removemoney(chara, 1800000,ctx);
             }
         }
 
@@ -373,17 +373,17 @@ public class C63752_0 implements GameHandler {
             int viptype = Integer.valueOf(para1);
             if (viptype == 1) {
                 chara.extra_life = chara.extra_life + 100;
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                 GameObjectChar.send(new M65527_0(), listVo_65527_0);
             }
             if (viptype == 2) {
                 chara.extra_life = chara.extra_life + 120;
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                 GameObjectChar.send(new M65527_0(), listVo_65527_0);
             }
             if (viptype == 3) {
                 chara.extra_life = chara.extra_life + 150;
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                 GameObjectChar.send(new M65527_0(), listVo_65527_0);
             }
             chara.isGet = 1;
@@ -406,19 +406,19 @@ public class C63752_0 implements GameHandler {
             int viptype = Integer.valueOf(para1);
             if (viptype == 1) {
                 chara.extra_life = chara.extra_life - 3000;
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                 GameObjectChar.send(new M65527_0(), listVo_65527_0);
                 chara.vipTimeShengYu = chara.vipTimeShengYu + 86400 * 30;
             }
             if (viptype == 2) {
                 chara.extra_life = chara.extra_life - 9000;
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                 GameObjectChar.send(new M65527_0(), listVo_65527_0);
                 chara.vipTimeShengYu = chara.vipTimeShengYu + 86400 * 30 * 3;
             }
             if (viptype == 3) {
                 chara.extra_life = chara.extra_life - 36000;
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                 GameObjectChar.send(new M65527_0(), listVo_65527_0);
                 chara.vipTimeShengYu = chara.vipTimeShengYu + 86400 * 365;
             }
@@ -576,7 +576,7 @@ public class C63752_0 implements GameHandler {
                 if (goods.pos == Integer.parseInt(para1)) {
                     GameUtil.removemunber(chara, goods, Integer.valueOf(para2));
                     chara.use_money_type = chara.use_money_type + (goods.goodsInfo.rebuild_level / 5) * Integer.valueOf(para2);
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                     Vo_20481_0 vo_20481_0 = new Vo_20481_0();
                     vo_20481_0.msg = "你成功出售" + goods.goodsInfo.str + "#n获得代金券#n。";
@@ -597,7 +597,7 @@ public class C63752_0 implements GameHandler {
         if (40022 == type) {
             chara.balance = chara.balance + chara.jishou_coin;
             chara.jishou_coin = 0;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
             //摆摊的数据
             List<SaleGood> saleGoodList = GameData.that.baseSaleGoodService.findByOwnerUuid(chara.uuid);
@@ -763,7 +763,7 @@ public class C63752_0 implements GameHandler {
                 vo_40964_9.rightNow = 0;
                 GameObjectChar.send(new M40964_0(), vo_40964_9);
                 chara.gold_coin += 100;
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                 GameObjectChar.send(new M65527_0(), listVo_65527_0);
             } else {
                 StoreInfo storeInfo = GameData.that.baseStoreInfoService.findOneByName(name);
@@ -976,7 +976,7 @@ public class C63752_0 implements GameHandler {
                 }
                 chara.balance = chara.balance - coin;
             }
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
             ShouHu shouHu = new ShouHu();

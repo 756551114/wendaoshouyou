@@ -33,7 +33,7 @@ public class C33054_0 implements GameHandler {
         Chara chara = GameObjectChar.getGameObjectChar().chara;
 
         chara.balance = chara.balance - 20000;
-        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
 
         Vo_20481_0 vo_20481_0 = new Vo_20481_0();
         vo_20481_0.msg = "改价成功";

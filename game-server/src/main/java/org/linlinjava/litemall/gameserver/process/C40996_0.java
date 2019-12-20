@@ -35,7 +35,7 @@ public class C40996_0 implements GameHandler {
         vo_40964_0.rightNow = 0;
         GameObjectChar.send(new M40964_0(), vo_40964_0);
         chara.balance = chara.balance + chara.wuxingBalance;
-        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
         GameObjectChar.send(new M65527_0(), listVo_65527_0);
         chara.wuxingBalance = 0;
 

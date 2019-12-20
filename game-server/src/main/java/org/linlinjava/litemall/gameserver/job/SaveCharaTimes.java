@@ -6,6 +6,7 @@
 package org.linlinjava.litemall.gameserver.job;
 
 import com.cool.wendao.community.model.Notice;
+import io.netty.channel.ChannelHandlerContext;
 import org.linlinjava.litemall.core.util.JSONUtils;
 import org.linlinjava.litemall.gameserver.data.vo.ListVo_65527_0;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_16383_0;
@@ -64,7 +65,7 @@ public class SaveCharaTimes {
     @Scheduled(
             fixedDelay = 2000L
     )
-    public void autofight() {
+    public void autofight(ChannelHandlerContext ctx) {
         List<FightContainer> listFight = FightManager.listFight;
         long time = System.currentTimeMillis();
         Iterator var4 = listFight.iterator();
@@ -72,11 +73,11 @@ public class SaveCharaTimes {
         while(var4.hasNext()) {
             FightContainer fightContainer = (FightContainer)var4.next();
             if (fightContainer.state.intValue() == 1 && fightContainer.roundTime + 1000L < time) {
-                FightManager.doAutoSkill(fightContainer);
+                FightManager.doAutoSkill(fightContainer,ctx);
             }
 
             if (fightContainer.state.intValue() == 1 && fightContainer.roundTime + 24000L < time) {
-                FightManager.doTimeupSkill(fightContainer);
+                FightManager.doTimeupSkill(fightContainer,ctx);
             }
         }
 
@@ -113,7 +114,7 @@ public class SaveCharaTimes {
     @Scheduled(
             fixedRate = 10000L
     )
-    public void autofightshidao() {
+    public void autofightshidao(ChannelHandlerContext ctx) {
         String[] shidaolevel = new String[]{"试道场(60-79)", "试道场(80-89)", "试道场(90-99)", "试道场(100-109)", "试道场(110-119)", "试道场(120-129)"};
         long time = System.currentTimeMillis();
         Date date = new Date();
@@ -183,7 +184,7 @@ public class SaveCharaTimes {
                 for(j = 0; j < gameMap.sessionList.size(); ++j) {
                     chara = ((GameObjectChar)gameMap.sessionList.get(j)).chara;
                     chara.balance -= chara.level * 10000;
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectCharMng.getGameObjectChar(chara.id).sendOne(new M65527_0(), listVo_65527_0);
                     Vo_20481_0 vo_20481_0 = new Vo_20481_0();
                     vo_20481_0.msg = "由于你在挑战元魔过程中取得了优异的成绩,因此获得了系统送出的" + chara.level * 10000 + "文钱的奖励。";
@@ -198,7 +199,7 @@ public class SaveCharaTimes {
                 }
 
                 for(j = 0; j < charas.size(); ++j) {
-                    GameUtilRenWu.shidaohuicheng((Chara)charas.get(j));
+                    GameUtilRenWu.shidaohuicheng((Chara)charas.get(j),ctx);
                     Vo_20481_0 vo_20481_0 = new Vo_20481_0();
                     vo_20481_0.msg = "由于你所在队伍的挑战元魔的积分不足,无法参加试道大会的巅峰对\n决阶段。";
                     vo_20481_0.time = (int)(System.currentTimeMillis() / 1000L);
@@ -258,7 +259,7 @@ public class SaveCharaTimes {
                                 vo_20481_9.msg = "你获得了200000元宝的称谓。";
                                 vo_20481_9.time = (int)(System.currentTimeMillis() / 1000L);
                                 GameObjectCharMng.getGameObjectChar(((Chara)((GameObjectChar)gameSessions.get(k)).gameTeam.duiwu.get(k)).id).sendOne(new M20481_0(), vo_20481_9);
-                                listVo_65527_0 = GameUtil.a65527((Chara)((GameObjectChar)gameSessions.get(k)).gameTeam.duiwu.get(k));
+                                listVo_65527_0 = GameUtil.a65527((Chara)((GameObjectChar)gameSessions.get(k)).gameTeam.duiwu.get(k),ctx);
                                 GameObjectCharMng.getGameObjectChar(((Chara)((GameObjectChar)gameSessions.get(k)).gameTeam.duiwu.get(k)).id).sendOne(new M65527_0(), listVo_65527_0);
                             }
                         }
@@ -276,7 +277,7 @@ public class SaveCharaTimes {
                                 vo_20481_9.msg = "你获得了100000元宝的称谓。";
                                 vo_20481_9.time = (int)(System.currentTimeMillis() / 1000L);
                                 GameObjectCharMng.getGameObjectChar(((Chara)((GameObjectChar)gameSessions.get(k)).gameTeam.duiwu.get(k)).id).sendOne(new M20481_0(), vo_20481_9);
-                                listVo_65527_0 = GameUtil.a65527((Chara)((GameObjectChar)gameSessions.get(k)).gameTeam.duiwu.get(k));
+                                listVo_65527_0 = GameUtil.a65527((Chara)((GameObjectChar)gameSessions.get(k)).gameTeam.duiwu.get(k),ctx);
                                 GameObjectCharMng.getGameObjectChar(((Chara)((GameObjectChar)gameSessions.get(k)).gameTeam.duiwu.get(k)).id).sendOne(new M65527_0(), listVo_65527_0);
                             }
                         }
@@ -294,7 +295,7 @@ public class SaveCharaTimes {
                                 vo_20481_9.msg = "你获得了50000元宝的称谓。";
                                 vo_20481_9.time = (int)(System.currentTimeMillis() / 1000L);
                                 GameObjectCharMng.getGameObjectChar(((Chara)((GameObjectChar)gameSessions.get(k)).gameTeam.duiwu.get(k)).id).sendOne(new M20481_0(), vo_20481_9);
-                                listVo_65527_0 = GameUtil.a65527((Chara)((GameObjectChar)gameSessions.get(k)).gameTeam.duiwu.get(k));
+                                listVo_65527_0 = GameUtil.a65527((Chara)((GameObjectChar)gameSessions.get(k)).gameTeam.duiwu.get(k),ctx);
                                 GameObjectCharMng.getGameObjectChar(((Chara)((GameObjectChar)gameSessions.get(k)).gameTeam.duiwu.get(k)).id).sendOne(new M65527_0(), listVo_65527_0);
                             }
                         }
@@ -302,7 +303,7 @@ public class SaveCharaTimes {
                 }
 
                 for(k = 0; k < charas.size(); ++k) {
-                    GameUtilRenWu.shidaohuicheng((Chara)charas.get(k));
+                    GameUtilRenWu.shidaohuicheng((Chara)charas.get(k),ctx);
                 }
             }
         }
@@ -388,9 +389,9 @@ public class SaveCharaTimes {
                             vo_20481_9.msg = "你获得了200000元宝的称谓。";
                             vo_20481_9.time = (int)(System.currentTimeMillis() / 1000L);
                             GameObjectCharMng.getGameObjectChar(((Chara)((GameObjectChar)gameSessions.get(j)).gameTeam.duiwu.get(k)).id).sendOne(new M20481_0(), vo_20481_9);
-                            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527((Chara)((GameObjectChar)gameSessions.get(j)).gameTeam.duiwu.get(k));
+                            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527((Chara)((GameObjectChar)gameSessions.get(j)).gameTeam.duiwu.get(k),ctx);
                             GameObjectCharMng.getGameObjectChar(((Chara)((GameObjectChar)gameSessions.get(j)).gameTeam.duiwu.get(k)).id).sendOne(new M65527_0(), listVo_65527_0);
-                            GameUtilRenWu.shidaohuicheng((Chara)((GameObjectChar)gameSessions.get(j)).gameTeam.duiwu.get(k));
+                            GameUtilRenWu.shidaohuicheng((Chara)((GameObjectChar)gameSessions.get(j)).gameTeam.duiwu.get(k),ctx);
                         }
                     }
                 }
@@ -450,14 +451,14 @@ public class SaveCharaTimes {
     @Scheduled(
             fixedRate = 2000L
     )
-    public void autofightromve() {
+    public void autofightromve( ChannelHandlerContext ctx) {
         List<GameObjectChar> sessionList = GameObjectCharMng.getGameObjectCharList();
         long time = System.currentTimeMillis();
 
         for(int i = 0; i < sessionList.size(); ++i) {
             try {
                 if (((GameObjectChar)sessionList.get(i)).gameMap.id == 38004 && ((GameObjectChar)sessionList.get(i)).gameTeam == null) {
-                    GameUtilRenWu.shidaohuicheng(((GameObjectChar)sessionList.get(i)).chara);
+                    GameUtilRenWu.shidaohuicheng(((GameObjectChar)sessionList.get(i)).chara,ctx);
                 }
 
                 if (((GameObjectChar)sessionList.get(i)).heartEcho != 0L && ((GameObjectChar)sessionList.get(i)).heartEcho + 180000L < time) {

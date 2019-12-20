@@ -104,7 +104,7 @@ public class C32776_0 implements GameHandler {
                     }
                     int coin = ConsumeMoneyUtils.appraisalMoney(attrib);
                     chara.balance = chara.balance - coin;
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
                     if (goods.goodsInfo.attrib >= 100) {
@@ -166,7 +166,7 @@ public class C32776_0 implements GameHandler {
                 }
                 int coin = ConsumeMoneyUtils.appraisalMoney(zhuangbeiInfo.getAttrib());
                 chara.balance = chara.balance - coin * owner_id;
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                 GameObjectChar.send(new M65527_0(), listVo_65527_0);
             } else {
                 if (zhuangbeiInfo.getAttrib() <= 70) {
@@ -192,7 +192,7 @@ public class C32776_0 implements GameHandler {
                 GameObjectChar.send(new M20481_0(), vo_20481_0);
                 int coin = ConsumeMoneyUtils.appraisalMoney(zhuangbeiInfo.getAttrib());
                 chara.balance = chara.balance - coin;
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                 GameObjectChar.send(new M65527_0(), listVo_65527_0);
             }
             Vo_9129_0 vo_9129_0 = new Vo_9129_0();
@@ -252,7 +252,7 @@ public class C32776_0 implements GameHandler {
                     }
                     int coin = ConsumeMoneyUtils.remakeMoney(goods.goodsInfo.attrib);
                     chara.balance = chara.balance - coin;
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
                     GameUtil.removemunber(chara, "装备共鸣石", pos1);
@@ -288,12 +288,12 @@ public class C32776_0 implements GameHandler {
                     }
                     int coin = ConsumeMoneyUtils.appendEqMoney(goods.goodsInfo.attrib);
                     chara.balance = chara.balance - coin;
-                    GameUtil.a65511(chara);
+                    GameUtil.a65511(chara,ctx);
 
 
                     List<Goods> list = new ArrayList<>();
                     list.add(goods);
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65525_0(), list);
 
 
@@ -364,7 +364,7 @@ public class C32776_0 implements GameHandler {
                         GameObjectChar.send(new M20481_0(), vo_20481_0);
                         //需要更新 改造页面板
                         //更新人物装备属性
-                        GameUtil.a65511(chara);
+                        GameUtil.a65511(chara,ctx);
                         Vo_41191_0 vo_41191_0 = new Vo_41191_0();
                         vo_41191_0.flag = 1;
                         vo_41191_0.opType = "";
@@ -386,7 +386,7 @@ public class C32776_0 implements GameHandler {
 
                     int coin = ConsumeMoneyUtils.remakeMoney(goods.goodsInfo.attrib);
                     chara.balance = chara.balance - coin;
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                     if (iswuqi == 1) {
                         GameUtil.removemunber(chara, "超级灵石", pos1);
@@ -465,7 +465,7 @@ public class C32776_0 implements GameHandler {
                             GoodsHuangSe goodsLanSeObj = (GoodsHuangSe) JSONUtils.parseObject(JSONUtils.toJSONString(maps), GoodsHuangSe.class);
                             goods.goodsHuangSe = goodsLanSeObj;
 
-                            GameUtil.a65511(chara);
+                            GameUtil.a65511(chara,ctx);
                             List list = new ArrayList();
                             list.add(goods);
                             GameObjectChar.send(new M65525_0(), list);
@@ -486,7 +486,7 @@ public class C32776_0 implements GameHandler {
                     }
                     int coin = ConsumeMoneyUtils.yellowMoney(goods.goodsInfo.attrib);
                     chara.balance = chara.balance - coin;
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                     GameUtil.removemunber(chara, "黄水晶", pos2);
                 }
@@ -545,11 +545,11 @@ public class C32776_0 implements GameHandler {
                         maps.put("groupType", 2);
                         GoodsFenSe goodsLanSeObj = (GoodsFenSe) JSONUtils.parseObject(JSONUtils.toJSONString(maps), GoodsFenSe.class);
                         goods.goodsFenSe = goodsLanSeObj;
-                        GameUtil.a65511(chara);
+                        GameUtil.a65511(chara,ctx);
                         GameObjectChar.send(new M65525_0(), chara.backpack);
                         int coin = ConsumeMoneyUtils.pinkMoney(goods.goodsInfo.attrib);
                         chara.balance = chara.balance - coin;
-                        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                         GameObjectChar.send(new M65527_0(), listVo_65527_0);
                         Vo_41191_0 vo_41191_0 = new Vo_41191_0();
                         vo_41191_0.flag = 1;
@@ -668,7 +668,7 @@ public class C32776_0 implements GameHandler {
             chara.balance = chara.balance - coin;
 
 
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
         }
@@ -772,7 +772,7 @@ public class C32776_0 implements GameHandler {
 
             int coin = ConsumeMoneyUtils.appendEqMoney(leve);
             chara.balance = chara.balance - coin;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
         }
@@ -876,7 +876,7 @@ public class C32776_0 implements GameHandler {
 
             int coin = ConsumeMoneyUtils.appendEqMoney(leve);
             chara.balance = chara.balance - coin;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
         }
 
@@ -886,7 +886,7 @@ public class C32776_0 implements GameHandler {
             //刷新钱
             int coin = ConsumeMoneyUtils.createMoney(zhuangbeiInfo.getAttrib());
             chara.balance = chara.balance - coin;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
             String[] split = para.split("\\|");
@@ -995,7 +995,7 @@ public class C32776_0 implements GameHandler {
                     int coin = ConsumeMoneyUtils.removeMoney(chara.backpack.get(i).goodsInfo.attrib);
                     //刷新钱
                     chara.balance = chara.balance - coin;
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
                     Random random = new Random();
@@ -1162,7 +1162,7 @@ public class C32776_0 implements GameHandler {
                         goods1.goodsInfo.degree_32 = 0;
                         goods1.goodsInfo.owner_id = 1;
                         goods1.goodsLanSe = goodsLanSeObj;
-                        GameUtil.a65511(chara);
+                        GameUtil.a65511(chara,ctx);
                         List list = new ArrayList();
                         list.add(goods1);
                         GameUtil.removemunber(chara, goods, 1);
@@ -1211,7 +1211,7 @@ public class C32776_0 implements GameHandler {
                         goods1.goodsLanSe = goodsLanSeObj;
                         goods1.goodsHuangSe = goodshuangseObj;
                         goods1.goodsFenSe = goodsfenseObj;
-                        GameUtil.a65511(chara);
+                        GameUtil.a65511(chara,ctx);
                         List list = new ArrayList();
                         list.add(goods1);
                         GameUtil.removemunber(chara, goods, 1);
@@ -1220,7 +1220,7 @@ public class C32776_0 implements GameHandler {
                     }
                     int coin = ConsumeMoneyUtils.appraisalMoney(goods.goodsInfo.attrib);
                     chara.balance = chara.balance - coin;
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                 }
 

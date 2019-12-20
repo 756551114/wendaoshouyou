@@ -28,7 +28,7 @@ public class C518_0 implements GameHandler {
         fr.vid = 0;
 
         final FightContainer fightContainer = FightManager.getFightContainer();
-        FightManager.addRequest(fightContainer,fr);
+        FightManager.addRequest(fightContainer,fr,ctx);
 
         final FightObject fightObject = FightManager.getFightObject(fightContainer, chara.id);
         final FightObject fightObjectPet = FightManager.getFightObjectPet(fightContainer, fightObject);

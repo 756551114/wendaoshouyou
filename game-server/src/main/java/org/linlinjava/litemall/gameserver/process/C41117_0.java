@@ -44,7 +44,7 @@ public class C41117_0 implements GameHandler {
                     return;
                 }
                 id = chara.pets.get(i).id;
-                GameUtil.addpetjingyan(chara.pets.get(i), num1 * 500000,chara);
+                GameUtil.addpetjingyan(chara.pets.get(i), num1 * 500000,chara,ctx);
                 pot = chara.pets.get(i).petShuXing.get(0).pot;
                 resist_poison = chara.pets.get(i).petShuXing.get(0).resist_poison;
                 break;

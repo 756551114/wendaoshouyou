@@ -3,6 +3,7 @@ package org.linlinjava.litemall.gameserver.process;
 import com.cool.wendao.community.model.Pet;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.util.Attribute;
 import org.linlinjava.litemall.gameserver.GameHandler;
 import org.linlinjava.litemall.gameserver.data.GameReadTool;
 import org.linlinjava.litemall.gameserver.data.game.BasicAttributesUtils;
@@ -13,8 +14,10 @@ import org.linlinjava.litemall.gameserver.domain.Chara;
 import org.linlinjava.litemall.gameserver.domain.Goods;
 import org.linlinjava.litemall.gameserver.domain.PetShuXing;
 import org.linlinjava.litemall.gameserver.domain.Petbeibao;
+import org.linlinjava.litemall.gameserver.fight.VipAddUils;
 import org.linlinjava.litemall.gameserver.game.GameData;
 import org.linlinjava.litemall.gameserver.game.GameObjectChar;
+import org.linlinjava.litemall.gameserver.netty.ServerHandler;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -41,7 +44,6 @@ public class C53314_0 implements GameHandler {
         String ids = GameReadTool.readString(buff);
 
         Chara chara = GameObjectChar.getGameObjectChar().chara;
-
 
 
         if (type.equals("pet_open_eclosion")) {
@@ -75,7 +77,11 @@ public class C53314_0 implements GameHandler {
 //                    petbeibao.petShuXing.get(0).rank += ints[5];
 //                    petbeibao.petShuXing.get(0).pet_phy_shape += ints[6];
                     List list = new ArrayList();
-                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0));
+
+                    Attribute<GameObjectChar> attr = ctx.channel().attr(ServerHandler.akey);
+                    GameObjectChar gameObjectChar = attr.get();
+
+                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0), VipAddUils.getUserVipAdd(ctx));
                     list.add(petbeibao);
                     GameObjectChar.send(new M65507_0(), list);
                     GameUtil.removemunber(chara, "羽化丹", 1);
@@ -165,7 +171,7 @@ public class C53314_0 implements GameHandler {
 //                    public int phy_absorb=65504;
 
                     List list = new ArrayList();
-                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0));
+                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0), VipAddUils.getUserVipAdd(ctx));
                     list.add(petbeibao);
                     GameObjectChar.send(new M65507_0(), list);
                     GameUtil.removemunber(chara, "羽化丹", pill);
@@ -249,7 +255,7 @@ public class C53314_0 implements GameHandler {
                     petbeibao.petShuXing.get(0).rank = petbeibao.petShuXing.get(0).phy_absorb + ints[5] + 40;
                     petbeibao.petShuXing.get(0).pet_phy_shape = petbeibao.petShuXing.get(0).phy_effect + ints[6] + 40;
                     List list = new ArrayList();
-                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0));
+                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0), VipAddUils.getUserVipAdd(ctx));
                     list.add(petbeibao);
                     GameObjectChar.send(new M65507_0(), list);
                     GameUtil.removemunber(chara, "点化丹", pill);
@@ -290,7 +296,7 @@ public class C53314_0 implements GameHandler {
                     petbeibao.petShuXing.get(0).rank += ints[5];
                     petbeibao.petShuXing.get(0).pet_phy_shape += ints[6];
                     List list = new ArrayList();
-                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0));
+                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0), VipAddUils.getUserVipAdd(ctx));
                     list.add(petbeibao);
                     GameObjectChar.send(new M65507_0(), list);
                     GameUtil.removemunber(chara, "点化丹", 1);

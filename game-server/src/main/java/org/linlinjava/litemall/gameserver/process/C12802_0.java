@@ -161,7 +161,7 @@ public class C12802_0 implements GameHandler {
             GameObjectChar.send(new M11713_0(), vo_11713_0);
         }
         FightManager.changeAutoFightSkill(fightContainer, fightObject, action, para);
-        FightManager.addRequest(fightContainer, fr);
+        FightManager.addRequest(fightContainer, fr,ctx);
     }
 
     @Override

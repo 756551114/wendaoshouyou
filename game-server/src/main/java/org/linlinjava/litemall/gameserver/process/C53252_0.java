@@ -65,7 +65,7 @@ public class C53252_0 implements GameHandler {
         }
         Pet pet = GameData.that.basePetService.findOneByName(name);
         Petbeibao petbeibao = new Petbeibao();
-        petbeibao.PetCreate(pet, chara, 0, type);
+        petbeibao.PetCreate(pet, chara, 0, type,ctx);
         List<Petbeibao> list = new ArrayList<>();
         chara.pets.add(petbeibao);
         list.add(petbeibao);

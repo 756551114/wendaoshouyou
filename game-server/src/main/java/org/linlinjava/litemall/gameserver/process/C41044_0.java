@@ -12,6 +12,7 @@ import org.linlinjava.litemall.gameserver.data.write.*;
 import org.linlinjava.litemall.gameserver.domain.Chara;
 import org.linlinjava.litemall.gameserver.domain.PetShuXing;
 import org.linlinjava.litemall.gameserver.domain.Petbeibao;
+import org.linlinjava.litemall.gameserver.fight.VipAddUils;
 import org.linlinjava.litemall.gameserver.game.GameData;
 import org.linlinjava.litemall.gameserver.game.GameObjectChar;
 import org.springframework.stereotype.Service;
@@ -42,7 +43,7 @@ public class C41044_0 implements GameHandler {
         if (flag == 3) {
             int coin = 5000000;
             chara.balance = chara.balance - coin;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
             GameUtil.removemunber(chara, "精怪诱饵", 1);
@@ -80,7 +81,7 @@ public class C41044_0 implements GameHandler {
             shuXing.upgrade_magic = 0;
             shuXing.upgrade_total = 0;
             petbeibao.petShuXing.add(shuXing);
-            BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0));
+            BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0), VipAddUils.getUserVipAdd(ctx));
             petbeibao.petShuXing.get(0).max_life = petbeibao.petShuXing.get(0).def;
             petbeibao.petShuXing.get(0).max_mana = petbeibao.petShuXing.get(0).dex;
             boolean isfagong = petbeibao.petShuXing.get(0).rank > petbeibao.petShuXing.get(0).pet_mag_shape;
@@ -120,7 +121,7 @@ public class C41044_0 implements GameHandler {
         if (flag == 4) {
             int coin = 50000000;
             chara.balance = chara.balance - coin;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
             String[] strings = callMounts(false);
             GameUtil.removemunber(chara, "精怪诱饵", 10);
@@ -164,7 +165,7 @@ public class C41044_0 implements GameHandler {
             petbeibao.petShuXing.add(shuXing);
 
 
-            BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0));
+            BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0), VipAddUils.getUserVipAdd(ctx));
 
             petbeibao.petShuXing.get(0).max_life = petbeibao.petShuXing.get(0).def;
             petbeibao.petShuXing.get(0).max_mana = petbeibao.petShuXing.get(0).dex;

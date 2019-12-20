@@ -39,7 +39,7 @@ public class C33318_0 implements GameHandler {
 
 
         chara.extra_life = chara.extra_life - packModification.getGoodsPrice();
-        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
 
         Goods goods = new Goods();
         goods.goodsInfo.owner_id = 1;

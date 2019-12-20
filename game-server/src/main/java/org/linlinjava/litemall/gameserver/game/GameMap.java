@@ -3,6 +3,7 @@ package org.linlinjava.litemall.gameserver.game;
 import com.cool.wendao.community.model.Npc;
 import com.cool.wendao.community.model.NpcPoint;
 import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.ReferenceCountUtil;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_45157_0;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_61671_0;
@@ -37,7 +38,7 @@ public class GameMap {
         return sessionList;
     }
 
-    public void join(GameObjectChar gameObjectChar) {
+    public void join(GameObjectChar gameObjectChar, ChannelHandlerContext ctx) {
         gameObjectChar.gameMap.leave(gameObjectChar);
         sessionList.remove(gameObjectChar);
         sessionList.add(gameObjectChar);
@@ -63,7 +64,7 @@ public class GameMap {
         gameObjectChar.sendOne(new M65531_0(), list);
 
 
-        Vo_65529_0 vo_65529_0 = GameUtil.a65529(chara);
+        Vo_65529_0 vo_65529_0 = GameUtil.a65529(chara,ctx);
         send(new M65529_0(), vo_65529_0);
 
 
@@ -79,7 +80,7 @@ public class GameMap {
         //发送地图其他人信息
         for (GameObjectChar gameSession : sessionList) {
             if (gameSession.ctx != null && gameSession.chara != null) {
-                vo_65529_0 = GameUtil.a65529(gameSession.chara);
+                vo_65529_0 = GameUtil.a65529(gameSession.chara,ctx);
                 GameUtil.genchongfei(gameSession.chara);
                 gameObjectChar.sendOne(new M65529_0(), vo_65529_0);
 
@@ -110,7 +111,7 @@ public class GameMap {
     }
 
 
-    public void joinduiyuan(GameObjectChar gameObjectChar, Chara charaduizhang) {
+    public void joinduiyuan(GameObjectChar gameObjectChar, Chara charaduizhang,ChannelHandlerContext ctx) {
         gameObjectChar.gameMap.leave(gameObjectChar);
         sessionList.remove(gameObjectChar);
         sessionList.add(gameObjectChar);
@@ -137,13 +138,13 @@ public class GameMap {
         gameObjectChar.sendOne(new M65531_0(), list);
 
 
-        Vo_65529_0 vo_65529_0 = GameUtil.a65529(chara);
+        Vo_65529_0 vo_65529_0 = GameUtil.a65529(chara,ctx);
         send(new M65529_0(), vo_65529_0);
 
 
         for (GameObjectChar gameSession : sessionList) {
             if (gameSession.ctx != null && gameSession.chara != null) {
-                vo_65529_0 = GameUtil.a65529(gameSession.chara);
+                vo_65529_0 = GameUtil.a65529(gameSession.chara,ctx);
                 gameObjectChar.sendOne(new M65529_0(), vo_65529_0);
                 GameUtil.genchongfei(gameSession.chara);
 

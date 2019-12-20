@@ -117,13 +117,13 @@ public class C4192_0 implements GameHandler {
 
 
         //65527 更新啥子玩意一堆；
-        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
         GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
         GameObjectChar.send(new M45388_0(), null);
 
 
-        GameUtil.a65511(chara);
+        GameUtil.a65511(chara,ctx);
 
 
         Vo_41023_0 vo_41023_0 = new Vo_41023_0();
@@ -213,10 +213,10 @@ public class C4192_0 implements GameHandler {
         GameObjectChar.send(new M65525_0(), chara.backpack);
 
 
-        session.gameMap.join(session);
+        session.gameMap.join(session,ctx);
 
 
-        GameUtil.a65511(chara);
+        GameUtil.a65511(chara,ctx);
 
         //        拥有的守护
 

@@ -40,7 +40,7 @@ public class C28_0 implements GameHandler {
             session.gameTeam = GameObjectChar.getGameObjectChar().gameTeam;
         }
 //        session1.gameMap.join();
-        GameObjectChar.getGameObjectChar().gameMap.joinduiyuan(GameObjectChar.getGameObjectChar(), session1.chara);
+        GameObjectChar.getGameObjectChar().gameMap.joinduiyuan(GameObjectChar.getGameObjectChar(), session1.chara,ctx);
 
         for (int i = 0; i < GameObjectChar.getGameObjectChar().gameTeam.zhanliduiyuan.size(); i++) {
             GameObjectChar session = GameObjectCharMng.getGameObjectChar(GameObjectChar.getGameObjectChar().gameTeam.zhanliduiyuan.get(i).id);

@@ -29,7 +29,7 @@ public class C8318_0 implements GameHandler {
         } else {
             chara.gender += money;
         }
-        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
         GameObjectChar.send(new M65527_0(), listVo_65527_0);
         Vo_20481_0 vo_20481_0 = new Vo_20481_0();
         vo_20481_0.msg = "#成功存入#cBA55DC" + money + "#n文钱#n。";

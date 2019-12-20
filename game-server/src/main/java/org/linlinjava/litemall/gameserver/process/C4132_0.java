@@ -75,7 +75,7 @@ public class C4132_0 implements GameHandler {
             vo_24505_0 = GameUtil.a24505(chara1);
             GameObjectChar.send(new M24505_0(), vo_24505_0);
 
-            Vo_65529_0 vo_65529_0 = GameUtil.a65529(chara1);
+            Vo_65529_0 vo_65529_0 = GameUtil.a65529(chara1,ctx);
             GameObjectChar.send(new M65529_0(), vo_65529_0);
 
 
@@ -110,7 +110,7 @@ public class C4132_0 implements GameHandler {
             vo_24505_0 = GameUtil.a24505(chara);
             GameObjectCharMng.getGameObjectChar(chara1.id).sendOne(new M24505_0(), vo_24505_0);
 
-            vo_65529_0 = GameUtil.a65529(chara);
+            vo_65529_0 = GameUtil.a65529(chara,ctx);
             GameObjectCharMng.getGameObjectChar(chara1.id).sendOne(new M65529_0(), vo_65529_0);
 
             vo_61671_0 = new Vo_61671_0();
@@ -214,7 +214,7 @@ public class C4132_0 implements GameHandler {
             vo_61671_0.list.add(5);
             GameObjectChar.send(new M61671_0(), vo_61671_0);
 
-            Vo_65529_0 vo_65529_0 = GameUtil.a65529(chara);
+            Vo_65529_0 vo_65529_0 = GameUtil.a65529(chara,ctx);
             GameObjectChar.send(new M65529_0(), vo_65529_0);
 
             vo_61671_0 = new Vo_61671_0();

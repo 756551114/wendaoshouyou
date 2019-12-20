@@ -51,7 +51,7 @@ public class C8236_0 implements GameHandler {
                     if (chara.extra_mana > 90000000) {
                         chara.extra_mana = 90000000;
                     }
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                     GameUtil.removemunber(chara, "血池", 1);
                 }
@@ -60,7 +60,7 @@ public class C8236_0 implements GameHandler {
                     if (chara.extra_mana > 90000000) {
                         chara.extra_mana = 90000000;
                     }
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                     GameUtil.removemunber(chara, "中级血池", 1);
 
@@ -70,7 +70,7 @@ public class C8236_0 implements GameHandler {
                     if (chara.extra_mana > 90000000) {
                         chara.extra_mana = 90000000;
                     }
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                     GameUtil.removemunber(chara, "高级血池", 1);
                 }
@@ -79,7 +79,7 @@ public class C8236_0 implements GameHandler {
                     if (chara.have_coin_pwd > 90000000) {
                         chara.have_coin_pwd = 90000000;
                     }
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                     GameUtil.removemunber(chara, "灵池", 1);
                 }
@@ -88,7 +88,7 @@ public class C8236_0 implements GameHandler {
                     if (chara.have_coin_pwd > 90000000) {
                         chara.have_coin_pwd = 90000000;
                     }
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                     GameUtil.removemunber(chara, "中级灵池", 1);
                 }
@@ -97,7 +97,7 @@ public class C8236_0 implements GameHandler {
                     if (chara.have_coin_pwd > 90000000) {
                         chara.have_coin_pwd = 90000000;
                     }
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                     GameUtil.removemunber(chara, "高级灵池", 1);
                 }
@@ -106,7 +106,7 @@ public class C8236_0 implements GameHandler {
                     if (chara.use_skill_d > 90000000) {
                         chara.use_skill_d = 90000000;
                     }
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                     GameUtil.removemunber(chara, "驯兽诀", 1);
                 }
@@ -117,7 +117,7 @@ public class C8236_0 implements GameHandler {
                     if (chara.enable_double_points > 12000) {
                         chara.enable_double_points = 12000;
                     }
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                     GameUtil.removemunber(chara, "超级仙风散", 1);
 
@@ -132,7 +132,7 @@ public class C8236_0 implements GameHandler {
                     if (chara.enable_shenmu_points > 8000) {
                         chara.enable_shenmu_points = 8000;
                     }
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                     GameUtil.removemunber(chara, "神木鼎", 1);
 
@@ -147,7 +147,7 @@ public class C8236_0 implements GameHandler {
                     if (chara.extra_skill > 12000) {
                         chara.extra_skill = 12000;
                     }
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                     GameUtil.removemunber(chara, "紫气鸿蒙", 1);
                     Vo_20481_0 vo_20481_0 = new Vo_20481_0();
@@ -161,7 +161,7 @@ public class C8236_0 implements GameHandler {
                     if (chara.chushi_ex > 4000) {
                         chara.chushi_ex = 4000;
                     }
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                     GameUtil.removemunber(chara, "如意刷到令", 1);
                     Vo_20481_0 vo_20481_0 = new Vo_20481_0();
@@ -175,7 +175,7 @@ public class C8236_0 implements GameHandler {
                     if (chara.fetch_nice > 4000) {
                         chara.fetch_nice = 4000;
                     }
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                     GameUtil.removemunber(chara, "急急如律令", 1);
                     Vo_20481_0 vo_20481_0 = new Vo_20481_0();
@@ -189,7 +189,7 @@ public class C8236_0 implements GameHandler {
                     if (chara.shuadaochongfeng_san > 12000) {
                         chara.shuadaochongfeng_san = 12000;
                     }
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                     GameUtil.removemunber(chara, "宠风散", 1);
                     Vo_20481_0 vo_20481_0 = new Vo_20481_0();
@@ -204,7 +204,7 @@ public class C8236_0 implements GameHandler {
                     if (chara.use_skill_d < 0) {
                         chara.use_skill_d = 3000000;
                     }
-                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                    ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                     GameObjectChar.send(new M65527_0(), listVo_65527_0);
                     GameUtil.removemunber(chara, "高级驯兽诀", 1);
                 }

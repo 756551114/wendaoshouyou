@@ -35,7 +35,7 @@ public class C4248 implements GameHandler {
         chara1.mapid = chara.mapid;
         chara1.mapName = chara.mapName;
 
-        GameLine.getGameMap(chara.line, chara.mapName).joinduiyuan(GameObjectCharMng.getGameObjectChar(chara1.id), chara);
+        GameLine.getGameMap(chara.line, chara.mapName).joinduiyuan(GameObjectCharMng.getGameObjectChar(chara1.id), chara,ctx);
 
         for (int i = 0; i < chara.npcchubao.size(); i++) {
             if (chara1.mapid == chara.npcchubao.get(i).mapid) {

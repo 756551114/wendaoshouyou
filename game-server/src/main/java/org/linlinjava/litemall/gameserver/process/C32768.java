@@ -39,7 +39,7 @@ public class C32768 implements GameHandler {
         if (mapid == 38004) {
             return;
         } else {
-              GameLine.getGameMap(chara.line, mapid).join(GameObjectChar.getGameObjectChar());
+              GameLine.getGameMap(chara.line, mapid).join(GameObjectChar.getGameObjectChar(),ctx);
 //          }
         }
 
@@ -72,7 +72,7 @@ public class C32768 implements GameHandler {
 
 
         if (chara.current_task.equals("主线—浮生若梦_s19") && mapid == 5000) {
-            GameUtil.renwujiangli(chara);
+            GameUtil.renwujiangli(chara,ctx);
             chara.current_task = GameUtil.nextrenw(chara.current_task);
             Renwu tasks = GameData.that.baseRenwuService.findOneByCurrentTask(chara.current_task);
 
@@ -81,7 +81,7 @@ public class C32768 implements GameHandler {
             GameObjectChar.send(new M61553_0(), vo_61553_0);
         }
         if (chara.current_task.equals("主线—浮生若梦_s21") && (mapid == 10000 || mapid == 14000 || mapid == 15000 || mapid == 13000 || mapid == 16000)) {
-            GameUtil.renwujiangli(chara);
+            GameUtil.renwujiangli(chara,ctx);
             chara.current_task = GameUtil.nextrenw(chara.current_task);
             Renwu tasks = GameData.that.baseRenwuService.findOneByCurrentTask(chara.current_task);
 

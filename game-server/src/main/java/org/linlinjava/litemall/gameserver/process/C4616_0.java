@@ -44,7 +44,7 @@ public class C4616_0 implements GameHandler {
             vo_11713_0.show = 0;
             GameObjectChar.send(new M11713_0(), vo_11713_0);
         }
-        FightManager.addRequest(fightContainer,fr);
+        FightManager.addRequest(fightContainer,fr,ctx);
 
     }
 

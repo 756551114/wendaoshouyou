@@ -81,7 +81,7 @@ public class C45607_0 implements GameHandler {
         vo_41505_0.type = "fasion_effect_view";
         GameObjectChar.send(new M41505_0(), vo_41505_0);
 
-        Vo_65529_0 vo_65529_0 = GameUtil.a65529(chara);
+        Vo_65529_0 vo_65529_0 = GameUtil.a65529(chara,ctx);
         GameObjectChar.send(new M65529_0(), vo_65529_0);
 
     }

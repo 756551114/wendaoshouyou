@@ -43,47 +43,47 @@ public class C45385_0 implements GameHandler {
 
         if (1 == type) {
             chara.shadow_self -= 1;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
 
             String[] strings = LuckDrawUtils.luckDraw(false);
-            huodechoujiang(strings, chara);
+            huodechoujiang(strings, chara,ctx);
 
         }
 
         if (3 == type) {
             for (int i = 0; i < 10; i++) {
                 chara.shadow_self -= 1;
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                 GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
 
                 String[] strings = LuckDrawUtils.luckDraw(false);
-                huodechoujiang(strings, chara);
+                huodechoujiang(strings, chara,ctx);
             }
         }
 
         if (2 == type) {
 
             chara.shadow_self -= 10;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
 
             String[] strings = LuckDrawUtils.luckDraw(true);
-            huodechoujiang(strings, chara);
+            huodechoujiang(strings, chara,ctx);
         }
 
         if (4 == type) {
             for (int i = 0; i < 10; i++) {
                 chara.shadow_self -= 10;
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                 GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
 
                 String[] strings = LuckDrawUtils.luckDraw(true);
-                huodechoujiang(strings, chara);
+                huodechoujiang(strings, chara,ctx);
             }
 
         }
@@ -97,11 +97,11 @@ public class C45385_0 implements GameHandler {
 
     }
 
-    public void huodechoujiang(String[] strings, Chara chara) {
+    public void huodechoujiang(String[] strings, Chara chara, ChannelHandlerContext ctx) {
         if (strings[1].equals("变异")) {
             Pet pet = GameData.that.basePetService.findOneByName(strings[0]);
             Petbeibao petbeibao = new Petbeibao();
-            petbeibao.PetCreate(pet, chara, 0, 3);
+            petbeibao.PetCreate(pet, chara, 0, 3,ctx);
             List<Petbeibao> list = new ArrayList<>();
             chara.pets.add(petbeibao);
             list.add(petbeibao);
@@ -110,7 +110,7 @@ public class C45385_0 implements GameHandler {
         if (strings[1].equals("神兽")) {
             Pet pet = GameData.that.basePetService.findOneByName(strings[0]);
             Petbeibao petbeibao = new Petbeibao();
-            petbeibao.PetCreate(pet, chara, 0, 4);
+            petbeibao.PetCreate(pet, chara, 0, 4,ctx);
             List<Petbeibao> list = new ArrayList<>();
             chara.pets.add(petbeibao);
             list.add(petbeibao);
@@ -120,7 +120,7 @@ public class C45385_0 implements GameHandler {
             int jieshu = stageMounts(strings[0]);
             Pet pet = GameData.that.basePetService.findOneByName(strings[0]);
             Petbeibao petbeibao = new Petbeibao();
-            petbeibao.PetCreate(pet, chara, 0, 2);
+            petbeibao.PetCreate(pet, chara, 0, 2,ctx);
             List<Petbeibao> list = new ArrayList<>();
             chara.pets.add(petbeibao);
             list.add(petbeibao);

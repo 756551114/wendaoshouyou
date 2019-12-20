@@ -79,7 +79,7 @@ public class C8284_0 implements GameHandler {
 
         Pet pet = GameData.that.basePetService.findOneByName("仙阳剑");
         Petbeibao petbeibao = new Petbeibao();
-        petbeibao.PetCreate(pet, chara, 0, 2);
+        petbeibao.PetCreate(pet, chara, 0, 2,ctx);
         List<Petbeibao> list = new ArrayList<>();
         chara.pets.add(petbeibao);
         list.add(petbeibao);

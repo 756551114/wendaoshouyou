@@ -12,6 +12,7 @@ import org.linlinjava.litemall.gameserver.data.write.M65507_0;
 import org.linlinjava.litemall.gameserver.domain.Chara;
 import org.linlinjava.litemall.gameserver.domain.PetShuXing;
 import org.linlinjava.litemall.gameserver.domain.Petbeibao;
+import org.linlinjava.litemall.gameserver.fight.VipAddUils;
 import org.linlinjava.litemall.gameserver.game.GameObjectChar;
 import org.springframework.stereotype.Service;
 import org.linlinjava.litemall.gameserver.data.GameReadTool;
@@ -79,7 +80,7 @@ public class C8254_0 implements GameHandler {
                 GameObjectChar.send(new M20481_0(), vo_20481_0);
             } else {
                 chara.extra_life = chara.extra_life - (-zong) * fen;
-                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+                ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
                 GameObjectChar.send(new M65527_0(), listVo_65527_0);
             }
         }
@@ -101,7 +102,7 @@ public class C8254_0 implements GameHandler {
                 chara.stamina = chara.stamina - count;
             }
 //        BasicAttributesUtils.shuxing(chara);
-            ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 vo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), vo_65527_0);
 
         } else {
@@ -119,7 +120,7 @@ public class C8254_0 implements GameHandler {
 
                     petShuXing.polar_point = petShuXing.polar_point - count;
 
-                    BasicAttributesUtils.petshuxing(petShuXing);
+                    BasicAttributesUtils.petshuxing(petShuXing, VipAddUils.getUserVipAdd(ctx));
 
 
                     List list = new ArrayList();

@@ -1,8 +1,10 @@
 package org.linlinjava.litemall.gameserver.domain;
 
 import com.cool.wendao.community.model.Pet;
+import io.netty.channel.ChannelHandlerContext;
 import org.linlinjava.litemall.gameserver.data.game.BasicAttributesUtils;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_12023_0;
+import org.linlinjava.litemall.gameserver.fight.VipAddUils;
 import org.linlinjava.litemall.gameserver.process.GameUtil;
 
 import java.util.LinkedList;
@@ -19,7 +21,7 @@ public class Petbeibao {
     public int autofight_skillaction = 2;
     public int autofight_skillno = 2;
 
-    public void PetCreate(Pet pet, Chara chara, int suiji, int penetrate) {
+    public void PetCreate(Pet pet, Chara chara, int suiji, int penetrate, ChannelHandlerContext ctx) {
         PetShuXing shuXing = new PetShuXing();
         shuXing.type = pet.getIcon();
         shuXing.passive_mode = pet.getIcon();
@@ -74,7 +76,7 @@ public class Petbeibao {
         shuXing.life = 1;
         shuXing.speed = 1;
 
-        BasicAttributesUtils.petshuxing(shuXing);
+        BasicAttributesUtils.petshuxing(shuXing, VipAddUils.getUserVipAdd(ctx));
         shuXing.max_life = shuXing.def;
         shuXing.max_mana = shuXing.dex;
         petShuXing.add(shuXing);

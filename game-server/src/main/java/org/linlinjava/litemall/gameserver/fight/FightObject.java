@@ -8,6 +8,7 @@ package org.linlinjava.litemall.gameserver.fight;
 import com.cool.wendao.community.model.Pet;
 import com.cool.wendao.community.model.SkillMonster;
 import com.cool.wendao.community.model.ZhuangbeiInfo;
+import io.netty.channel.ChannelHandlerContext;
 import org.json.JSONObject;
 import org.linlinjava.litemall.gameserver.data.game.BasicAttributesUtils;
 import org.linlinjava.litemall.gameserver.data.game.PetAndHelpSkillUtils;
@@ -162,7 +163,7 @@ public class FightObject {
         return false;
     }
 
-    public FightObject(Chara chara, String name) {
+    public FightObject(Chara chara, String name,ChannelHandlerContext ctx) {
         String strname = name;
         new Petbeibao();
         if (name.contains("土匪")) {
@@ -281,9 +282,9 @@ public class FightObject {
         String names = "土匪#强盗#狐狸妖#鱼妖#蓝精#黄怪#疯魑#狂魍#蟒怪#鸟精#琵琶妖蟒妖#怪王狂狮#鬼王黑熊#鬼王悍猪#混天巨象#兑灵#艮灵#坎灵#离灵#狂灵#疯灵#山神#炎神#雷神#花神#龙神#刀斧手#火扇儒生#红衣剑客#试道元魔";
         Petbeibao petbeibao;
         if (!name.equals("帮凶") && !name.equals("喽啰") && !strname.equals("土匪") && !strname.equals("强盗") && !names.contains(strname)) {
-            petbeibao = this.petCreate(strname);
+            petbeibao = this.petCreate(strname,ctx);
         } else {
-            petbeibao = this.petCreate(strname, chara.level);
+            petbeibao = this.petCreate(strname, chara.level,ctx);
         }
 
         List<SkillMonster> monsters = GameData.that.baseSkillMonsterService.findByName(strname);
@@ -334,9 +335,9 @@ public class FightObject {
         return canbe;
     }
 
-    public FightObject(String name) {
+    public FightObject(String name,ChannelHandlerContext ctx) {
         this.str = name;
-        Petbeibao petbeibao = this.petCreate(name);
+        Petbeibao petbeibao = this.petCreate(name,ctx);
         this.shengming = ((PetShuXing)petbeibao.petShuXing.get(0)).max_life;
         this.mofa = ((PetShuXing)petbeibao.petShuXing.get(0)).max_mana;
         this.max_mofa = ((PetShuXing)petbeibao.petShuXing.get(0)).dex;
@@ -410,7 +411,7 @@ public class FightObject {
         this.rank = 2;
     }
 
-    public Petbeibao petCreate(String name) {
+    public Petbeibao petCreate(String name,ChannelHandlerContext ctx) {
         Pet pet = GameData.that.basePetService.findOneByName(name);
         Petbeibao petbeibao = new Petbeibao();
         PetShuXing shuXing = new PetShuXing();
@@ -471,14 +472,14 @@ public class FightObject {
         int var10000 = polar_point - addpoint;
         shuXing.speed = shuXing.skill + addpoint;
         petbeibao.petShuXing.add(shuXing);
-        BasicAttributesUtils.petshuxing(shuXing);
+        BasicAttributesUtils.petshuxing(shuXing, VipAddUils.getUserVipAdd(ctx));
         shuXing.max_life = shuXing.def;
         shuXing.max_mana = shuXing.dex;
         petbeibao.petShuXing.add(shuXing);
         return petbeibao;
     }
 
-    public Petbeibao petCreate(String name, int level) {
+    public Petbeibao petCreate(String name, int level, ChannelHandlerContext ctx) {
         Pet pet = GameData.that.basePetService.findOneByName(name);
         Petbeibao petbeibao = new Petbeibao();
         PetShuXing shuXing = new PetShuXing();
@@ -537,7 +538,7 @@ public class FightObject {
         int var10000 = polar_point - addpoint;
         shuXing.speed = shuXing.skill + addpoint;
         petbeibao.petShuXing.add(shuXing);
-        BasicAttributesUtils.petshuxing(shuXing);
+        BasicAttributesUtils.petshuxing(shuXing, VipAddUils.getUserVipAdd(ctx));
         shuXing.max_life = shuXing.def;
         shuXing.max_mana = shuXing.dex;
         petbeibao.petShuXing.add(shuXing);
@@ -820,7 +821,7 @@ public class FightObject {
         return true;
     }
 
-    public FightObject(Chara chara, String name, Vo_65529_0 vo_65529_0) {
+    public FightObject(Chara chara, String name, Vo_65529_0 vo_65529_0,ChannelHandlerContext ctx) {
         Random random = new Random();
         String strname = name;
         new Petbeibao();
@@ -889,7 +890,7 @@ public class FightObject {
             name = vo_65529_0.name;
         }
 
-        Petbeibao petbeibao = this.petCreate(strname, vo_65529_0.level);
+        Petbeibao petbeibao = this.petCreate(strname, vo_65529_0.level,ctx);
         List<SkillMonster> monsters = GameData.that.baseSkillMonsterService.findByName(strname);
         String skills = "";
         int i;

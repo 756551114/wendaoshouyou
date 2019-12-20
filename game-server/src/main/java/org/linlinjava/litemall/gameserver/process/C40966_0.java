@@ -17,6 +17,7 @@ import org.linlinjava.litemall.gameserver.data.write.M65527_0;
 import org.linlinjava.litemall.gameserver.domain.Chara;
 import org.linlinjava.litemall.gameserver.domain.PetShuXing;
 import org.linlinjava.litemall.gameserver.domain.Petbeibao;
+import org.linlinjava.litemall.gameserver.fight.VipAddUils;
 import org.linlinjava.litemall.gameserver.game.GameData;
 import org.linlinjava.litemall.gameserver.game.GameObjectChar;
 import org.springframework.stereotype.Service;
@@ -71,14 +72,14 @@ public class C40966_0 implements GameHandler {
 
             shuXing.polar_point = 0;
             List list = new ArrayList();
-            BasicAttributesUtils.petshuxing(shuXing);
+            BasicAttributesUtils.petshuxing(shuXing, VipAddUils.getUserVipAdd(ctx));
             shuXing.max_life = shuXing.def;
             shuXing.max_mana = shuXing.dex;
             list.add(petbeibao);
 //更新技能 没写； //32747   //12023
             GameObjectChar.send(new M65507_0(), list);
             chara.balance = chara.balance - price;
-            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+            ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
             GameObjectChar.send(new M65527_0(), listVo_65527_0);
             Vo_40964_0 vo_40964_0 = new Vo_40964_0();
             vo_40964_0.type = 2;

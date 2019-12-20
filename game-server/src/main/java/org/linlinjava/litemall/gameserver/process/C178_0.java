@@ -15,7 +15,7 @@ public class C178_0 implements GameHandler {
     public void process(ChannelHandlerContext ctx, ByteBuf buff) {
 
         Chara chara = GameObjectChar.getGameObjectChar().chara;
-        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara);
+        ListVo_65527_0 listVo_65527_0 = GameUtil.a65527(chara,ctx);
         GameObjectChar.send(new M65527_0(), listVo_65527_0);
 
 

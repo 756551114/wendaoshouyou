@@ -9,7 +9,9 @@ java -server -Xms64m -Xmx128m -XX:NewRatio=4 -XX:SurvivorRatio=4 -XX:PermSize=64
 <br>
 jvm参数根据自己需求配置<br>
 2.配置文件移除jar包，修改配置文件在jar包同级目录下config下面修改
-<h3>12.20</h3>
+<h3>12.19</h3>
 添加Vip等级，vip等级会随着提高给人物提高属性加成<br>
 配置表为 vip_add add字段表示加成倍率
 <h5>氪金使人变强</h5>
+<h3>12.20</h3>
+移除多余依赖，json 序列化改为马云的fastjson，打包和启动数据大幅度提升

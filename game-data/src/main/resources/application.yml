@@ -5,8 +5,9 @@ spring:
       name: servicedata
     base-package: com.cool.wendao.data.impl
     registry:
+      protocol: nacos
       address: 127.0.0.1
-      port: 2181
+      port: 8848
     protocol:
       name: dubbo
       serialization: hessian2

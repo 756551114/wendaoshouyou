@@ -1,5 +1,5 @@
 $(function(){
-	var account_url="http://new.816wd.com/";
+	var account_url="http://"+url+"/";
 	// 加载当前用户名
 	$("#account").html('您的账号：'+jsObject.getUsername());
 	//账号中心绑定手机

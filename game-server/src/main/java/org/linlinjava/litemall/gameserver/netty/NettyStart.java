@@ -11,11 +11,9 @@ import java.net.InetSocketAddress;
 @Component
 @Log4j2
 public class NettyStart {
+
     @Value("${netty.port}")
     private int port;
-
-    @Value("${netty.ip}")
-    private String ip;
 
     @Autowired
     private GameCore gameCore;
@@ -25,8 +23,7 @@ public class NettyStart {
     private NettyServer server;
 
     public void run()  {
-        InetSocketAddress address = new InetSocketAddress(ip,port);
-        log.info("run .... . ... "+ip);
+        InetSocketAddress address = new InetSocketAddress("0.0.0.0",port);
         server.start(address);
         gameCore.init(server);
     }

@@ -15,7 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Qualifier("serverHandler")
 @ChannelHandler.Sharable
@@ -24,6 +26,15 @@ import java.util.List;
 public class ServerHandler extends ChannelInboundHandlerAdapter {
     public static final AttributeKey<GameObjectChar> akey = AttributeKey.newInstance("session");
 
+    Map<Integer,GameHandler> gameHandlers;
+
+    @Autowired
+    public ServerHandler(List<GameHandler> gameHandlers){
+        this.gameHandlers = new HashMap<>();
+        for (GameHandler gameHandler : gameHandlers) {
+            this.gameHandlers.put(gameHandler.cmd(),gameHandler);
+        }
+    }
 
     /**
      * 黑名单过滤
@@ -52,8 +63,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
 
     }
 
-    @Autowired
-    private List<GameHandler> gameHandlers;
+
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
@@ -70,23 +80,51 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
 
         log.info("封包类型------------------->" + cmd);
 
-        for (GameHandler waitLine : gameHandlers) {
-            if (cmd == waitLine.cmd()) {
-                if (session != null) {
-                    if (session.lock()) {
-                        try {
-                            waitLine.process(ctx, buff);
-                            break;
-                        } finally {
-                            session.unlock();
-                        }
+        GameHandler waitLine = gameHandlers.get(cmd);
+        if(waitLine != null){
+            log.info("waitLine------------------->" + waitLine.getClass().getName());
+            if (session != null) {
+                if (session.lock()) {
+                    try {
+                        waitLine.process(ctx, buff);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    } finally {
+                        session.unlock();
                     }
-                } else {
-                    waitLine.process(ctx, buff);
-                    break;
                 }
+            } else {
+                waitLine.process(ctx, buff);
             }
+        }else{
+            log.error("封包类型{}没有解析类型------------------->", cmd);
         }
+
+//        boolean cos = true;
+//        for (GameHandler waitLine : gameHandlers) {
+//            if (cmd == waitLine.cmd()) {
+//                cos = false;
+//                log.info("waitLine------------------->" + waitLine.getClass().getName());
+//                if (session != null) {
+//                    if (session.lock()) {
+//                        try {
+//                            waitLine.process(ctx, buff);
+//                            break;
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                        } finally {
+//                            session.unlock();
+//                        }
+//                    }
+//                } else {
+//                    waitLine.process(ctx, buff);
+//                    break;
+//                }
+//            }
+//        }
+//        if(cos) {
+//            log.error("封包类型{}没有解析类型------------------->", cmd);
+//        }
     }
 
     @Override

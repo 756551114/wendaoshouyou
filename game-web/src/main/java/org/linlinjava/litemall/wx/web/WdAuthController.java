@@ -6,7 +6,6 @@
 package org.linlinjava.litemall.wx.web;
 
 import cn.hutool.core.util.IdUtil;
-import com.cool.wendao.community.enums.CacheEnum;
 import com.cool.wendao.community.model.Accounts;
 import com.cool.wendao.community.server.BaseAccountsService;
 import com.cool.wendao.community.server.CacheService;
@@ -18,6 +17,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -70,8 +70,15 @@ public class WdAuthController {
     }
 
     @GetMapping({"/vip4/mobile/sdk/register.php"})
-    public Object bindPhone(String account, String pwd, String safe, String check) {
+    public Object bindPhone(String account, String pwd, String safe, String check, HttpSession session) {
         Map<String, Object> data = new HashMap();
+        Object verifyCode = session.getAttribute("verifyCode");
+        if(verifyCode == null || !verifyCode.toString().equals(check)){
+            data.put("IsSuccess", false);
+            data.put("Msg", "验证码异常");
+            return data;
+        }
+
         Accounts accounts = this.baseAccountsService.findOneByName(account);
         if (accounts != null) {
             data.put("IsSuccess", false);
@@ -84,10 +91,10 @@ public class WdAuthController {
             accounts.setPassword(pwd);
             accounts.setKeyword(safe);
             accounts.setCode(check.toUpperCase());
-            String uuid = utest();
-            accounts = this.baseAccountsService.findById(accounts.getId());
-            cacheService.setCache(CacheEnum.USER_TOKEN.getName() + uuid,CacheEnum.USER_TOKEN.getTime(), accounts);
+            accounts.setToken(utest());
             this.baseAccountsService.add(accounts);
+//            accounts = this.baseAccountsService.findById(accounts.getId());
+//            cacheService.setCache(CacheEnum.USER_TOKEN.getName() + uuid,CacheEnum.USER_TOKEN.getTime(), accounts);
         }
 
         return data;
@@ -95,15 +102,20 @@ public class WdAuthController {
 
     public static String json(String body, String arr) {
         String[] strs = body.split("&");
-        Map<String, String> map = new HashMap();
-
-        for (int i = 0; i < strs.length; ++i) {
-            String[] strss = strs[i].split("=");
-            map.put(strss[0], strss[1]);
+        for (String str : strs) {
+            String[] strss = str.split("=");
+            if(arr.equals(strss[0])){
+                try {
+                    return strss[1];
+                } catch (Exception e) {
+                    return "";
+                }
+            }
         }
 
-        return (String) map.get(arr);
+        return "";
     }
+
 
     @PostMapping({"/vip4/login/login.php"})
     public Object login(@RequestBody String body) {
@@ -122,14 +134,14 @@ public class WdAuthController {
             data.put("type", "10001");
         } else {
 
-            String uuid = utest();
+//            String uuid = utest();
             accounts = this.baseAccountsService.findById(accounts.getId());
-            cacheService.setCache(CacheEnum.USER_TOKEN.getName() + uuid, CacheEnum.USER_TOKEN.getTime(),accounts);
+//            cacheService.setCache(CacheEnum.USER_TOKEN.getName() + uuid, CacheEnum.USER_TOKEN.getTime(),accounts);
 
             Map<String, Object> message = new HashMap();
-            message.put("token", uuid);
+            message.put("token", accounts.getToken());
             message.put("realNameAuth", "1");
-            message.put("sid", uuid);
+            message.put("sid",  accounts.getToken());
             message.put("adult", "1");
             message.put("age", 32);
             message.put("bind", "1");
@@ -159,14 +171,14 @@ public class WdAuthController {
             data.put("type", "10001");
         } else {
 
-            String uuid = utest();
+//            String uuid = utest();
             accounts = this.baseAccountsService.findById(accounts.getId());
-            cacheService.setCache(CacheEnum.USER_TOKEN.getName() + uuid, CacheEnum.USER_TOKEN.getTime(),accounts);
+//            cacheService.setCache(CacheEnum.USER_TOKEN.getName() + uuid, CacheEnum.USER_TOKEN.getTime(),accounts);
 
             Map<String, Object> message = new HashMap();
-            message.put("token", uuid);
+            message.put("token", accounts.getToken());
             message.put("realNameAuth", "1");
-            message.put("sid", uuid);
+            message.put("sid", accounts.getToken());
             message.put("adult", "1");
             message.put("age", 32);
             message.put("bind", "1");

@@ -20,36 +20,21 @@ public class C9040_0 implements GameHandler {
     private String ip;
     @Override
     public void process(ChannelHandlerContext ctx, ByteBuf buff) {
-
         String type = GameReadTool.readString(buff);
-
         String account = GameReadTool.readString(buff);
-        log.debug("account : " + account);
-
+        log.info("account : " + account);
         String password = GameReadTool.readString(buff);
-
         String mac = GameReadTool.readString(buff);
-
         String aaass = GameReadTool.readString(buff);
-
         String lock = GameReadTool.readString(buff);
-
         String dist = GameReadTool.readString(buff);
-
         int from3rdSdk = GameReadTool.readByte(buff);
-
         String channel = GameReadTool.readString(buff);
-
         String os_ver = GameReadTool.readString(buff);
-
         String term_info = GameReadTool.readString(buff);
-
         String imei = GameReadTool.readString(buff);
-
         String client_original_ver = GameReadTool.readString(buff);
-
         int not_replace = GameReadTool.readByte(buff);
-
         final int size = GameObjectCharMng.getAll().size();
         Vo_13143_0 vo_13143_0 = new Vo_13143_0();
         vo_13143_0.result = 1;
@@ -62,10 +47,9 @@ public class C9040_0 implements GameHandler {
         vo_13143_0.serverName = "一战功成";
         vo_13143_0.serverStatus = 3;
         vo_13143_0.msg = "允许该账号登录";
-
-
         final ByteBuf write = new M13143_0().write(vo_13143_0);
         ctx.writeAndFlush(write);
+        log.info("允许该账号登录 : ");
     }
 
     @Override

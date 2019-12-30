@@ -15,12 +15,15 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    password: admin123456
-    username: admin
-    url: jdbc:mysql://127.0.0.1/gserver?useUnicode=true&serverTimezone=UTC&allowPublicKeyRetrieval=true&verifyServerCertificate=false&useSSL=false&characterEncoding=UTF-8&useAffectedRows=true
+#    password: admin123456
+#    username: admin
+#    url: jdbc:mysql://113.142.69.199/gserver?useUnicode=true&serverTimezone=UTC&allowPublicKeyRetrieval=true&verifyServerCertificate=false&useSSL=false&characterEncoding=UTF-8&useAffectedRows=true
+    password: root
+    username: root
+    url: jdbc:mysql://127.0.0.1/gs?useUnicode=true&serverTimezone=UTC&allowPublicKeyRetrieval=true&verifyServerCertificate=false&useSSL=false&characterEncoding=UTF-8&useAffectedRows=true
 logging:
   level:
-    root: error
+    root: info
 mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

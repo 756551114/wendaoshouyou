@@ -4,7 +4,7 @@ $(function () {
     // 加载当前用户名
     $("#account").html('当前登录账号：' + jsObject.getUsername());
     // 根目录
-    var login_url = "http://192.168.1.188:81/vip4/mobile/sdk/";
+    var login_url = "http://"+url+"/vip4/mobile/sdk/";
     // 注册方式
     var mode;
     var type;

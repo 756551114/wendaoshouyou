@@ -1,10 +1,6 @@
 spring:
   messages:
     encoding: UTF-8
-  thymeleaf:
-    mode: HTML5
-    encoding: UTF-8
-    cache: false
   dubbo:
     application:
       name: web
@@ -24,5 +20,7 @@ server:
 netty:
   port: 14721
   ip: 0.0.0.0
-  url: s.fiuwbjadshf.com
+  url: coolwendao.xicp.io
+groups: 梦想问道
+groupsL: '["一战功成"] = { aaa = "coolwendao.xicp.io:14721", group = "梦想问道", state = 4, isNew = true },'
 

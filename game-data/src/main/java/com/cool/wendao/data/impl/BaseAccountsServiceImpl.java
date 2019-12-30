@@ -2,7 +2,6 @@ package com.cool.wendao.data.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.cool.wendao.community.core.Deleted;
-import com.cool.wendao.community.enums.CacheEnum;
 import com.cool.wendao.community.model.Accounts;
 import com.cool.wendao.community.server.BaseAccountsService;
 import com.cool.wendao.community.server.CacheService;
@@ -48,10 +47,8 @@ public class BaseAccountsServiceImpl implements BaseAccountsService {
 
     @Override
     public Accounts findOneByToken(String token) {
-        Accounts cache = cacheService.getCache(CacheEnum.USER_TOKEN.getName() + token, Accounts.class);
-        if (cache == null) {
-            return null;
-        }
-        return accountsMapper.selectByPrimaryKey(cache.getId());
+        Example example = new Example(Accounts.class);
+        example.createCriteria().andCondition("deleted=", Deleted.NOT_DELETED.value()).andCondition("token=", token);
+        return accountsMapper.selectOneByExample(example);
     }
 }

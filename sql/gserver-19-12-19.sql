@@ -2809,7 +2809,7 @@ INSERT INTO `pack_modification` VALUES (45, '太小极·永久', '50203', '太�
 DROP TABLE IF EXISTS `pet`;
 CREATE TABLE `pet`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `index` int(11) NULL DEFAULT NULL COMMENT '对应图鉴的位置',
+  `t_index` int(11) NULL DEFAULT NULL COMMENT '对应图鉴的位置',
   `level_req` int(11) NULL DEFAULT NULL COMMENT '携带等级',
   `life` int(11) NULL DEFAULT NULL COMMENT '血气成长',
   `mana` int(11) NULL DEFAULT NULL COMMENT '法力成长',

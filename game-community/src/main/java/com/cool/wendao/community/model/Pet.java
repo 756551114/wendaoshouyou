@@ -8,6 +8,7 @@ package com.cool.wendao.community.model;
 import com.cool.wendao.community.core.BaseModel;
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.Table;
 
 
@@ -21,6 +22,7 @@ public class Pet extends BaseModel {
     /**
      * 对应图鉴的位置
      */
+    @Column(name="t_index")
     private Integer index;
 
     /**

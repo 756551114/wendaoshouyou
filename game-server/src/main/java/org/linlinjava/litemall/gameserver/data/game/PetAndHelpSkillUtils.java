@@ -324,7 +324,7 @@ public class PetAndHelpSkillUtils {
     private static final Logger log = LoggerFactory.getLogger(PetAndHelpSkillUtils.class);
 
     private static BufferedReader getResFile() {
-        Resource resource = resourceLoader.getResource("classpath:static/user_skill.json");
+        Resource resource = resourceLoader.getResource("classpath:json/user_skill.json");
         BufferedReader br = null;
         try {
             final InputStream inputStream = resource.getInputStream();

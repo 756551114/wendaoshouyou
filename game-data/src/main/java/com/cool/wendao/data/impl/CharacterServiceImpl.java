@@ -38,10 +38,11 @@ public class CharacterServiceImpl implements CharacterService {
     }
 
     @Override
-    public int add(Characters characters) {
+    public Characters add(Characters characters) {
         characters.setUpdateTime(new Date());
         characters.setAddTime(new Date());
-        return charactersMapper.insertSelective(characters);
+        charactersMapper.insertSelective(characters);
+        return characters;
     }
 
     @Override

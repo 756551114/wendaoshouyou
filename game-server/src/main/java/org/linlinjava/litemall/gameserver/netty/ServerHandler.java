@@ -78,11 +78,14 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
         GameReadTool.readShort(buff);
         int cmd = GameReadTool.readShort(buff);
 
-        log.info("封包类型------------------->" + cmd);
-
+        if(cmd != 4274) {
+            log.info("封包类型------------------->" + cmd);
+        }
         GameHandler waitLine = gameHandlers.get(cmd);
         if(waitLine != null){
-            log.info("waitLine------------------->" + waitLine.getClass().getName());
+            if(cmd != 4274) {
+                log.info("waitLine------------------->" + waitLine.getClass().getName());
+            }
             if (session != null) {
                 if (session.lock()) {
                     try {

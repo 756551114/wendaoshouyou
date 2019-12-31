@@ -11,7 +11,7 @@ public interface CharacterService {
 
     List<Characters> findByAccountId(Integer accountid);
 
-    int add(Characters characters);
+    Characters add(Characters characters);
 
     Characters finOnByGiD(String gid);
 

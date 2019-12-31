@@ -1,5 +1,7 @@
 package org.linlinjava.litemall.gameserver.process;
 
+import cn.hutool.core.util.IdUtil;
+import com.alibaba.fastjson.JSONObject;
 import com.cool.wendao.community.model.Accounts;
 import com.cool.wendao.community.model.Characters;
 import com.cool.wendao.community.model.Pet;
@@ -22,7 +24,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class C8284_0 implements GameHandler {
@@ -44,7 +45,7 @@ public class C8284_0 implements GameHandler {
         final GameObjectChar session = GameObjectChar.getGameObjectChar();
         Accounts accounts = GameData.that.baseAccountsService.findById(session.accountid);
 
-        String uuid = UUID.randomUUID().toString();
+        String uuid = IdUtil.fastUUID();
         Vo_8285_0 vo_8285_0 = new Vo_8285_0();
         vo_8285_0.name = char_name;
         vo_8285_0.gid = uuid;
@@ -63,7 +64,7 @@ public class C8284_0 implements GameHandler {
 //        chara.x = 86;
 //        chara.y = 85;
         // TODO more
-        final Characters characters = new Characters();
+        Characters characters = new Characters();
         characters.setName(char_name);
         characters.setMenpai(chara.menpai);
         characters.setGid(uuid);
@@ -71,7 +72,8 @@ public class C8284_0 implements GameHandler {
         characters.setAccountId(session.accountid);
         //TODO more
 
-        GameData.that.characterService.add(characters);
+        characters = GameData.that.characterService.add(characters);
+
 
         chara.id = characters.getId();
         chara.allId = chara.id * 100000;

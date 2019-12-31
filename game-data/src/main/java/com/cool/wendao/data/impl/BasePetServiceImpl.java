@@ -18,6 +18,8 @@ public class BasePetServiceImpl implements BasePetService {
 
     @Override
     public Pet findOneByName(String name) {
+        System.out.println("-name------------>" + name);
+
         Example example = new Example(Pet.class);
         example.createCriteria().andCondition("deleted=", Deleted.NOT_DELETED.value()).andCondition("name=",name);
         return petMapper.selectOneByExample(example);

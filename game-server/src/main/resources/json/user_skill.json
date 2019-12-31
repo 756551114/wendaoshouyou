@@ -1,0 +1,3577 @@
+[
+  {
+    "metal": 1,
+    "skillName": "力破千钧",
+    "skillNo": "501",
+    "skillType": "WS",
+    "describe": "物攻",
+    "skill_attrib": "1170",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 10
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 4
+      }
+    ]
+  },
+  {
+    "metal": 1,
+    "skillName": "金光乍现",
+    "skillNo": "11",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ]
+  },
+  {
+    "metal": 1,
+    "skillName": "刀光剑影",
+    "skillNo": "12",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 2,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 29,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 30,
+        "skillLevel": 2147483647,
+        "skillNum": 2
+      }
+    ]
+  },
+  {
+    "metal": 1,
+    "skillName": "金虹贯日",
+    "skillNo": "13",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 3,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ]
+  },
+  {
+    "metal": 1,
+    "skillName": "流光异彩",
+    "skillNo": "14",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 4,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ]
+  },
+  {
+    "metal": 1,
+    "skillName": "逆天残刃",
+    "skillNo": "15",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 5,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ]
+  },
+  {
+    "metal": 1,
+    "skillName": "流连忘返",
+    "skillNo": "21",
+    "skillType": "ZA",
+    "describe": "遗忘",
+    "skill_attrib": "146",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 79,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 1,
+    "skillName": "得意忘形",
+    "skillNo": "22",
+    "skillType": "ZA",
+    "describe": "遗忘",
+    "skill_attrib": "146",
+    "skillIndex": 2,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 2147483647,
+        "skillNum": 2
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 1,
+    "skillName": "如痴如醉",
+    "skillNo": "23",
+    "skillType": "ZA",
+    "describe": "遗忘",
+    "skill_attrib": "146",
+    "skillIndex": 3,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 119,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 179,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 180,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 1,
+    "skillName": "如梦初醒",
+    "skillNo": "24",
+    "skillType": "ZA",
+    "describe": "遗忘",
+    "skill_attrib": "146",
+    "skillIndex": 4,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 79,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 1,
+    "skillName": "恍若隔世",
+    "skillNo": "25",
+    "skillType": "ZA",
+    "describe": "遗忘",
+    "skill_attrib": "146",
+    "skillIndex": 5,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 79,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 159,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 159,
+        "skillRound": 4
+      }
+    ]
+  },
+  {
+    "metal": 1,
+    "skillName": "天生神力",
+    "skillNo": "31",
+    "skillType": "FZ",
+    "describe": "加攻击力",
+    "skill_attrib": "138",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 19,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 20,
+        "skillLevel": 49,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 50,
+        "skillLevel": 89,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 90,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 1,
+    "skillName": "气冲斗牛",
+    "skillNo": "32",
+    "skillType": "FZ",
+    "describe": "加攻击力",
+    "skill_attrib": "138",
+    "skillIndex": 2,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 2147483647,
+        "skillNum": 2
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 29,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 30,
+        "skillLevel": 69,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 70,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 1,
+    "skillName": "九牛二虎",
+    "skillNo": "33",
+    "skillType": "FZ",
+    "describe": "加攻击力",
+    "skill_attrib": "138",
+    "skillIndex": 3,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 1,
+    "skillName": "如虎添翼",
+    "skillNo": "34",
+    "skillType": "FZ",
+    "describe": "加攻击力",
+    "skill_attrib": "138",
+    "skillIndex": 4,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 89,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 90,
+        "skillLevel": 129,
+        "skillRound": 5
+      },
+      {
+        "skillLevelMin": 130,
+        "skillLevel": 169,
+        "skillRound": 6
+      },
+      {
+        "skillLevelMin": 170,
+        "skillLevel": 2147483647,
+        "skillRound": 7
+      }
+    ]
+  },
+  {
+    "metal": 1,
+    "skillName": "力挽狂澜",
+    "skillNo": "35",
+    "skillType": "FZ",
+    "describe": "加攻击力",
+    "skill_attrib": "138",
+    "skillIndex": 5,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 79,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 119,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 89,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 90,
+        "skillLevel": 139,
+        "skillRound": 5
+      },
+      {
+        "skillLevelMin": 140,
+        "skillLevel": 179,
+        "skillRound": 6
+      },
+      {
+        "skillLevelMin": 180,
+        "skillLevel": 2147483647,
+        "skillRound": 7
+      }
+    ]
+  },
+  {
+    "metal": 1,
+    "skillName": "神术护体",
+    "skillNo": "301",
+    "skillType": "BD",
+    "describe": "神术护体",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 1,
+    "skillName": "修道法术",
+    "skillNo": "302",
+    "skillType": "BD",
+    "describe": "修道法术",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 1,
+    "skillName": "天书魔引",
+    "skillNo": "魔引",
+    "skillType": "TS",
+    "describe": "魔引",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 1,
+    "skillName": "天书青木",
+    "skillNo": "青木",
+    "skillType": "TS",
+    "describe": "青木",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 1,
+    "skillName": "天书烈炎",
+    "skillNo": "烈炎",
+    "skillType": "TS",
+    "describe": "烈炎",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 1,
+    "skillName": "天书狂暴",
+    "skillNo": "狂暴",
+    "skillType": "TS",
+    "describe": "狂暴",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 1,
+    "skillName": "天书碎石",
+    "skillNo": "碎石",
+    "skillType": "TS",
+    "describe": "碎石",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 1,
+    "skillName": "天书惊雷",
+    "skillNo": "惊雷",
+    "skillType": "TS",
+    "describe": "惊雷",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 1,
+    "skillName": "天书惊雷",
+    "skillNo": "惊雷",
+    "skillType": "TS",
+    "describe": "惊雷",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 1,
+    "skillName": "天书云体",
+    "skillNo": "云体",
+    "skillType": "TS",
+    "describe": "云体",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 1,
+    "skillName": "天书尽忠",
+    "skillNo": "尽忠",
+    "skillType": "TS",
+    "describe": "尽忠",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 1,
+    "skillName": "天书先风",
+    "skillNo": "先风",
+    "skillType": "TS",
+    "describe": "先风",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 1,
+    "skillName": "天书怒击",
+    "skillNo": "怒击",
+    "skillType": "TS",
+    "describe": "怒击",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 1,
+    "skillName": "天书修罗",
+    "skillNo": "修罗术",
+    "skillType": "TS",
+    "describe": "修罗术",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 1,
+    "skillName": "天书降魔",
+    "skillNo": "降魔斩",
+    "skillType": "TS",
+    "describe": "降魔斩",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 1,
+    "skillName": "天书寒冰",
+    "skillNo": "寒冰",
+    "skillType": "TS",
+    "describe": "寒冰",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 2,
+    "skillName": "力破千钧",
+    "skillNo": "501",
+    "skillType": "WS",
+    "describe": "物攻",
+    "skill_attrib": "1170",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 4
+      }
+    ]
+  },
+  {
+    "metal": 2,
+    "skillName": "摘叶飞花",
+    "skillNo": "61",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ]
+  },
+  {
+    "metal": 2,
+    "skillName": "飞柳仙矢",
+    "skillNo": "62",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 2,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 29,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 30,
+        "skillLevel": 2147483647,
+        "skillNum": 2
+      }
+    ]
+  },
+  {
+    "metal": 2,
+    "skillName": "盘根错节",
+    "skillNo": "63",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 3,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ]
+  },
+  {
+    "metal": 2,
+    "skillName": "落叶缤纷",
+    "skillNo": "64",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 4,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ]
+  },
+  {
+    "metal": 2,
+    "skillName": "鬼舞枯藤",
+    "skillNo": "65",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 5,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ]
+  },
+  {
+    "metal": 2,
+    "skillName": "见血封喉",
+    "skillNo": "71",
+    "skillType": "ZA",
+    "describe": "中毒",
+    "skill_attrib": "146",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 79,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 2,
+    "skillName": "蛇口蜂针",
+    "skillNo": "72",
+    "skillType": "ZA",
+    "describe": "中毒",
+    "skill_attrib": "146",
+    "skillIndex": 2,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 2147483647,
+        "skillNum": 2
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 2,
+    "skillName": "鹤顶红粉",
+    "skillNo": "73",
+    "skillType": "ZA",
+    "describe": "中毒",
+    "skill_attrib": "146",
+    "skillIndex": 3,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 119,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 179,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 180,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 2,
+    "skillName": "蝎尾蛇涎",
+    "skillNo": "74",
+    "skillType": "ZA",
+    "describe": "中毒",
+    "skill_attrib": "146",
+    "skillIndex": 4,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 79,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 2,
+    "skillName": "万蚂噬心",
+    "skillNo": "75",
+    "skillType": "ZA",
+    "describe": "中毒",
+    "skill_attrib": "146",
+    "skillIndex": 5,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 79,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 159,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 159,
+        "skillRound": 4
+      }
+    ]
+  },
+  {
+    "metal": 2,
+    "skillName": "拔苗助长",
+    "skillNo": "81",
+    "skillType": "FZ",
+    "describe": "加气血值和复活效果",
+    "skill_attrib": "138",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 19,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 20,
+        "skillLevel": 49,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 50,
+        "skillLevel": 89,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 90,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 2,
+    "skillName": "火上烧油",
+    "skillNo": "82",
+    "skillType": "FZ",
+    "describe": "加气血值和复活效果",
+    "skill_attrib": "138",
+    "skillIndex": 2,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 2147483647,
+        "skillNum": 2
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 29,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 30,
+        "skillLevel": 69,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 70,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 2,
+    "skillName": "水涨船高",
+    "skillNo": "83",
+    "skillType": "FZ",
+    "describe": "加气血值和复活效果",
+    "skill_attrib": "138",
+    "skillIndex": 3,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 2,
+    "skillName": "红花绿色",
+    "skillNo": "84",
+    "skillType": "FZ",
+    "describe": "加气血值和复活效果",
+    "skill_attrib": "138",
+    "skillIndex": 4,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 89,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 90,
+        "skillLevel": 129,
+        "skillRound": 5
+      },
+      {
+        "skillLevelMin": 130,
+        "skillLevel": 169,
+        "skillRound": 6
+      },
+      {
+        "skillLevelMin": 170,
+        "skillLevel": 2147483647,
+        "skillRound": 7
+      }
+    ]
+  },
+  {
+    "metal": 2,
+    "skillName": "锦上添花",
+    "skillNo": "85",
+    "skillType": "FZ",
+    "describe": "加气血值和复活效果",
+    "skill_attrib": "138",
+    "skillIndex": 5,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 79,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 119,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 89,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 90,
+        "skillLevel": 139,
+        "skillRound": 5
+      },
+      {
+        "skillLevelMin": 140,
+        "skillLevel": 179,
+        "skillRound": 6
+      },
+      {
+        "skillLevelMin": 180,
+        "skillLevel": 2147483647,
+        "skillRound": 7
+      }
+    ]
+  },
+  {
+    "metal": 2,
+    "skillName": "神术护体",
+    "skillNo": "301",
+    "skillType": "BD",
+    "describe": "神术护体",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 2,
+    "skillName": "修道法术",
+    "skillNo": "302",
+    "skillType": "BD",
+    "describe": "修道法术",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 2,
+    "skillName": "天书魔引",
+    "skillNo": "魔引",
+    "skillType": "TS",
+    "describe": "魔引",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 2,
+    "skillName": "天书青木",
+    "skillNo": "青木",
+    "skillType": "TS",
+    "describe": "青木",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 2,
+    "skillName": "天书烈炎",
+    "skillNo": "烈炎",
+    "skillType": "TS",
+    "describe": "烈炎",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 2,
+    "skillName": "天书狂暴",
+    "skillNo": "狂暴",
+    "skillType": "TS",
+    "describe": "狂暴",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 2,
+    "skillName": "天书碎石",
+    "skillNo": "碎石",
+    "skillType": "TS",
+    "describe": "碎石",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 2,
+    "skillName": "天书惊雷",
+    "skillNo": "惊雷",
+    "skillType": "TS",
+    "describe": "惊雷",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 2,
+    "skillName": "天书惊雷",
+    "skillNo": "惊雷",
+    "skillType": "TS",
+    "describe": "惊雷",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 2,
+    "skillName": "天书云体",
+    "skillNo": "云体",
+    "skillType": "TS",
+    "describe": "云体",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 2,
+    "skillName": "天书尽忠",
+    "skillNo": "尽忠",
+    "skillType": "TS",
+    "describe": "尽忠",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 2,
+    "skillName": "天书先风",
+    "skillNo": "先风",
+    "skillType": "TS",
+    "describe": "先风",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 2,
+    "skillName": "天书怒击",
+    "skillNo": "怒击",
+    "skillType": "TS",
+    "describe": "怒击",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 2,
+    "skillName": "天书修罗",
+    "skillNo": "修罗术",
+    "skillType": "TS",
+    "describe": "修罗术",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 2,
+    "skillName": "天书降魔",
+    "skillNo": "降魔斩",
+    "skillType": "TS",
+    "describe": "降魔斩",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 2,
+    "skillName": "天书寒冰",
+    "skillNo": "寒冰",
+    "skillType": "TS",
+    "describe": "寒冰",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 3,
+    "skillName": "力破千钧",
+    "skillNo": "501",
+    "skillType": "WS",
+    "describe": "物攻",
+    "skill_attrib": "1170",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 4
+      }
+    ]
+  },
+  {
+    "metal": 3,
+    "skillName": "滴水穿石",
+    "skillNo": "110",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ]
+  },
+  {
+    "metal": 3,
+    "skillName": "雨恨云愁",
+    "skillNo": "111",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 2,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 29,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 30,
+        "skillLevel": 2147483647,
+        "skillNum": 2
+      }
+    ]
+  },
+  {
+    "metal": 3,
+    "skillName": "悬河泻水",
+    "skillNo": "112",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 3,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ]
+  },
+  {
+    "metal": 3,
+    "skillName": "怒波狂涛",
+    "skillNo": "113",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 4,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ]
+  },
+  {
+    "metal": 3,
+    "skillName": "搅海翻江",
+    "skillNo": "114",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 5,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ]
+  },
+  {
+    "metal": 3,
+    "skillName": "三九严寒",
+    "skillNo": "121",
+    "skillType": "ZA",
+    "describe": "冰冻",
+    "skill_attrib": "146",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 79,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 3,
+    "skillName": "天寒地冻",
+    "skillNo": "122",
+    "skillType": "ZA",
+    "describe": "冰冻",
+    "skill_attrib": "146",
+    "skillIndex": 2,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 2147483647,
+        "skillNum": 2
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 3,
+    "skillName": "冰冻三尺",
+    "skillNo": "123",
+    "skillType": "ZA",
+    "describe": "冰冻",
+    "skill_attrib": "146",
+    "skillIndex": 3,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 119,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 179,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 180,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 3,
+    "skillName": "极地冰寒",
+    "skillNo": "124",
+    "skillType": "ZA",
+    "describe": "冰冻",
+    "skill_attrib": "146",
+    "skillIndex": 4,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 79,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 3,
+    "skillName": "包罗万象",
+    "skillNo": "125",
+    "skillType": "ZA",
+    "describe": "冰冻",
+    "skill_attrib": "146",
+    "skillIndex": 5,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 79,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 159,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 159,
+        "skillRound": 4
+      }
+    ]
+  },
+  {
+    "metal": 3,
+    "skillName": "防微杜渐",
+    "skillNo": "131",
+    "skillType": "FZ",
+    "describe": "加防御和抗障碍能力",
+    "skill_attrib": "138",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 19,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 20,
+        "skillLevel": 49,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 50,
+        "skillLevel": 89,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 90,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 3,
+    "skillName": "铁骨铮铮",
+    "skillNo": "132",
+    "skillType": "FZ",
+    "describe": "加防御和抗障碍能力",
+    "skill_attrib": "138",
+    "skillIndex": 2,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 2147483647,
+        "skillNum": 2
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 29,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 30,
+        "skillLevel": 69,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 70,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 3,
+    "skillName": "兵来将挡",
+    "skillNo": "133",
+    "skillType": "FZ",
+    "describe": "加防御和抗障碍能力",
+    "skill_attrib": "138",
+    "skillIndex": 3,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 3,
+    "skillName": "铜墙铁壁",
+    "skillNo": "134",
+    "skillType": "FZ",
+    "describe": "加防御和抗障碍能力",
+    "skill_attrib": "138",
+    "skillIndex": 4,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 89,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 90,
+        "skillLevel": 129,
+        "skillRound": 5
+      },
+      {
+        "skillLevelMin": 130,
+        "skillLevel": 169,
+        "skillRound": 6
+      },
+      {
+        "skillLevelMin": 170,
+        "skillLevel": 2147483647,
+        "skillRound": 7
+      }
+    ]
+  },
+  {
+    "metal": 3,
+    "skillName": "天地浑元",
+    "skillNo": "135",
+    "skillType": "FZ",
+    "describe": "加防御和抗障碍能力",
+    "skill_attrib": "138",
+    "skillIndex": 5,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 79,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 119,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 89,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 90,
+        "skillLevel": 139,
+        "skillRound": 5
+      },
+      {
+        "skillLevelMin": 140,
+        "skillLevel": 179,
+        "skillRound": 6
+      },
+      {
+        "skillLevelMin": 180,
+        "skillLevel": 2147483647,
+        "skillRound": 7
+      }
+    ]
+  },
+  {
+    "metal": 3,
+    "skillName": "神术护体",
+    "skillNo": "301",
+    "skillType": "BD",
+    "describe": "神术护体",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 3,
+    "skillName": "修道法术",
+    "skillNo": "302",
+    "skillType": "BD",
+    "describe": "修道法术",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 3,
+    "skillName": "天书魔引",
+    "skillNo": "魔引",
+    "skillType": "TS",
+    "describe": "魔引",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 3,
+    "skillName": "天书青木",
+    "skillNo": "青木",
+    "skillType": "TS",
+    "describe": "青木",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 3,
+    "skillName": "天书烈炎",
+    "skillNo": "烈炎",
+    "skillType": "TS",
+    "describe": "烈炎",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 3,
+    "skillName": "天书狂暴",
+    "skillNo": "狂暴",
+    "skillType": "TS",
+    "describe": "狂暴",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 3,
+    "skillName": "天书碎石",
+    "skillNo": "碎石",
+    "skillType": "TS",
+    "describe": "碎石",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 3,
+    "skillName": "天书惊雷",
+    "skillNo": "惊雷",
+    "skillType": "TS",
+    "describe": "惊雷",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 3,
+    "skillName": "天书惊雷",
+    "skillNo": "惊雷",
+    "skillType": "TS",
+    "describe": "惊雷",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 3,
+    "skillName": "天书云体",
+    "skillNo": "云体",
+    "skillType": "TS",
+    "describe": "云体",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 3,
+    "skillName": "天书尽忠",
+    "skillNo": "尽忠",
+    "skillType": "TS",
+    "describe": "尽忠",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 3,
+    "skillName": "天书先风",
+    "skillNo": "先风",
+    "skillType": "TS",
+    "describe": "先风",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 3,
+    "skillName": "天书怒击",
+    "skillNo": "怒击",
+    "skillType": "TS",
+    "describe": "怒击",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 3,
+    "skillName": "天书修罗",
+    "skillNo": "修罗术",
+    "skillType": "TS",
+    "describe": "修罗术",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 3,
+    "skillName": "天书降魔",
+    "skillNo": "降魔斩",
+    "skillType": "TS",
+    "describe": "降魔斩",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 3,
+    "skillName": "天书寒冰",
+    "skillNo": "寒冰",
+    "skillType": "TS",
+    "describe": "寒冰",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 4,
+    "skillName": "力破千钧",
+    "skillNo": "501",
+    "skillType": "WS",
+    "describe": "物攻",
+    "skill_attrib": "1170",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 4
+      }
+    ]
+  },
+  {
+    "metal": 4,
+    "skillName": "举火焚天",
+    "skillNo": "161",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ]
+  },
+  {
+    "metal": 4,
+    "skillName": "星火燎原",
+    "skillNo": "162",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 2,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 29,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 30,
+        "skillLevel": 2147483647,
+        "skillNum": 2
+      }
+    ]
+  },
+  {
+    "metal": 4,
+    "skillName": "焰天火雨",
+    "skillNo": "163",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 3,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ]
+  },
+  {
+    "metal": 4,
+    "skillName": "焦金砾石",
+    "skillNo": "164",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 4,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ]
+  },
+  {
+    "metal": 4,
+    "skillName": "炼狱火海",
+    "skillNo": "165",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 5,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ]
+  },
+  {
+    "metal": 4,
+    "skillName": "心醉神迷",
+    "skillNo": "171",
+    "skillType": "ZA",
+    "describe": "昏睡",
+    "skill_attrib": "146",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 79,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 4,
+    "skillName": "神魂颠倒",
+    "skillNo": "172",
+    "skillType": "ZA",
+    "describe": "昏睡",
+    "skill_attrib": "146",
+    "skillIndex": 2,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 2147483647,
+        "skillNum": 2
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 4,
+    "skillName": "魂不守舍",
+    "skillNo": "173",
+    "skillType": "ZA",
+    "describe": "昏睡",
+    "skill_attrib": "146",
+    "skillIndex": 3,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 119,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 179,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 180,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 4,
+    "skillName": "魂牵梦萦",
+    "skillNo": "174",
+    "skillType": "ZA",
+    "describe": "昏睡",
+    "skill_attrib": "146",
+    "skillIndex": 4,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 79,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 4,
+    "skillName": "魂不附体",
+    "skillNo": "175",
+    "skillType": "ZA",
+    "describe": "昏睡",
+    "skill_attrib": "146",
+    "skillIndex": 5,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 79,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 159,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 159,
+        "skillRound": 4
+      }
+    ]
+  },
+  {
+    "metal": 4,
+    "skillName": "十万火急",
+    "skillNo": "181",
+    "skillType": "FZ",
+    "describe": "加速度",
+    "skill_attrib": "138",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 19,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 20,
+        "skillLevel": 49,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 50,
+        "skillLevel": 89,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 90,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 4,
+    "skillName": "先声夺人",
+    "skillNo": "182",
+    "skillType": "FZ",
+    "describe": "加速度",
+    "skill_attrib": "138",
+    "skillIndex": 2,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 2147483647,
+        "skillNum": 2
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 29,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 30,
+        "skillLevel": 69,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 70,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 4,
+    "skillName": "疾风迅雷",
+    "skillNo": "183",
+    "skillType": "FZ",
+    "describe": "加速度",
+    "skill_attrib": "138",
+    "skillIndex": 3,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 4,
+    "skillName": "风驰电掣",
+    "skillNo": "184",
+    "skillType": "FZ",
+    "describe": "加速度",
+    "skill_attrib": "138",
+    "skillIndex": 4,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 89,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 90,
+        "skillLevel": 129,
+        "skillRound": 5
+      },
+      {
+        "skillLevelMin": 130,
+        "skillLevel": 169,
+        "skillRound": 6
+      },
+      {
+        "skillLevelMin": 170,
+        "skillLevel": 2147483647,
+        "skillRound": 7
+      }
+    ]
+  },
+  {
+    "metal": 4,
+    "skillName": "兵贵神速",
+    "skillNo": "185",
+    "skillType": "FZ",
+    "describe": "加速度",
+    "skill_attrib": "138",
+    "skillIndex": 5,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 79,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 119,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 89,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 90,
+        "skillLevel": 139,
+        "skillRound": 5
+      },
+      {
+        "skillLevelMin": 140,
+        "skillLevel": 179,
+        "skillRound": 6
+      },
+      {
+        "skillLevelMin": 180,
+        "skillLevel": 2147483647,
+        "skillRound": 7
+      }
+    ]
+  },
+  {
+    "metal": 4,
+    "skillName": "神术护体",
+    "skillNo": "301",
+    "skillType": "BD",
+    "describe": "神术护体",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 4,
+    "skillName": "修道法术",
+    "skillNo": "302",
+    "skillType": "BD",
+    "describe": "修道法术",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 4,
+    "skillName": "天书魔引",
+    "skillNo": "魔引",
+    "skillType": "TS",
+    "describe": "魔引",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 4,
+    "skillName": "天书青木",
+    "skillNo": "青木",
+    "skillType": "TS",
+    "describe": "青木",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 4,
+    "skillName": "天书烈炎",
+    "skillNo": "烈炎",
+    "skillType": "TS",
+    "describe": "烈炎",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 4,
+    "skillName": "天书狂暴",
+    "skillNo": "狂暴",
+    "skillType": "TS",
+    "describe": "狂暴",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 4,
+    "skillName": "天书碎石",
+    "skillNo": "碎石",
+    "skillType": "TS",
+    "describe": "碎石",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 4,
+    "skillName": "天书惊雷",
+    "skillNo": "惊雷",
+    "skillType": "TS",
+    "describe": "惊雷",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 4,
+    "skillName": "天书惊雷",
+    "skillNo": "惊雷",
+    "skillType": "TS",
+    "describe": "惊雷",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 4,
+    "skillName": "天书云体",
+    "skillNo": "云体",
+    "skillType": "TS",
+    "describe": "云体",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 4,
+    "skillName": "天书尽忠",
+    "skillNo": "尽忠",
+    "skillType": "TS",
+    "describe": "尽忠",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 4,
+    "skillName": "天书先风",
+    "skillNo": "先风",
+    "skillType": "TS",
+    "describe": "先风",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 4,
+    "skillName": "天书怒击",
+    "skillNo": "怒击",
+    "skillType": "TS",
+    "describe": "怒击",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 4,
+    "skillName": "天书修罗",
+    "skillNo": "修罗术",
+    "skillType": "TS",
+    "describe": "修罗术",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 4,
+    "skillName": "天书降魔",
+    "skillNo": "降魔斩",
+    "skillType": "TS",
+    "describe": "降魔斩",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 4,
+    "skillName": "天书寒冰",
+    "skillNo": "寒冰",
+    "skillType": "TS",
+    "describe": "寒冰",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 5,
+    "skillName": "力破千钧",
+    "skillNo": "501",
+    "skillType": "WS",
+    "describe": "物攻",
+    "skill_attrib": "1170",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 4
+      }
+    ]
+  },
+  {
+    "metal": 5,
+    "skillName": "落土飞岩",
+    "skillNo": "210",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ]
+  },
+  {
+    "metal": 5,
+    "skillName": "土没尘埋",
+    "skillNo": "211",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 2,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 29,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 30,
+        "skillLevel": 2147483647,
+        "skillNum": 2
+      }
+    ]
+  },
+  {
+    "metal": 5,
+    "skillName": "山崩地裂",
+    "skillNo": "212",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 3,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ]
+  },
+  {
+    "metal": 5,
+    "skillName": "天塌地陷",
+    "skillNo": "213",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 4,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ]
+  },
+  {
+    "metal": 5,
+    "skillName": "石破天惊",
+    "skillNo": "214",
+    "skillType": "FS",
+    "describe": "法攻",
+    "skill_attrib": "146",
+    "skillIndex": 5,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ]
+  },
+  {
+    "metal": 5,
+    "skillName": "有心无力",
+    "skillNo": "221",
+    "skillType": "ZA",
+    "describe": "混乱",
+    "skill_attrib": "146",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 79,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 5,
+    "skillName": "顾此失彼",
+    "skillNo": "222",
+    "skillType": "ZA",
+    "describe": "混乱",
+    "skill_attrib": "146",
+    "skillIndex": 2,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 2147483647,
+        "skillNum": 2
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 5,
+    "skillName": "六神无主",
+    "skillNo": "223",
+    "skillType": "ZA",
+    "describe": "混乱",
+    "skill_attrib": "146",
+    "skillIndex": 3,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 119,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 179,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 180,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 5,
+    "skillName": "地束七魂",
+    "skillNo": "224",
+    "skillType": "ZA",
+    "describe": "混乱",
+    "skill_attrib": "146",
+    "skillIndex": 4,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 79,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 5,
+    "skillName": "天定三魂",
+    "skillNo": "225",
+    "skillType": "ZA",
+    "describe": "混乱",
+    "skill_attrib": "146",
+    "skillIndex": 5,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 79,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 159,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 159,
+        "skillRound": 4
+      }
+    ]
+  },
+  {
+    "metal": 5,
+    "skillName": "鞭长莫及",
+    "skillNo": "231",
+    "skillType": "FZ",
+    "describe": "加躲闪率和解除障碍状态几率",
+    "skill_attrib": "138",
+    "skillIndex": 1,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 19,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 20,
+        "skillLevel": 49,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 50,
+        "skillLevel": 89,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 90,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 5,
+    "skillName": "望风扑影",
+    "skillNo": "232",
+    "skillType": "FZ",
+    "describe": "加躲闪率和解除障碍状态几率",
+    "skill_attrib": "138",
+    "skillIndex": 2,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillNum": 1
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 2147483647,
+        "skillNum": 2
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 29,
+        "skillRound": 2
+      },
+      {
+        "skillLevelMin": 30,
+        "skillLevel": 69,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 70,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 5,
+    "skillName": "化险为夷",
+    "skillNo": "233",
+    "skillType": "FZ",
+    "describe": "加躲闪率和解除障碍状态几率",
+    "skill_attrib": "138",
+    "skillIndex": 3,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillNum": 2
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 159,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 160,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 59,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 60,
+        "skillLevel": 119,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillRound": 5
+      }
+    ]
+  },
+  {
+    "metal": 5,
+    "skillName": "避实就虚",
+    "skillNo": "234",
+    "skillType": "FZ",
+    "describe": "加躲闪率和解除障碍状态几率",
+    "skill_attrib": "138",
+    "skillIndex": 4,
+    "skillUse": [
+      {
+        "skillNum": 1,
+        "skillLevelMin": 0,
+        "skillLevel": 2147483647
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 89,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 90,
+        "skillLevel": 129,
+        "skillRound": 5
+      },
+      {
+        "skillLevelMin": 130,
+        "skillLevel": 169,
+        "skillRound": 6
+      },
+      {
+        "skillLevelMin": 170,
+        "skillLevel": 2147483647,
+        "skillRound": 7
+      }
+    ]
+  },
+  {
+    "metal": 5,
+    "skillName": "移形换影",
+    "skillNo": "235",
+    "skillType": "FZ",
+    "describe": "加躲闪率和解除障碍状态几率",
+    "skill_attrib": "138",
+    "skillIndex": 5,
+    "skillUse": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 79,
+        "skillNum": 3
+      },
+      {
+        "skillLevelMin": 80,
+        "skillLevel": 119,
+        "skillNum": 4
+      },
+      {
+        "skillLevelMin": 120,
+        "skillLevel": 2147483647,
+        "skillNum": 5
+      }
+    ],
+    "skillRound": [
+      {
+        "skillLevelMin": 0,
+        "skillLevel": 39,
+        "skillRound": 3
+      },
+      {
+        "skillLevelMin": 40,
+        "skillLevel": 89,
+        "skillRound": 4
+      },
+      {
+        "skillLevelMin": 90,
+        "skillLevel": 139,
+        "skillRound": 5
+      },
+      {
+        "skillLevelMin": 140,
+        "skillLevel": 179,
+        "skillRound": 6
+      },
+      {
+        "skillLevelMin": 180,
+        "skillLevel": 2147483647,
+        "skillRound": 7
+      }
+    ]
+  },
+  {
+    "metal": 5,
+    "skillName": "神术护体",
+    "skillNo": "301",
+    "skillType": "BD",
+    "describe": "神术护体",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 5,
+    "skillName": "修道法术",
+    "skillNo": "302",
+    "skillType": "BD",
+    "describe": "修道法术",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 5,
+    "skillName": "天书魔引",
+    "skillNo": "魔引",
+    "skillType": "TS",
+    "describe": "魔引",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 5,
+    "skillName": "天书青木",
+    "skillNo": "青木",
+    "skillType": "TS",
+    "describe": "青木",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 5,
+    "skillName": "天书烈炎",
+    "skillNo": "烈炎",
+    "skillType": "TS",
+    "describe": "烈炎",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 5,
+    "skillName": "天书狂暴",
+    "skillNo": "狂暴",
+    "skillType": "TS",
+    "describe": "狂暴",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 5,
+    "skillName": "天书碎石",
+    "skillNo": "碎石",
+    "skillType": "TS",
+    "describe": "碎石",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 5,
+    "skillName": "天书惊雷",
+    "skillNo": "惊雷",
+    "skillType": "TS",
+    "describe": "惊雷",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 5,
+    "skillName": "天书惊雷",
+    "skillNo": "惊雷",
+    "skillType": "TS",
+    "describe": "惊雷",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 5,
+    "skillName": "天书云体",
+    "skillNo": "云体",
+    "skillType": "TS",
+    "describe": "云体",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 5,
+    "skillName": "天书尽忠",
+    "skillNo": "尽忠",
+    "skillType": "TS",
+    "describe": "尽忠",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 5,
+    "skillName": "天书先风",
+    "skillNo": "先风",
+    "skillType": "TS",
+    "describe": "先风",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 5,
+    "skillName": "天书怒击",
+    "skillNo": "怒击",
+    "skillType": "TS",
+    "describe": "怒击",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 5,
+    "skillName": "天书修罗",
+    "skillNo": "修罗术",
+    "skillType": "TS",
+    "describe": "修罗术",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 5,
+    "skillName": "天书降魔",
+    "skillNo": "降魔斩",
+    "skillType": "TS",
+    "describe": "降魔斩",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  },
+  {
+    "metal": 5,
+    "skillName": "天书寒冰",
+    "skillNo": "寒冰",
+    "skillType": "TS",
+    "describe": "寒冰",
+    "skill_attrib": "257",
+    "skillIndex": 1
+  }
+]

@@ -6,7 +6,7 @@ spring:
   dubbo:
     application:
       name: manager
-    base-package: com.dhcc
+    base-package: com.cool.wendao.manager
     registry:
       protocol: nacos
       address: 127.0.0.1

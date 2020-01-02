@@ -125,7 +125,7 @@
 <#--                        <a href="forget" class="link-word layadmin-user-jump-change layadmin-link" id="forgetPassword" style="margin-top: 8px;">忘记密码</a>-->
                     </div>
                     <div class="layui-form-item layui-row layui-col-space10 button-row">
-                        <div  class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+                        <div  class="layui-col-xs6 layui-col-sm6 layui-col-md12">
                             <button class="loginBtn layui-btn loginPageBtn layui-btn-fluid" lay-submit lay-filter="LAY-user-login-submit">登 录</button>
                         </div>
 <#--                        <div  class="layui-col-xs6 layui-col-sm6 layui-col-md6">-->

@@ -8,12 +8,13 @@
 
   .layadmin-user-login{
       padding: 0;
-      background-image: url("../static/img/login-bg.png");
+      /*background-image: url("../static/img/welcome.png");*/
+      background-image: url("http://image.gyyxcdn.cn/upload/edit/wd/imbanner/xf/2020_sydt.jpg");
       background-size: 100% 100%;
   }
 
   .title-img{
-      width:80px;
+      /*width:80px;*/
       height:60px;
   }
 
@@ -73,7 +74,8 @@
       color: white;
   }
   .title-word{
-      color: white !important;
+      font-size: 50px;
+      color: black;
   }
 
   .welcome-div{
@@ -85,14 +87,16 @@
   }
 
   .welcome-title{
+      color: black;
       font-weight: lighter;
       font-size: 50px;
       letter-spacing:4px;
   }
   .welcome-eng-title{
+      color: black;
       font-weight: lighter;
       margin-top: 10px;
-      font-size: 30px;
+      font-size: 40px;
   }
   .welcome-login{
       display: block;
@@ -126,7 +130,8 @@
       <div class="layui-col-md6">
           <div class="layadmin-user-login-title layadmin-user-login-box layadmin-user-login-header">
               <div class="layui-col-md3">
-                  <img class="title-img" src="${application.getContextPath()}/static/img/title-bg.png"/>
+<#--                  <img class="title-img" src="${application.getContextPath()}/static/img/title-bg1.png"/>-->
+                  <img class="title-img" src="http://s.gyyx.cn/publictop/images/toplogo_201612.jpg"/>
               </div>
               <div class="layui-col-md9">
                   <h2 class="title-word">GM管理平台</h2>

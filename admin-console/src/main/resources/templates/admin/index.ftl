@@ -57,7 +57,7 @@
       <div class="layui-side layui-side-menu">
         <div class="layui-side-scroll">
           <div class="layui-logo" tppabs="http://www.layui.com/admin/std/dist/views/home/console.html">
-            <span>日照智慧旅游商户管理平台</span>
+            <span>GM管理平台</span>
           </div>
           <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu">
           <#assign outter_index = 0>

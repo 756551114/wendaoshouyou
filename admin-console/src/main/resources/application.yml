@@ -30,4 +30,4 @@ spring:
 logging:
   level:
     root: info
-request_image_url: http://94.191.95.11:8080/
+request_image_url: http://127.0.0.1:8080/

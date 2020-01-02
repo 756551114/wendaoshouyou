@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cool.wendao.admin.dao.BaseUserDao" >
+
+    <!-- 系统用户登录 -->
+    <select id="doLogin" resultType="com.cool.wendao.admin.params.SysUser">
+		select u.id userId,u.org_id orgId,u.login_name loginName,u.login_pwd loginPwd,u.nickname, u.contact_phone contactPhone,
+				u.sex,u.email,u.create_time createTime,u.has_enabled hasEnabled,u.has_default hasDefault,
+		       if(o.cur_status=1,'Y','N') orgHasEnabled,o.org_name orgName
+		from t_base_user u left join t_base_organization o
+		on u.org_id = o.id
+		where u.login_name = #{loginName} and u.has_deleted = 'N' and o.org_type = #{pt}
+	</select>
+
+    <!-- 根据机构id获取系统用户总数 -->
+    <select id="getSysUsersCount" parameterType="com.cool.wendao.admin.core.MgtPageBean" resultType="int">
+        select count(1) from (select u.id from t_base_user u left join t_base_user_2_job uj
+        on u.id = uj.sys_user_id
+        where u.has_deleted = 'N'
+        <!-- 查询条件-->
+        <if test="where != null">
+            and u.org_id = #{where.orgId}
+            <if test="where.name != null and where.name != '' ">
+                and u.nickname like CONCAT('%',#{where.name},'%')
+            </if>
+            <if test="where.tel != null and where.tel != '' ">
+                and u.contact_phone like CONCAT('%',#{where.tel},'%')
+            </if>
+            <if test="where.jobId != null and where.jobId != '-1' ">
+                and uj.job_id = #{where.jobId}
+            </if>
+        </if>
+        group by u.id ) a
+
+    </select>
+
+    <!-- 分页查询系统用户 -->
+    <select id="getSysUsersByPage" resultType="com.cool.wendao.admin.params.SysUser" parameterType="com.cool.wendao.admin.core.MgtPageBean">
+        select u.id userId,u.org_id orgId,u.login_name loginName,u.login_pwd loginPwd,u.nickname,
+        u.contact_phone contactPhone,u.sex,u.email,u.create_time createTime,u.has_enabled hasEnabled,
+        u.has_default hasDefault,(select GROUP_CONCAT(j.job_name) from t_base_user_2_job uj LEFT JOIN t_base_job j on uj.job_id = j.id
+        where uj.sys_user_id = u.id) jobNames
+        from t_base_user u left join t_base_user_2_job uj
+        on u.id = uj.sys_user_id
+        where u.has_deleted = 'N'
+        <!-- 查询条件-->
+        <if test="where != null">
+            and u.org_id = #{where.orgId}
+            <if test="where.name != null and where.name != '' ">
+                and u.nickname like CONCAT('%',#{where.name},'%')
+            </if>
+            <if test="where.tel != null and where.tel != '' ">
+                and u.contact_phone like CONCAT('%',#{where.tel},'%')
+            </if>
+            <if test="where.jobId != null and where.jobId != '-1' ">
+                and uj.job_id = #{where.jobId}
+            </if>
+        </if>
+        group by u.id
+        order by u.create_time desc
+        limit #{startSize},#{pageSize}
+    </select>
+
+    <!--  根据userId查询系统用户信息 -->
+    <select id="getSysUserById" parameterType="String" resultType="com.cool.wendao.admin.params.SysUser">
+		select u.id userId,u.org_id orgId,u.login_name loginName,u.login_pwd loginPwd,u.nickname,
+					u.contact_phone contactPhone,u.sex,u.email,u.create_time createTime,u.has_enabled hasEnabled,u.has_default hasDefault,
+			   o.org_name orgName
+		from t_base_user u left join t_base_organization o on u.org_id = o.id
+		where u.id = #{userId} and u.has_deleted = 'N'
+	</select>
+
+    <!-- 新增系统用户 -->
+    <insert id="addSysUser" parameterType="com.cool.wendao.admin.params.SysUser">
+		insert into t_base_user(id,org_id,login_name,login_pwd,nickname,contact_phone,sex,email,create_time,has_deleted,has_enabled,has_default,update_time)
+						values(#{userId},#{orgId},#{loginName},#{loginPwd},#{nickname},#{contactPhone},#{sex},#{email},now(),'N',#{hasEnabled},#{hasDefault},now())
+	</insert>
+
+    <!-- 批量添加系统用户对应岗位 -->
+    <insert id="addSysUser2Jobs" parameterType="com.cool.wendao.admin.params.SysUser2Job">
+        insert into t_base_user_2_job(sys_user_id,job_id)
+        values
+        <foreach collection="list" item="it" separator=",">
+            (#{it.sysUserId},#{it.jobId})
+        </foreach>
+    </insert>
+
+    <!-- 修改系统用户 -->
+    <update id="updateSysUser" parameterType="com.cool.wendao.admin.params.SysUser">
+		update t_base_user 
+		set nickname = #{nickname},contact_phone = #{contactPhone},sex = #{sex},email = #{email},has_enabled = #{hasEnabled},update_time = now()
+		where id = #{userId}
+	</update>
+
+    <!-- 检查登录名是否存在 -->
+    <select id="checkLoginName" resultType="int">
+		select count(0) from t_base_user u left join t_base_organization o
+		on u.org_id = o.id
+		where u.login_name = #{loginName} and u.has_deleted = 'N' and o.org_type = #{pt}
+	</select>
+
+    <!-- 根据id删除系统用户 -->
+    <update id="delSysUserById" parameterType="String">
+		update t_base_user set has_deleted = 'Y',update_time = now() where id = #{userId}
+	</update>
+
+    <!-- 根据系统用户id查询对应的岗位id集合 -->
+    <select id="getJobIdsByUserId" parameterType="String" resultType="String">
+		select job_id from t_base_user_2_job where sys_user_id = #{userId}
+	</select>
+
+    <!-- 根据岗位id查询对应的用户集合 -->
+    <select id="getUserIdsByJobId" parameterType="String" resultType="String">
+		select sys_user_id from t_base_user_2_job uj left join t_base_user u on uj.sys_user_id = u.id
+		where u.has_deleted = 'N' and job_id = #{jobId}
+	</select>
+
+    <!-- 根据系统用户id查询对应的岗位集合 -->
+    <select id="getJobByUserId" parameterType="String" resultType="com.cool.wendao.admin.params.SysJob">
+		select jb.id jobId,is_manager isManager from t_base_user_2_job uj left join t_base_user u on uj.sys_user_id = u.id
+		left join t_base_job jb on uj.job_id=jb.id
+		where u.has_deleted = 'N' and u.id = #{jobId}
+	</select>
+    <!-- 查询商户经理用户 -->
+    <select id="findManagerUserList" resultType="com.cool.wendao.admin.params.SysUser">
+		select id userId,nickname from t_base_user u where u.has_deleted='N'
+		and u.id in 
+		(select sys_user_id from t_base_user_2_job uj left join t_base_job jb on uj.job_id=jb.id where jb.is_manager='Y')
+	</select>
+
+    <!-- 根据系统用户id删除系统用户对应岗位信息 -->
+    <delete id="delSysUser2JobsByUserId" parameterType="String">
+		delete from t_base_user_2_job where sys_user_id = #{userId}
+	</delete>
+
+    <!-- 修改系统用户密码 -->
+    <update id="updatePwd" parameterType="com.cool.wendao.admin.params.SysUser">
+		update t_base_user set login_pwd = #{loginPwd},update_time = now() where id = #{userId}
+	</update>
+
+    <!-- 修改系统用户密码 -->
+    <update id="updateUserPwd" parameterType="com.cool.wendao.admin.params.SysUser">
+        update t_base_user set login_pwd = #{loginPwd},update_time = now() where login_name = #{loginName}
+        <if test="orgId!=null and orgId != ''">
+            and org_id = #{orgId}
+        </if>
+    </update>
+    <update id="updateSysUserNew">
+		update t_base_user
+		set nickname = #{nickname},contact_phone = #{contactPhone},email = #{email},update_time = now()
+		where id = #{userId}
+	</update>
+    <select id="findAllSellerUser" resultType="com.cool.wendao.admin.params.SysUser">
+		select login_name loginName ,org_id orgId from t_base_user where has_default = 'Y' and has_deleted = 'N' and org_id !='-1'
+
+	</select>
+
+</mapper>

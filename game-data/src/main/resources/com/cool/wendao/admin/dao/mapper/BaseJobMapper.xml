@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cool.wendao.admin.dao.BaseJobDao" >
+
+    <!-- 新增岗位 -->
+    <select id="addJob" parameterType="com.cool.wendao.admin.params.SysJob">
+		insert into t_base_job(id,org_id,job_name,create_time,has_default,is_manager,update_time)
+		values(#{jobId},#{orgId},#{jobName},now(),#{hasDefault},'N',now())
+	</select>
+
+    <!-- 获取系统岗位总数 -->
+    <select id="getJobsCount" parameterType="com.cool.wendao.admin.core.MgtPageBean" resultType="int">
+        select count(0) from t_base_job where 1=1
+        <!-- 查询条件-->
+        <if test="where != null">
+            and org_id = #{where.orgId}
+        </if>
+    </select>
+
+    <!-- 分页查询岗位 -->
+    <select id="getJobsByPage" resultType="com.cool.wendao.admin.params.SysJob" parameterType="com.cool.wendao.admin.core.MgtPageBean">
+        select id jobId,org_id orgId,job_name jobName,create_time createTime,has_default hasDefault,is_manager isManager from t_base_job where 1=1
+        <!-- 查询条件-->
+        <if test="where != null">
+            and org_id = #{where.orgId}
+        </if>
+        order by create_time desc
+        limit #{startSize},#{pageSize}
+    </select>
+
+    <!-- 批量新增岗位对应资源 -->
+    <insert id="addJob2Resources" parameterType="java.util.List">
+        insert into t_base_job_2_resource(job_id,res_id)
+        values
+        <foreach collection="list" item="it" separator=",">
+            (#{it.jobId},#{it.resId})
+        </foreach>
+    </insert>
+
+    <!-- 根据id删除岗位 -->
+    <delete id="delJobById" parameterType="String">
+		delete from t_base_job where id = #{jobId}
+	</delete>
+
+    <!-- 根据jobId删除岗位对应资源关系 -->
+    <delete id="delJob2ResByJobId" parameterType="String">
+		delete from t_base_job_2_resource where job_id = #{jobId}
+	</delete>
+
+    <!-- 根据jobId获取岗位对应资源关系 -->
+    <select id="getResByJobId" parameterType="String" resultType="String">
+		select res_id from t_base_job_2_resource where job_id = #{jobId}
+	</select>
+
+    <!-- 根据jobId获取岗位信息 -->
+    <select id="getJobById" parameterType="String" resultType="com.cool.wendao.admin.params.SysJob">
+		select id jobId,org_id orgId,job_name jobName,create_time createTime,has_default hasDefault from t_base_job where id = #{jobId}
+	</select>
+
+    <!-- 更新岗位信息 -->
+    <update id="updateJobById" parameterType="com.cool.wendao.admin.params.SysJob">
+		update t_base_job set job_name = #{jobName} where id = #{jobId}
+	</update>
+
+    <!-- 根据机构id查询岗位信息 -->
+    <select id="getJobsByOrgId" parameterType="String" resultType="com.cool.wendao.admin.params.SysJob">
+		select id jobId,org_id orgId,job_name jobName,create_time createTime,has_default hasDefault from t_base_job
+		where org_id = #{orgId}
+	</select>
+
+    <!-- 根据机构id查询默认岗位信息 -->
+    <select id="getDefJobsByOrgId" parameterType="String" resultType="com.cool.wendao.admin.params.SysJob">
+		select id jobId,org_id orgId,job_name jobName,create_time createTime,has_default hasDefault from t_base_job
+		where org_id = #{orgId} and has_default = 'Y'
+	</select>
+
+    <!-- 获取所有的岗位信息 -->
+    <select id="getAllJobs" resultType="com.cool.wendao.admin.params.SysJob">
+		select id jobId,org_id orgId,job_name jobName,create_time createTime,has_default hasDefault from t_base_job
+	</select>
+
+    <!-- 获取所有岗位对应资源信息 -->
+    <select id="getAllJob2Res" resultType="com.cool.wendao.admin.params.Job2Resource">
+		select job2res.job_id jobId,res.res_url resUrl from t_base_job_2_resource job2res 
+		join t_base_resource res on(job2res.res_id = res.id)
+	</select>
+
+    <!-- 检查岗位名是否存在 -->
+    <select id="checkJobName" parameterType="map" resultType="int">
+        select count(0) from t_base_job where job_name = #{jobName}
+        <if test="jobId != null and jobId != ''">
+            and id != #{jobId}
+        </if>
+    </select>
+</mapper>

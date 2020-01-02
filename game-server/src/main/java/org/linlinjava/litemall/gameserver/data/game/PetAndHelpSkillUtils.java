@@ -3,8 +3,7 @@ package org.linlinjava.litemall.gameserver.data.game;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
@@ -20,9 +19,25 @@ import java.util.List;
 /**
  * 宠物和技能的操作类
  */
+@Log4j2
 public class PetAndHelpSkillUtils {
-    private static String skillJson = null;
+    private final static String skillJson;
 
+    static {
+        ResourceLoader resourceLoader = new DefaultResourceLoader();
+        Resource resource = resourceLoader.getResource("classpath:json/user_skill.json");
+        BufferedReader br = null;
+        try {
+            final InputStream inputStream = resource.getInputStream();
+            InputStreamReader fr = new InputStreamReader(inputStream);
+            br = new BufferedReader(fr);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        StringBuilder strb = new StringBuilder();
+        br.lines().forEach((f) -> strb.append(f));
+        skillJson = strb.toString();
+    }
     /**
      * 返回技能的最大等级
      *
@@ -50,13 +65,6 @@ public class PetAndHelpSkillUtils {
      * @param isMagic 是否是法攻 true  法攻
      */
     public static List<JSONObject> getNomelSkills(int pet, int pMetal, int attrib, boolean isMagic, String skill_value)  {
-        if (skillJson == null) {
-            BufferedReader br = getResFile();
-            StringBuilder strb = new StringBuilder();
-            br.lines().forEach((f) -> strb.append(f));
-            skillJson = strb.toString();
-
-        }
         JSONArray jsonArray = JSONArray.parseArray(skillJson);
         //守护
         //"物伤", "法伤", "障碍", "辅助", "被动"
@@ -320,30 +328,30 @@ public class PetAndHelpSkillUtils {
     }
 
 
-    private static ResourceLoader resourceLoader = new DefaultResourceLoader();
-    private static final Logger log = LoggerFactory.getLogger(PetAndHelpSkillUtils.class);
+//    private static ResourceLoader resourceLoader = new DefaultResourceLoader();
+//    private static final Logger log = LoggerFactory.getLogger(PetAndHelpSkillUtils.class);
 
-    private static BufferedReader getResFile() {
-        Resource resource = resourceLoader.getResource("classpath:json/user_skill.json");
-        BufferedReader br = null;
-        try {
-            final InputStream inputStream = resource.getInputStream();
-            InputStreamReader fr = new InputStreamReader(inputStream);
-            br = new BufferedReader(fr);
-        } catch (IOException e) {
-            log.error("", e);
-        }
-        return br;
-    }
+//    private static BufferedReader getResFile() {
+//        Resource resource = resourceLoader.getResource("classpath:json/user_skill.json");
+//        BufferedReader br = null;
+//        try {
+//            final InputStream inputStream = resource.getInputStream();
+//            InputStreamReader fr = new InputStreamReader(inputStream);
+//            br = new BufferedReader(fr);
+//        } catch (IOException e) {
+//            log.error("", e);
+//        }
+//        return br;
+//    }
 
     public static JSONObject jsonArray(int skillNo) {
-        if (skillJson == null) {
-            BufferedReader br = getResFile();
-            StringBuilder strb = new StringBuilder();
-            br.lines().forEach((f) -> strb.append(f));
-            skillJson = strb.toString();
-
-        }
+//        if (skillJson == null) {
+//            BufferedReader br = getResFile();
+//            StringBuilder strb = new StringBuilder();
+//            br.lines().forEach((f) -> strb.append(f));
+//            skillJson = strb.toString();
+//
+//        }
         JSONArray jsonArray = JSONArray.parseArray(skillJson);
         String leixing = null;
         int skillIndex = 0;
@@ -393,12 +401,12 @@ public class PetAndHelpSkillUtils {
      * "WS", "FS", "ZA", "FZ", "BD"
      */
     public int[] getBlueAndPointsLan(int skillNo, int attrib) {
-        if (skillJson == null) {
-            BufferedReader br = getResFile();
-            StringBuilder strb = new StringBuilder();
-            br.lines().forEach((f) -> strb.append(f));
-            skillJson = strb.toString();
-        }
+//        if (skillJson == null) {
+//            BufferedReader br = getResFile();
+//            StringBuilder strb = new StringBuilder();
+//            br.lines().forEach((f) -> strb.append(f));
+//            skillJson = strb.toString();
+//        }
         JSONArray jsonArray = JSONArray.parseArray(skillJson);
 //        try {
 //            areaData = IOUtils.toString(areaRes.getInputStream(), Charset.forName("UTF-8"));

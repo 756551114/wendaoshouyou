@@ -3,7 +3,7 @@ spring:
   dubbo:
     application:
       name: servicedata
-    base-package: com.cool.wendao.data.impl
+    base-package: com.cool.wendao.*.impl
     registry:
       protocol: nacos
       address: 127.0.0.1
@@ -30,4 +30,4 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     cache-enabled: true
   mapper-locations:
-    - classpath*:com/cool/wendao/data/dao/mapper/*.xml
+    - classpath*:com/cool/wendao/*/dao/mapper/*.xml

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cool.wendao.admin.dao.BaseResourceDao" >
+
+    <!-- 获取系统资源总数 -->
+    <select id="getResourcesCount" parameterType="com.cool.wendao.admin.core.MgtPageBean" resultType="int">
+        select count(0) from t_base_resource
+        where 1=1
+        and res_type = 0
+        <!-- 查询条件-->
+        <if test="where != null">
+            <if test="where.orgType != null and where.orgType != -1">
+                and org_type = #{where.orgType}
+            </if>
+            <if test="where.resName != null and where.resName != '' ">
+                and res_name like CONCAT('%',#{where.resName},'%')
+            </if>
+        </if>
+    </select>
+
+    <!-- 分页获取系统资源 -->
+    <select id="getResourcesByPage" resultType="com.cool.wendao.admin.params.SysResource" parameterType="com.cool.wendao.admin.core.MgtPageBean">
+        select id resId,org_type orgType,p_id pId,p_name pName,res_name resName,order_num orderNum,res_url resUrl,
+        res_icon resIcon,res_type resType,perms,create_time createTime
+        from t_base_resource
+        where 1=1
+        and res_type = 0
+        <!-- 查询条件-->
+        <if test="where != null">
+            <if test="where.orgType != null and where.orgType != -1">
+                and org_type = #{where.orgType}
+            </if>
+            <if test="where.resName != null and where.resName != '' ">
+                and res_name like CONCAT('%',#{where.resName},'%')
+            </if>
+        </if>
+        order by create_time desc
+        limit #{startSize},#{pageSize}
+    </select>
+
+    <!-- 根据资源id获取资源 -->
+    <select id="getResourcesById" resultType="com.cool.wendao.admin.params.SysResource" parameterType="String">
+		select id resId,org_type orgType,p_id pId,p_name pName,res_name resName,order_num orderNum,res_url resUrl,
+				res_icon resIcon,res_type resType,perms,create_time createTime 
+		from t_base_resource
+		where id = #{resId}
+	</select>
+
+    <!-- 根据资源类型获取所有资源 -->
+    <select id="getAllResourcesByType" resultType="com.cool.wendao.admin.params.SysResource">
+		select id resId,org_type orgType,res_name resName from t_base_resource
+		where res_type = #{resType} and org_type = #{orgType}
+		order by create_time desc
+	</select>
+
+    <!-- 更新资源 -->
+    <select id="updateSysResource" parameterType="com.cool.wendao.admin.params.SysResource">
+		update t_base_resource set p_id = #{pId},p_name = #{pName},res_name = #{resName},order_num = #{orderNum},res_url = #{resUrl},
+		res_icon = #{resIcon},perms = #{perms} where id = #{resId}
+	</select>
+
+    <!-- 根据资源id删除资源 -->
+    <delete id="delSysResourceByResId" parameterType="String">
+		delete from t_base_resource where id = #{resId}
+	</delete>
+
+    <!-- 新增资源 -->
+    <insert id="addSysResource" parameterType="com.cool.wendao.admin.params.SysResource">
+		insert into t_base_resource(id,org_type,p_id,p_name,res_name,order_num,res_url,res_icon,res_type,perms,create_time)
+		values(#{resId},#{orgType},#{pId},#{pName},#{resName},#{orderNum},#{resUrl},#{resIcon},#{resType},#{perms},now())
+	</insert>
+
+    <!-- 查询所有资源树 -->
+    <select id="getAllResourcesTree" resultType="com.cool.wendao.admin.params.SysResource">
+		select id resId,org_type orgType,p_id pId,p_name pName,res_name resName,order_num orderNum,res_url resUrl,
+				res_icon resIcon,res_type resType,perms,create_time createTime 
+		from t_base_resource
+		order by order_num
+	</select>
+
+    <!-- 查询我的资源树 -->
+    <select id="getMyResourcesTree" parameterType="list" resultType="com.cool.wendao.admin.params.SysResource">
+		select DISTINCT(res.id) resId,res.org_type orgType,res.p_id pId,res.res_name resName,res.res_url resUrl,res.res_icon resIcon,res.res_type resType,res.perms
+		from t_base_user_2_job user2job join t_base_job_2_resource job2res on (user2job.job_id = job2res.job_id)
+		join t_base_resource res on(job2res.res_id = res.id) 
+		where user2job.sys_user_id = #{userId}
+		order by res.order_num
+	</select>
+
+    <select id="getBtnResources" parameterType="java.lang.String" resultType="com.cool.wendao.admin.params.SysResource">
+		select
+			id resId,org_type orgType,p_id pId,p_name pName,res_name resName,order_num orderNum,res_url resUrl,
+			res_icon resIcon,res_type resType,perms,create_time createTime
+		from t_base_resource
+		where p_id = #{parentId}
+		and res_type = 1
+	</select>
+
+</mapper>

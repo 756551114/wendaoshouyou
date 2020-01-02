@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.cool.wendao.data.dao")
+@MapperScan("com.cool.wendao.*.dao")
 public class DataApplication {
     private static Object lock = new Object();
 

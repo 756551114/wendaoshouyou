@@ -1,0 +1,59 @@
+/* 输入框添加蓝色边框效果，阴影边框效果  */
+
+.layui-input:focus,
+.layui-textarea:focus {
+	border-color: rgba(0, 150, 136, 0.8) !important;
+	-webkit-box-shadow: 0 0 5px rgba(0, 150, 136, .5);
+	-moz-box-shadow: 0 0 5px rgba(0, 150, 136, .5);
+	box-shadow: 0 0 5px rgba(0, 150, 136, .5);
+}
+.xm-form-selected .xm-select,.xm-form-selected .xm-select:hover {
+	border-color: rgba(0, 150, 136, 0.8) !important;
+	-webkit-box-shadow: 0 0 5px rgba(0, 150, 136, .5);
+	-moz-box-shadow: 0 0 5px rgba(0, 150, 136, .5);
+	box-shadow: 0 0 5px rgba(0, 150, 136, .5);}
+
+.xm-select:hover {
+	border-color: rgba(0, 150, 136, 0.8) !important;
+	-webkit-box-shadow: 0 0 5px rgba(0, 150, 136, .5);
+	-moz-box-shadow: 0 0 5px rgba(0, 150, 136, .5);
+	box-shadow: 0 0 5px rgba(0, 150, 136, .5);
+}
+.layui-input:hover,
+.layui-textarea:hover {
+	border-color: rgba(0, 150, 136, 0.8) !important;
+	-webkit-box-shadow: 0 0 5px rgba(0, 150, 136, .5);
+	-moz-box-shadow: 0 0 5px rgba(0, 150, 136, .5);
+	box-shadow: 0 0 5px rgba(0, 150, 136, .5);
+}
+
+.layui-form-radio > i:hover{
+	color: rgba(0, 150, 136, 0.8) !important;
+}
+.layui-form-radioed > i{
+	color: rgba(0, 150, 136, 0.8) !important;
+}
+
+
+
+/* 表单验证失败红色边框效果，阴影效果 */
+.layui-form-danger, .layui-form-danger:focus, .layui-form-danger:hover{
+	border-color: rgba(255,87,34, .8) !important;
+	-webkit-box-shadow: 0 0 5px rgba(255,87,34, .5);
+	-moz-box-shadow: 0 0 5px rgba(255,87,34, .5);
+	box-shadow: 0 0 5px rgba(255,87,34, .5);
+}
+
+
+.xm-select-danger + .xm-select-parent .xm-form-selected .xm-select,.xm-select-danger .xm-form-selected .xm-select:hover {
+border-color: rgba(255,87,34, .8) !important;
+	-webkit-box-shadow: 0 0 5px rgba(255,87,34, .5);
+	-moz-box-shadow: 0 0 5px rgba(255,87,34, .5);
+	box-shadow: 0 0 5px rgba(255,87,34, .5);}
+
+.xm-select-danger + .xm-select-parent .xm-select:hover {
+	border-color: rgba(255,87,34, .8) !important;
+	-webkit-box-shadow: 0 0 5px rgba(255,87,34, .5);
+	-moz-box-shadow: 0 0 5px rgba(255,87,34, .5);
+	box-shadow: 0 0 5px rgba(255,87,34, .5);
+}

@@ -20,7 +20,7 @@ public class BaseSkillMonsterServiceImpl implements BaseSkillMonsterService {
     @Override
     public List<SkillMonster> findByName(String name) {
         Example example = new Example(SkillMonster.class);
-        example.createCriteria().andCondition("deleted=", Deleted.NOT_DELETED.value()).andCondition("name like %",name + "%");
+        example.createCriteria().andCondition("deleted=", Deleted.NOT_DELETED.value()).andCondition("name like ","%"+name + "%");
         return skillMonsterMapper.selectByExample(example);
     }
 }

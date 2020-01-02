@@ -23,6 +23,13 @@
         <dependency>
             <groupId>org.game</groupId>
             <artifactId>game-community</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-core</artifactId>
+                </exclusion>
+            </exclusions>
+
         </dependency>
         <dependency>
             <groupId>org.game</groupId>

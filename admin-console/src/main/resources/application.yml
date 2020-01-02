@@ -1,0 +1,33 @@
+server:
+  port: 8081
+spring:
+  messages:
+    encoding: UTF-8
+  dubbo:
+    application:
+      name: manager
+    base-package: com.dhcc
+    registry:
+      protocol: nacos
+      address: 127.0.0.1
+      port: 8848
+    consumer:
+      timeout: 1000
+      check: true
+      retries: 2
+  freemarker:
+    request-context-attribute: application
+    settings:
+      number_format: '0.########'
+  http:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+logging:
+  level:
+    root: info
+request_image_url: http://94.191.95.11:8080/

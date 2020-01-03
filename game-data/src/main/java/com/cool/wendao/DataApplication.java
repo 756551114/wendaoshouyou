@@ -1,4 +1,4 @@
-package com.cool.wendao.data;
+package com.cool.wendao;
 
 
 import tk.mybatis.spring.annotation.MapperScan;

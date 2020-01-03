@@ -101,7 +101,7 @@ public class LoginController {
             ImageIO.write(buffImg, "jpeg", sos);
             sos.close();
         }catch(Exception ex){
-        	ex.printStackTrace();
+//        	ex.printStackTrace();
         }
         
 	}

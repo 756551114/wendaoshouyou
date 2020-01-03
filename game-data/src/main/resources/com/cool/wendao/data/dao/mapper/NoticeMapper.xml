@@ -3,4 +3,24 @@
 <mapper namespace="com.cool.wendao.data.dao.NoticeMapper">
 
 
+    <select id="findByPageBean" resultType="com.cool.wendao.community.model.Notice">
+        SELECT
+        id,
+        add_time addTime,
+        update_time updateTime,
+        deleted ,
+        message,
+        time
+        FROM notice
+        <where>
+            and deleted=0
+            <if test="where != null">
+
+                <if test="where.message != null and where.message != ''">
+                    and message like '%${where.message}%'
+                </if>
+
+            </if>
+        </where>
+    </select>
 </mapper>

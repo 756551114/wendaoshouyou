@@ -1,5 +1,6 @@
 package com.cool.wendao.community.core;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -32,6 +33,7 @@ public class BaseModel implements Cloneable, Serializable {
      * 添加时间
      */
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd  HH:mm:ss",timezone = "GMT+8")
     private Date addTime;
 
 
@@ -39,6 +41,7 @@ public class BaseModel implements Cloneable, Serializable {
      * 最后更新时间
      */
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd  HH:mm:ss",timezone = "GMT+8")
     private Date updateTime;
 
     /**

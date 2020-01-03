@@ -23,10 +23,10 @@
 				<div class="layui-col-md12">
 					<select name="orgType" lay-filter="orgType">
 						<option value="0">管理平台</option>
-						<option value="1">运营商</option>
-						<option value="2">分销商 </option>
-						<option value="3">商户</option>
-						<option value="100">待审核商户</option>
+<#--						<option value="1">运营商</option>-->
+<#--						<option value="2">分销商 </option>-->
+<#--						<option value="3">商户</option>-->
+<#--						<option value="100">待审核商户</option>-->
 					</select>
 				</div>
 			</div>

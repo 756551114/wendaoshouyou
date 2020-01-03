@@ -13,6 +13,10 @@ spring:
       timeout: 1000
       check: false
       retries: 2
+logging:
+  level:
+    root: info
+    c.a: error
 netty:
   port: 14721
   url: coolwendao.xicp.io

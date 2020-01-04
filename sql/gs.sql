@@ -11,7 +11,7 @@
  Target Server Version : 100500
  File Encoding         : 65001
 
- Date: 02/01/2020 15:36:31
+ Date: 04/01/2020 10:02:44
 */
 
 SET NAMES utf8mb4;
@@ -45,7 +45,7 @@ CREATE TABLE `accounts`  (
 -- Records of accounts
 -- ----------------------------
 INSERT INTO `accounts` VALUES (5864, '123456789', '12345678', '123456789', 'e3bd8cd025144cec97177e26babd9bb5', '2019-12-30 09:50:55', '2019-12-30 09:50:55', 0, 0, 0, NULL, 0, '2218', 1);
-INSERT INTO `accounts` VALUES (5865, '12345678', '123456789', '12345678', '0ea27aa9f9144f0682c5263bae5f4751', '2019-12-31 15:30:04', '2019-12-31 15:30:04', 0, 0, 0, NULL, 0, '9375', 1);
+INSERT INTO `accounts` VALUES (5865, '12345678', '123456789', '12345678', '0ea27aa9f9144f0682c5263bae5f4751', '2019-12-31 15:30:04', '2020-01-04 09:57:13', 0, 0, 0, NULL, 0, '9375', 1);
 
 -- ----------------------------
 -- Table structure for characters
@@ -1565,12 +1565,17 @@ CREATE TABLE `notice`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `deleted` tinyint(1) NULL DEFAULT 0 COMMENT '逻辑删除',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of notice
 -- ----------------------------
-INSERT INTO `notice` VALUES (1, '任何问题请联系客服QQ：18271971，希望大家有个良好的体验', 5, NULL, NULL, 0);
+INSERT INTO `notice` VALUES (1, '任何问题请联系客服QQ：18271971，希望大家有个良好的体验', 5, '2020-01-03 10:41:51', '2020-01-03 10:41:54', 0);
+INSERT INTO `notice` VALUES (2, '任何问题请联系客服QQ：18271971，希望大家有个良好的体验', 5, '2020-01-03 10:41:51', '2020-01-03 10:41:54', 0);
+INSERT INTO `notice` VALUES (3, '任何问题请联系客服QQ：18271971，希望大家有个良好的体验', 5, '2020-01-03 10:41:51', '2020-01-03 10:56:13', 1);
+INSERT INTO `notice` VALUES (4, '任何问题请联系客服QQ：18271971，希望大家有个良好的体验', 5, '2020-01-03 10:41:51', '2020-01-03 10:55:45', 1);
+INSERT INTO `notice` VALUES (5, '任何问题请联系客服QQ：18271971，希望大家有个良好的体验', 5, '2020-01-03 10:41:51', '2020-01-03 10:55:00', 1);
+INSERT INTO `notice` VALUES (6, 'fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff\n                    ', 5, '2020-01-03 11:13:33', '2020-01-03 11:30:14', 0);
 
 -- ----------------------------
 -- Table structure for npc
@@ -16146,10 +16151,6 @@ INSERT INTO `t_base_job_2_resource` VALUES ('3b6298092c9b4f5aa6c3cd0eff966890', 
 INSERT INTO `t_base_job_2_resource` VALUES ('3b6298092c9b4f5aa6c3cd0eff966890', '10');
 INSERT INTO `t_base_job_2_resource` VALUES ('3b6298092c9b4f5aa6c3cd0eff966890', '11');
 INSERT INTO `t_base_job_2_resource` VALUES ('3b6298092c9b4f5aa6c3cd0eff966890', '9');
-INSERT INTO `t_base_job_2_resource` VALUES ('3b6298092c9b4f5aa6c3cd0eff966890', '5');
-INSERT INTO `t_base_job_2_resource` VALUES ('3b6298092c9b4f5aa6c3cd0eff966890', '12');
-INSERT INTO `t_base_job_2_resource` VALUES ('3b6298092c9b4f5aa6c3cd0eff966890', '13');
-INSERT INTO `t_base_job_2_resource` VALUES ('3b6298092c9b4f5aa6c3cd0eff966890', '14');
 
 -- ----------------------------
 -- Table structure for t_base_organization
@@ -16268,15 +16269,19 @@ INSERT INTO `t_base_resource` VALUES ('16', 0, '3', '系统用户管理', '删�
 INSERT INTO `t_base_resource` VALUES ('160', 3, '30', '系统用户管理', '删除', 32, '/admin/sys/user/user_del', NULL, 1, 'delete', '2018-10-16 17:03:25');
 INSERT INTO `t_base_resource` VALUES ('17', 0, '3', '系统用户管理', '添加', 33, '/admin/sys/user/user_add', NULL, 1, 'add', '2018-10-16 17:03:58');
 INSERT INTO `t_base_resource` VALUES ('170', 3, '30', '系统用户管理', '添加', 33, '/admin/sys/user/user_add', NULL, 1, 'add', '2018-10-16 17:03:58');
+INSERT INTO `t_base_resource` VALUES ('1cdb825b6ee140e3b6755fa79663a015', 0, '34396cab25b145d5814da8000c797cd1', '公告消息', '公告消息', 1, '/business/notice/notice_index', '', 0, NULL, '2020-01-03 10:38:01');
+INSERT INTO `t_base_resource` VALUES ('26de8272440e48059f4a5b1b4dd58eb1', 0, NULL, NULL, '用户管理', 1, '', 'layui-icon-username', 0, NULL, '2020-01-04 09:46:33');
+INSERT INTO `t_base_resource` VALUES ('28766c0240ca404994ef6cbefb9fb47e', 0, '34396cab25b145d5814da8000c797cd1', '系统配置', '宠物管理', 2, '/business/pet/pet_index', '', 0, NULL, '2020-01-04 09:10:07');
 INSERT INTO `t_base_resource` VALUES ('3', 0, '1', '系统管理', '员工管理', 1, '/admin/sys/user/user_index', '', 0, NULL, '2018-10-15 17:23:00');
+INSERT INTO `t_base_resource` VALUES ('34396cab25b145d5814da8000c797cd1', 0, NULL, NULL, '系统配置', 1, '', 'layui-icon-speaker', 0, NULL, '2020-01-03 09:56:36');
 INSERT INTO `t_base_resource` VALUES ('4', 0, '1', '系统管理', '岗位管理', 2, '/admin/sys/job/job_index', '', 0, NULL, '2018-10-15 17:23:58');
-INSERT INTO `t_base_resource` VALUES ('40', 3, '29', '系统管理', '岗位管理', 2, '/admin/sys/job/job_index', '', 0, NULL, '2018-10-15 17:23:58');
 INSERT INTO `t_base_resource` VALUES ('5', 0, '1', '系统管理', '权限管理', 3, '/admin/sys/res/res_index', '', 0, NULL, '2018-10-15 17:24:23');
 INSERT INTO `t_base_resource` VALUES ('6', 0, '2', '系统机构管理', '编辑', 21, '/admin/sys/org/org_edit', NULL, 1, 'update', '2018-10-16 16:29:05');
 INSERT INTO `t_base_resource` VALUES ('7', 0, '2', '系统机构管理', '删除', 22, '/admin/sys/org/org_del', NULL, 1, 'delete', '2018-10-16 16:29:56');
 INSERT INTO `t_base_resource` VALUES ('8', 0, '2', '系统机构管理', '添加', 23, '/admin/sys/org/org_add', NULL, 1, 'add', '2018-10-16 16:30:43');
 INSERT INTO `t_base_resource` VALUES ('9', 0, '4', '系统岗位管理', '编辑', 41, '/admin/sys/job/job_edit', NULL, 1, 'update', '2018-10-16 16:52:58');
 INSERT INTO `t_base_resource` VALUES ('90', 3, '40', '系统岗位管理', '编辑', 41, '/admin/sys/job/job_edit', NULL, 1, 'update', '2018-10-16 16:52:58');
+INSERT INTO `t_base_resource` VALUES ('c29461ac9ee546b48f549ab80410bd74', 0, '26de8272440e48059f4a5b1b4dd58eb1', '用户管理', '账号管理', 1, '/business/accounts/accounts_index', '', 0, NULL, '2020-01-04 09:47:07');
 
 -- ----------------------------
 -- Table structure for t_base_user
@@ -16303,6 +16308,7 @@ CREATE TABLE `t_base_user`  (
 -- Records of t_base_user
 -- ----------------------------
 INSERT INTO `t_base_user` VALUES ('1', '-1', 'super_admin', '$2a$10$UH9VFLTS5AAggsSfsTipVe5S/2JPfHBxz/P.5tGEnw5wCPCA/WLBy', '超级管理员', NULL, 1, NULL, 'N', 'Y', 'Y', '2020-01-02 15:15:55', '2019-04-02 14:19:26');
+INSERT INTO `t_base_user` VALUES ('106e89efa8594d5b932b7f0315682988', '-1', 'admin', '$2a$10$vOiLTunbOt5HRLVr1Ghu3O1BsMS9lJGez8yFE755OhrymuhOpNX1C', 'admin', '17621888851', 1, '', 'N', 'Y', 'N', '2020-01-02 15:42:29', '2020-01-02 15:42:29');
 
 -- ----------------------------
 -- Table structure for t_base_user_2_job
@@ -16312,6 +16318,11 @@ CREATE TABLE `t_base_user_2_job`  (
   `sys_user_id` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '系统用户id',
   `job_id` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '岗位id'
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统用户对应岗位' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of t_base_user_2_job
+-- ----------------------------
+INSERT INTO `t_base_user_2_job` VALUES ('106e89efa8594d5b932b7f0315682988', '3b6298092c9b4f5aa6c3cd0eff966890');
 
 -- ----------------------------
 -- Table structure for user_rank

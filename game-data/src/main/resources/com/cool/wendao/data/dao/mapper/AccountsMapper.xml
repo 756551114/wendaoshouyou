@@ -3,4 +3,29 @@
 <mapper namespace="com.cool.wendao.data.dao.AccountsMapper">
 
 
+    <select id="findByPageBean" resultType="com.cool.wendao.community.model.Accounts">
+        select
+        id,
+        add_time addTime,
+        update_time updateTime,
+        deleted,
+        name,
+        keyword,
+        password,
+        chongzhijifen,
+        chongzhiyuanbao,
+        block,
+        vip
+        from
+        accounts
+        <where>
+            and deleted=0
+            <if test="where != null">
+                <if test="where.name != null and where.name !=''">
+                    and name like '%${where.name}%'
+                </if>
+            </if>
+        </where>
+        order by  add_time desc
+    </select>
 </mapper>

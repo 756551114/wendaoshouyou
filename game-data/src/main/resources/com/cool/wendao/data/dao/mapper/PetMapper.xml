@@ -3,4 +3,47 @@
 <mapper namespace="com.cool.wendao.data.dao.PetMapper">
 <!--    <cache/>cache-->
 
+    <select id="findByPageBean" resultType="com.cool.wendao.community.model.Pet">
+        select
+        id,
+        add_time addTime,
+        update_time updateTime,
+        deleted,
+        t_index `index`,
+        level_req levelReq,
+        life,
+        mana,
+        speed,
+        phy_attack phyAttack,
+        mag_attack magAttack,
+        polar,
+        skiils,
+        zoon,
+        icon,
+        name
+
+        from
+            pet
+        <where>
+               and deleted=0
+            <if test="where != null">
+                <if test="where.name != null and where.name !=''">
+                    and name like '%${where.name}%'
+                </if>
+            </if>
+
+
+        </where>
+
+
+
+
+
+
+
+
+
+
+
+    </select>
 </mapper>

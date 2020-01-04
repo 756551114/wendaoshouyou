@@ -1,15 +1,19 @@
 package com.cool.wendao.data.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.cool.wendao.admin.core.MgtPageBean;
 import com.cool.wendao.community.core.Deleted;
 import com.cool.wendao.community.model.Accounts;
 import com.cool.wendao.community.server.BaseAccountsService;
 import com.cool.wendao.community.server.CacheService;
 import com.cool.wendao.data.dao.AccountsMapper;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class BaseAccountsServiceImpl implements BaseAccountsService {
@@ -50,5 +54,15 @@ public class BaseAccountsServiceImpl implements BaseAccountsService {
         Example example = new Example(Accounts.class);
         example.createCriteria().andCondition("deleted=", Deleted.NOT_DELETED.value()).andCondition("token=", token);
         return accountsMapper.selectOneByExample(example);
+    }
+
+    @Override
+    public MgtPageBean<Accounts> findByPageBean(MgtPageBean<Accounts> pageBean) {
+        Page<Object> objects = PageHelper.startPage(pageBean.getPage(), pageBean.getPageSize());
+        List<Accounts> list = accountsMapper.findByPageBean(pageBean);
+        pageBean.setData(list);
+        pageBean.setCount(objects.getTotal());
+        pageBean.setResultEnumSUCCESS();
+        return pageBean;
     }
 }

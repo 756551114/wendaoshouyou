@@ -1,5 +1,6 @@
 package com.cool.wendao.community.server;
 
+import com.cool.wendao.admin.core.MgtPageBean;
 import com.cool.wendao.community.model.Accounts;
 
 public interface BaseAccountsService {
@@ -12,4 +13,6 @@ public interface BaseAccountsService {
     int updateById(Accounts accounts);
 
     Accounts findOneByToken(String token);
+
+    MgtPageBean<Accounts> findByPageBean(MgtPageBean<Accounts> pageBean);
 }

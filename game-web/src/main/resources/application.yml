@@ -6,9 +6,9 @@ spring:
       name: web
     base-package: org.linlinjava.litemall.wx
     registry:
-      protocol: nacos
+#      protocol: nacos
       address: 127.0.0.1
-      port: 8848
+      port: 2181
     consumer:
       timeout: 1000
       check: false

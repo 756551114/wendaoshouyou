@@ -3,7 +3,7 @@
 
 function getParams($) {
     var data = {
-        message: $('#message').val(),
+        name: $('#name').val(),
     };
     return data;
 }
@@ -19,7 +19,7 @@ function callback() {
         , height: 312
         , limit: 20
         , height: 'full-150'
-        , url: _contextPath + 'business/notice/notice_data'
+        , url: _contextPath + 'business/pet/pet_data'
         , page: true //开启分页
         , cols: [[
             {
@@ -27,12 +27,53 @@ function callback() {
                 title: "id",
                 hide: true
             }, {
-                field: "message",
-                title: "公告消息",
+                width: 70,
+                field: "index",
+                title: "图鉴",
+            }, {
+                width: 70,
+                field: "polar",
+                title: "相行",
             }, {
                 width: 150,
-                field: "time",
-                title: "轮询的时间(分钟)",
+                field: "name",
+                title: "名称",
+            }, {
+                width: 100,
+                field: "icon",
+                title: "图标",
+            }, {
+                width: 100,
+                field: "levelReq",
+                title: "携带等级",
+            }, {
+                width: 100,
+                field: "life",
+                title: "血气成长",
+            }, {
+                width: 100,
+                field: "mana",
+                title: "法力成长",
+            }, {
+                width: 100,
+                field: "speed",
+                title: "速度成长",
+            }, {
+                width: 100,
+                field: "phyAttack",
+                title: "物攻成长",
+            }, {
+                width: 100,
+                field: "magAttack",
+                title: "法功成长",
+            }, {
+                width: 200,
+                field: "skiils",
+                title: "天生技能",
+            }, {
+                width: 150,
+                field: "zoon",
+                title: "所在地图",
             }, {
                 width: 180,
                 field: "addTime",
@@ -43,7 +84,7 @@ function callback() {
                 title: "修改时间",
             }, {
                 title: '操作',
-                width: 215,
+                width: 150,
                 fixed: "right",
                 templet: function (data) {
                     var str = ''
@@ -67,7 +108,7 @@ function callback() {
                 title: '删除',
                 yes: function (index) {
                     layui.$.ajax({
-                        "url": _contextPath + "business/notice/notice_delete?id=" + data.id,
+                        "url": _contextPath + "business/pet/pet_delete?id=" + data.id,
                         "method": "GET"
                         , error: function (res) {
                             top.layer.msg('网络异常', {icon: 5});
@@ -87,10 +128,10 @@ function callback() {
         } else if ("update" == e.event) {
             layer.open({
                 type: 2,
-                title: '公告消息修改',
+                title: '宠物修改',
                 btn: ["保存", "取消"],
                 area: ['500px', '400px'],
-                content: _contextPath + 'business/notice/notice_add?id=' + e.data.id,
+                content: _contextPath + 'business/pet/pet_add?id=' + e.data.id,
                 yes: function (index, _dom) {
                     save(index, _dom);
                 }
@@ -116,10 +157,10 @@ function callback() {
     $('#add').click(function () {
         layer.open({
             type: 2,
-            title: '公告消息添加',
+            title: '宠物添加',
             btn: ["保存", "取消"],
             area: ['500px', '400px'],
-            content: _contextPath + 'business/notice/notice_add',
+            content: _contextPath + 'business/pet/pet_add',
             yes: function (index, _dom) {
                 save(index, _dom);
             }
@@ -132,7 +173,7 @@ function callback() {
         //点击提交
         iframeWindow.layui.form.on('submit(submit)', function (data) {
             $.ajax({
-                "url": _contextPath + "business/notice/notice_save",
+                "url": _contextPath + "business/pet/pet_save",
                 "method": "POST",
                 "headers": {
                     "Content-Type": "application/json",

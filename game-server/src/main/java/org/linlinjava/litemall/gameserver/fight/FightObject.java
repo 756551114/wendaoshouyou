@@ -472,7 +472,7 @@ public class FightObject {
         int var10000 = polar_point - addpoint;
         shuXing.speed = shuXing.skill + addpoint;
         petbeibao.petShuXing.add(shuXing);
-        BasicAttributesUtils.petshuxing(shuXing, VipAddUils.getUserVipAdd(ctx));
+        BasicAttributesUtils.petshuxing(shuXing);
         shuXing.max_life = shuXing.def;
         shuXing.max_mana = shuXing.dex;
         petbeibao.petShuXing.add(shuXing);
@@ -538,7 +538,7 @@ public class FightObject {
         int var10000 = polar_point - addpoint;
         shuXing.speed = shuXing.skill + addpoint;
         petbeibao.petShuXing.add(shuXing);
-        BasicAttributesUtils.petshuxing(shuXing, VipAddUils.getUserVipAdd(ctx));
+        BasicAttributesUtils.petshuxing(shuXing);
         shuXing.max_life = shuXing.def;
         shuXing.max_mana = shuXing.dex;
         petbeibao.petShuXing.add(shuXing);

@@ -1,6 +1,7 @@
 package org.linlinjava.litemall.wx.core;
 
 import cn.hutool.core.io.FileUtil;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -8,6 +9,12 @@ import javax.annotation.PostConstruct;
 @Component
 public class Inint {
 
+
+    @Value("${groups}")
+    public static String groups;
+
+    @Value("${groupsL}")
+    public static String groupsL;
 
     @PostConstruct
     public void init() {

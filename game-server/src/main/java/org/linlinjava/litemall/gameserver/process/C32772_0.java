@@ -12,7 +12,6 @@ import org.linlinjava.litemall.gameserver.data.write.M8165_0;
 import org.linlinjava.litemall.gameserver.domain.Chara;
 import org.linlinjava.litemall.gameserver.domain.PetShuXing;
 import org.linlinjava.litemall.gameserver.domain.Petbeibao;
-import org.linlinjava.litemall.gameserver.fight.VipAddUils;
 import org.linlinjava.litemall.gameserver.game.GameData;
 import org.linlinjava.litemall.gameserver.game.GameObjectChar;
 import org.springframework.stereotype.Service;
@@ -64,7 +63,7 @@ public class C32772_0 implements GameHandler {
 
                     List list = new ArrayList();
 //更新技能 没写； //32747   //12023
-                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0), VipAddUils.getUserVipAdd(ctx));
+                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0));
                     shuXing.max_life = shuXing.def;
                     shuXing.max_mana = shuXing.dex;
                     list.add(petbeibao);

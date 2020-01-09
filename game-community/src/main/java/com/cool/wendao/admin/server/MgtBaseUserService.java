@@ -138,10 +138,5 @@ public interface MgtBaseUserService {
      */
     SysUser getUserByLoginName(String loginName, Integer pt);
 
-    /**
-     * 查询商户经理角色列表
-     *
-     * @return
-     */
-    List<SysUser> findManagerUserList();
+
 }

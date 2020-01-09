@@ -5,9 +5,12 @@
 
 package org.linlinjava.litemall.wx.web;
 
+import cn.hutool.core.util.IdUtil;
 import com.alibaba.fastjson.JSONObject;
+import com.cool.wendao.community.model.Accounts;
 import com.cool.wendao.community.model.Daili;
 import com.cool.wendao.community.model.Notice;
+import com.cool.wendao.community.server.BaseAccountsService;
 import com.cool.wendao.community.server.BaseDailiService;
 import com.cool.wendao.community.server.BaseNoticeService;
 import com.cool.wendao.community.server.CustomDailiService;
@@ -72,6 +75,9 @@ public class WdDailiController {
     @Inject
     private CustomDailiService customDailiService;
 
+    @Inject
+    private BaseAccountsService baseAccountsService;
+
 
     private static boolean charge;
 
@@ -82,14 +88,17 @@ public class WdDailiController {
     public Object login(@RequestBody String body, HttpServletRequest request) {
         String username = JacksonUtil.parseString(body, "account");
         String password = JacksonUtil.parseString(body, "password");
+        String uuid = IdUtil.fastSimpleUUID();
+
         if (username != null && password != null) {
             HashMap<Object, Object> data = new HashMap();
             ArrayList<Map> list = new ArrayList();
             List<Map> maps;
-            if (username.equals("QWERASDF1234") && password.equals("123QWEASD")) {
+            Accounts accounts = baseAccountsService.findOneByName(username);
+            if (accounts != null && accounts.getIsAdmin() == 1) {
                 for (String zm : zimu) {
-                    maps =  this.customDailiService.selectAccount(zm);
-                    maps.forEach(map ->{
+                    maps = this.customDailiService.selectAccount(zm);
+                    maps.forEach(map -> {
                         JSONObject jsonObject = new JSONObject(map);
                         HashMap hashMap = new HashMap();
                         hashMap.put("code", jsonObject.get("code"));
@@ -108,7 +117,6 @@ public class WdDailiController {
                 if (daili == null || !daili.getPasswd().equals(password)) {
                     return ResponseUtil.fail();
                 }
-                String uuid = UUID.randomUUID().toString();
                 daili.setToken(uuid);
                 this.baseDailiService.updateById(daili);
                 HashMap hashMap = new HashMap();
@@ -185,8 +193,8 @@ public class WdDailiController {
                 List<Map> maps = this.customDailiService.selectMoney(zm, day - 1);
                 int total = 0;
                 int num;
-                for(Iterator var14 = maps.iterator(); var14.hasNext(); alltotal += num) {
-                    Map map = (Map)var14.next();
+                for (Iterator var14 = maps.iterator(); var14.hasNext(); alltotal += num) {
+                    Map map = (Map) var14.next();
                     Object numobj = map.get("num");
                     num = Integer.valueOf(numobj.toString());
                     total += num;
@@ -208,8 +216,8 @@ public class WdDailiController {
             int total = 0;
             Iterator var23 = maps.iterator();
 
-            while(var23.hasNext()) {
-                Map map = (Map)var23.next();
+            while (var23.hasNext()) {
+                Map map = (Map) var23.next();
                 zidaihashMap = new HashMap();
                 listin.add(zidaihashMap);
                 zidaihashMap.put("code", map.get("code"));
@@ -279,7 +287,7 @@ public class WdDailiController {
 
         String md5code = (new BigInteger(1, secretBytes)).toString(16);
 
-        for(int i = 0; i < 32 - md5code.length(); ++i) {
+        for (int i = 0; i < 32 - md5code.length(); ++i) {
             md5code = "0" + md5code;
         }
 

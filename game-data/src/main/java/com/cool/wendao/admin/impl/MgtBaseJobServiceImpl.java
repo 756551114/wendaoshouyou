@@ -38,6 +38,7 @@ public class MgtBaseJobServiceImpl implements MgtBaseJobService {
      * @param sysUser
      * @param sysJob
      */
+    @Override
     @Transactional
     public void addJob(SysUser sysUser, SysJob sysJob){
         sysJob.setJobId(UuidUtil.uuid());
@@ -63,6 +64,7 @@ public class MgtBaseJobServiceImpl implements MgtBaseJobService {
      * 更新岗位
      * @param sysJob
      */
+    @Override
     @Transactional
     public void updateJob(SysJob sysJob) {
         baseJobDao.updateJobById(sysJob);
@@ -86,6 +88,7 @@ public class MgtBaseJobServiceImpl implements MgtBaseJobService {
      * 删除岗位
      * @param jobId
      */
+    @Override
     @Transactional
     public String delJob(String jobId) {
         String flag = "success";
@@ -104,6 +107,7 @@ public class MgtBaseJobServiceImpl implements MgtBaseJobService {
      * @param pageBean
      * @return
      */
+    @Override
     public MgtPageBean<SysJob> getJobsByPage(SysUser sysUser, MgtPageBean<SysJob> pageBean){
         try {
             pageBean.setWhere(new HashMap<String,Object>());
@@ -128,6 +132,7 @@ public class MgtBaseJobServiceImpl implements MgtBaseJobService {
      * @param disabled 是否禁用，即是否可以点击。不能点击用于展示用 true/false
      * @return
      */
+    @Override
     public ResultBean getJob2ResByJobId(SysUser sysUser, String jobId, boolean disabled){
         ResultBean resultBean = new ResultBean();
         try {
@@ -198,6 +203,7 @@ public class MgtBaseJobServiceImpl implements MgtBaseJobService {
      * @param jobId
      * @return
      */
+    @Override
     public SysJob getJobByJobId(String jobId){
         try {
             return baseJobDao.getJobById(jobId);
@@ -213,7 +219,8 @@ public class MgtBaseJobServiceImpl implements MgtBaseJobService {
      * @param jobId
      * @return
      */
-    public int checkJobName(String jobId,String jobName) {
+    @Override
+    public int checkJobName(String jobId, String jobName) {
         Map<String,Object> map = new HashMap<>();
         map.put("jobId",jobId);
         map.put("jobName",jobName);
@@ -224,6 +231,7 @@ public class MgtBaseJobServiceImpl implements MgtBaseJobService {
      * 获取所有角色的资源权限
      * @return
      */
+    @Override
     public List<Job2Resource> getAllJob2Res(){
         return baseJobDao.getAllJob2Res();
     }

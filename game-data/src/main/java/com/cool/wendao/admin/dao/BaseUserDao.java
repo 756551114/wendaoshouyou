@@ -130,12 +130,7 @@ public interface BaseUserDao {
      */
     int updateUserPwd(SysUser sysUser);
 
-    /**
-     * 查询商户经理用户
-     *
-     * @return
-     */
-    List<SysUser> findManagerUserList();
+
 
 
     /**

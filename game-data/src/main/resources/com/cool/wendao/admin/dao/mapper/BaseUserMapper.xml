@@ -121,12 +121,7 @@
 		left join t_base_job jb on uj.job_id=jb.id
 		where u.has_deleted = 'N' and u.id = #{jobId}
 	</select>
-    <!-- 查询商户经理用户 -->
-    <select id="findManagerUserList" resultType="com.cool.wendao.admin.params.SysUser">
-		select id userId,nickname from t_base_user u where u.has_deleted='N'
-		and u.id in 
-		(select sys_user_id from t_base_user_2_job uj left join t_base_job jb on uj.job_id=jb.id where jb.is_manager='Y')
-	</select>
+
 
     <!-- 根据系统用户id删除系统用户对应岗位信息 -->
     <delete id="delSysUser2JobsByUserId" parameterType="String">

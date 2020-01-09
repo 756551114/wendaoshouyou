@@ -826,7 +826,7 @@ public class GameUtil {
             if (petShuXing.pot >= petShuXing.resist_poison) {
                 addpetjingyan(petbeibao, 0, chara,ctx);
             }
-            BasicAttributesUtils.petshuxing(petShuXing, VipAddUils.getUserVipAdd(ctx));
+            BasicAttributesUtils.petshuxing(petShuXing);
             petShuXing.max_life = petShuXing.def;
             petShuXing.max_mana = petShuXing.dex;
             if (petbeibao.petShuXing.get(0).suit_light_effect != 0) {
@@ -898,7 +898,7 @@ public class GameUtil {
             if (chara.pot >= chara.resist_poison) {
                 addjingyan(chara, 0,ctx);
             }
-            BasicAttributesUtils.shuxing(chara, VipAddUils.getUserVipAdd(ctx));
+            BasicAttributesUtils.shuxing(chara);
             chara.max_life = chara.def + chara.zbAttribute.def;
             chara.max_mana = chara.dex + chara.zbAttribute.dex;
             GameUtil.addshouhu(chara);
@@ -2621,7 +2621,7 @@ public class GameUtil {
     
     public static ListVo_65527_0 a65527(Chara chara,ChannelHandlerContext ctx) {
         ListVo_65527_0 vo_65527_0 = new ListVo_65527_0();
-        BasicAttributesUtils.shuxing(chara, VipAddUils.getUserVipAdd(ctx));
+        BasicAttributesUtils.shuxing(chara);
         if (chara.max_mana < chara.dex + chara.zbAttribute.dex && chara.have_coin_pwd > 0) {
             int pwd = chara.dex + chara.zbAttribute.def - chara.max_mana;
             if (chara.have_coin_pwd < pwd) {

@@ -7,12 +7,11 @@ package org.linlinjava.litemall.gameserver.netty;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import lombok.extern.log4j.Log4j2;
 import org.linlinjava.litemall.gameserver.data.GameWriteTool;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+@Log4j2
 public abstract class BaseWrite {
-    Logger log = LoggerFactory.getLogger(BaseWrite.class);
 
     public BaseWrite() {
     }

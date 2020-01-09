@@ -13,7 +13,6 @@ import org.linlinjava.litemall.gameserver.data.game.PetAttributesUtils;
 import org.linlinjava.litemall.gameserver.data.vo.*;
 import org.linlinjava.litemall.gameserver.data.write.*;
 import org.linlinjava.litemall.gameserver.domain.*;
-import org.linlinjava.litemall.gameserver.fight.VipAddUils;
 import org.linlinjava.litemall.gameserver.game.GameData;
 import org.linlinjava.litemall.gameserver.game.GameObjectChar;
 import org.springframework.stereotype.Service;
@@ -34,6 +33,10 @@ public class C8270_0 implements GameHandler {
         int pos = GameReadTool.readByte(buff);
 
         String para = GameReadTool.readString(buff);
+
+        log.info("---no-------->"+no);
+        log.info("---pos-------->"+pos);
+        log.info("---para-------->"+para);
 
         Chara chara = GameObjectChar.getGameObjectChar().chara;
 
@@ -176,7 +179,7 @@ public class C8270_0 implements GameHandler {
                     }
                     GameUtil.removemunber(chara, "宠物强化丹", 1);
                     List list = new ArrayList();
-                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0), VipAddUils.getUserVipAdd(ctx));
+                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0));
                     list.add(petbeibao);
 //更新技能 没写； //32747   //12023
 
@@ -211,7 +214,7 @@ public class C8270_0 implements GameHandler {
                         GameObjectChar.send(new M8165_0(), vo_8165_0);
                     }
                     List list = new ArrayList();
-                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0), VipAddUils.getUserVipAdd(ctx));
+                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0));
                     list.add(petbeibao);
 
                     GameObjectChar.send(new M65507_0(), list);
@@ -250,7 +253,7 @@ public class C8270_0 implements GameHandler {
                     shuXing.polar_point = 4;
                     shuXing.resist_point = shuXing.pet_mana_shape + shuXing.pet_speed_shape + shuXing.pet_phy_shape + shuXing.pet_mag_shape + shuXing.rank;
                     List list = new ArrayList();
-                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0), VipAddUils.getUserVipAdd(ctx));
+                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0));
                     shuXing.max_life = shuXing.def;
                     shuXing.max_mana = shuXing.dex;
                     list.add(petbeibao);
@@ -340,7 +343,7 @@ public class C8270_0 implements GameHandler {
                         shuXing.pet_phy_shape_temp = 0;
                     }
                     List list = new ArrayList();
-                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0), VipAddUils.getUserVipAdd(ctx));
+                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0));
 
                     list.add(petbeibao);
 //更新技能 没写； //32747   //12023

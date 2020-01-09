@@ -4,7 +4,6 @@ import com.cool.wendao.community.model.Pet;
 import io.netty.channel.ChannelHandlerContext;
 import org.linlinjava.litemall.gameserver.data.game.BasicAttributesUtils;
 import org.linlinjava.litemall.gameserver.data.vo.Vo_12023_0;
-import org.linlinjava.litemall.gameserver.fight.VipAddUils;
 import org.linlinjava.litemall.gameserver.process.GameUtil;
 
 import java.util.LinkedList;
@@ -76,7 +75,7 @@ public class Petbeibao {
         shuXing.life = 1;
         shuXing.speed = 1;
 
-        BasicAttributesUtils.petshuxing(shuXing, VipAddUils.getUserVipAdd(ctx));
+        BasicAttributesUtils.petshuxing(shuXing);
         shuXing.max_life = shuXing.def;
         shuXing.max_mana = shuXing.dex;
         petShuXing.add(shuXing);

@@ -1,0 +1,18 @@
+server:
+spring:
+  dubbo:
+    application:
+      name: bot
+    base-package: com.cool.wendao.bot
+    registry:
+      #      protocol: nacos
+      address: 127.0.0.1
+      port: 2181
+    protocol:
+      name: dubbo
+      serialization: hessian2
+    provider:
+      retries: 0
+logging:
+  level:
+    root: info

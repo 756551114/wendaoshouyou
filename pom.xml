@@ -31,6 +31,7 @@
         <module>game-core</module>
         <module>game-server</module>
         <module>game-data</module>
+        <module>game-bot</module>
         <module>admin-console</module>
     </modules>
 

@@ -21,8 +21,8 @@
 			<label class="layui-form-label">机构类型：</label>
 			<div class="layui-input-block">
 				<div class="layui-col-md12">
-					<select name="orgType" lay-filter="orgType">
-						<option value="0">管理平台</option>
+					<select name="orgType" lay-filter="orgType" disabled >
+						<option value="0" selected>管理平台</option>
 <#--						<option value="1">运营商</option>-->
 <#--						<option value="2">分销商 </option>-->
 <#--						<option value="3">商户</option>-->
@@ -50,7 +50,7 @@
 			<label class="layui-form-label">菜单类型：</label>
 			<div class="layui-input-block">
 				<input type="radio" name="resType" lay-filter="resType" value="0" title="菜单" checked>
-				<#--<input type="radio" name="resType" lay-filter="resType" value="1" title="按钮">-->
+				<input type="radio" name="resType" lay-filter="resType" value="1" title="按钮">
 			</div>
 		</div>
 		<div class="layui-form-item" id="iconDiv">

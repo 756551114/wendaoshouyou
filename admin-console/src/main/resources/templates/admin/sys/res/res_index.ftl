@@ -6,18 +6,6 @@
 			<div class="layui-form layui-card-header layuiadmin-card-header-auto">
 				<div class="layui-form-item">
 					<div class="layui-inline">
-               			机构类型
-          			</div>
-					<div class="layui-inline">
-			            <select name="orgType">
-			              <option value="-1">全部资源</option>
-							<option value="0">管理平台</option>
-							<option value="1">运营商</option>
-							<option value="2">分销商 </option>
-							<option value="3">商户</option>
-			            </select>
-					</div>
-					<div class="layui-inline">
 						资源名称
 					</div>
 					<div class="layui-inline">

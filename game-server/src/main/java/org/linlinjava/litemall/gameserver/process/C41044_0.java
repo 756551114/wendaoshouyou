@@ -12,7 +12,6 @@ import org.linlinjava.litemall.gameserver.data.write.*;
 import org.linlinjava.litemall.gameserver.domain.Chara;
 import org.linlinjava.litemall.gameserver.domain.PetShuXing;
 import org.linlinjava.litemall.gameserver.domain.Petbeibao;
-import org.linlinjava.litemall.gameserver.fight.VipAddUils;
 import org.linlinjava.litemall.gameserver.game.GameData;
 import org.linlinjava.litemall.gameserver.game.GameObjectChar;
 import org.springframework.stereotype.Service;
@@ -81,7 +80,7 @@ public class C41044_0 implements GameHandler {
             shuXing.upgrade_magic = 0;
             shuXing.upgrade_total = 0;
             petbeibao.petShuXing.add(shuXing);
-            BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0), VipAddUils.getUserVipAdd(ctx));
+            BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0));
             petbeibao.petShuXing.get(0).max_life = petbeibao.petShuXing.get(0).def;
             petbeibao.petShuXing.get(0).max_mana = petbeibao.petShuXing.get(0).dex;
             boolean isfagong = petbeibao.petShuXing.get(0).rank > petbeibao.petShuXing.get(0).pet_mag_shape;
@@ -165,7 +164,7 @@ public class C41044_0 implements GameHandler {
             petbeibao.petShuXing.add(shuXing);
 
 
-            BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0), VipAddUils.getUserVipAdd(ctx));
+            BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0));
 
             petbeibao.petShuXing.get(0).max_life = petbeibao.petShuXing.get(0).def;
             petbeibao.petShuXing.get(0).max_mana = petbeibao.petShuXing.get(0).dex;

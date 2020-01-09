@@ -6,6 +6,8 @@ import com.cool.wendao.admin.dao.BaseResourceDao;
 import com.cool.wendao.admin.params.SysResource;
 import com.cool.wendao.admin.server.MgtBaseResourceService;
 import com.cool.wendao.admin.util.UuidUtil;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,14 +29,13 @@ public class MgtBaseResourceServiceImpl implements MgtBaseResourceService {
      */
     @Override
     public MgtPageBean<SysResource> getResourcesByPage(String resName, Integer orgType, MgtPageBean<SysResource> pageBean){
-        pageBean.setWhere(new HashMap<String, Object>());
+        pageBean.setWhere(new HashMap<String, Object>(2));
         pageBean.getWhere().put("orgType",orgType);
         pageBean.getWhere().put("resName",resName);
         try {
-            pageBean.setCount(baseResourceDao.getResourcesCount(pageBean));
-            if(pageBean.getCount() > 0) {
-                pageBean.setData(baseResourceDao.getResourcesByPage(pageBean));
-            }
+            Page<Object> objects = PageHelper.startPage(pageBean.getPage(), pageBean.getPageSize());
+            pageBean.setData(baseResourceDao.getResourcesByPage(pageBean));
+            pageBean.setCount((int)objects.getTotal());
             pageBean.setCode(200);//正常返回
         }catch(Exception ex) {
             logger.error("分页获取系统资源出错：",ex);
@@ -124,6 +125,7 @@ public class MgtBaseResourceServiceImpl implements MgtBaseResourceService {
      *  获取所有的资源树
      * @return
      */
+    @Override
     public List<SysResource> getAllResourcesTree(){
         return baseResourceDao.getAllResourcesTree();
     }
@@ -133,6 +135,7 @@ public class MgtBaseResourceServiceImpl implements MgtBaseResourceService {
      * @param userId
      * @return
      */
+    @Override
     public List<SysResource> getMyResourcesTree(String userId){
         return baseResourceDao.getMyResourcesTree(userId);
     }

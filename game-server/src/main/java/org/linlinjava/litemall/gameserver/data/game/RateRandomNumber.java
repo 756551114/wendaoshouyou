@@ -1,9 +1,10 @@
 package org.linlinjava.litemall.gameserver.data.game;
 
 
+import cn.hutool.core.util.RandomUtil;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * 按几率产生随机数
@@ -19,8 +20,7 @@ public class RateRandomNumber {
      * @return 随机结果
      */
     public static int produceRandomNumber(int min,int max){
-        Random random = new Random();
-        return random.nextInt(max-min+1)+min; //[min,max]
+        return RandomUtil.randomInt(min, min + 1);
     }
 
     /**
@@ -75,8 +75,7 @@ public class RateRandomNumber {
         }
         //结果赋初值
         int r = min;
-        Random random = new Random();
-        int randomInt = random.nextInt(100)+1; //[1,100]
+        int randomInt = RandomUtil.randomInt(1, 101); //[1,100]
         for(int i=0;i<ranges.size();i++){
             Range range = ranges.get(i);
             //判断使用哪个range产生最终的随机数

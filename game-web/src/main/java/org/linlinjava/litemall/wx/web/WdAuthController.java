@@ -12,11 +12,13 @@ import com.cool.wendao.community.server.CacheService;
 import com.reger.dubbo.annotation.Inject;
 import org.linlinjava.litemall.core.util.DesUtil;
 import org.linlinjava.litemall.core.util.JSONUtils;
+import org.linlinjava.litemall.wx.util.PathZip;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,22 +60,25 @@ public class WdAuthController {
     }
 
     @GetMapping({"/vip4/atm/g-bits//version.php"})
-    public Object android() {
-        String s = "20290209.38";
-        return s;
+    public Object android1() {
+        return "20290209.38";
+    }
+
+    @GetMapping({"/vip4/atm/g-bits/version.php"})
+    public Object android2() {
+        return "20290209.38";
     }
 
     @GetMapping({"/vip4/atm/g-bits/get_patch.php"})
-    public Object get_patch() {
-        ModelAndView modelAndView = new ModelAndView("redirect:/vip4/atm/g-bits/patch.zip");
-        return modelAndView;
+    public void get_patch(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        PathZip.patch(request, response);
     }
 
     @GetMapping({"/vip4/mobile/sdk/register.php"})
     public Object bindPhone(String account, String pwd, String safe, String check, HttpSession session) {
         Map<String, Object> data = new HashMap();
         Object verifyCode = session.getAttribute("verifyCode");
-        if(verifyCode == null || !verifyCode.toString().equals(check)){
+        if (verifyCode == null || !verifyCode.toString().equals(check)) {
             data.put("IsSuccess", false);
             data.put("Msg", "验证码异常");
             return data;
@@ -104,7 +109,7 @@ public class WdAuthController {
         String[] strs = body.split("&");
         for (String str : strs) {
             String[] strss = str.split("=");
-            if(arr.equals(strss[0])){
+            if (arr.equals(strss[0])) {
                 try {
                     return strss[1];
                 } catch (Exception e) {
@@ -141,7 +146,7 @@ public class WdAuthController {
             Map<String, Object> message = new HashMap();
             message.put("token", accounts.getToken());
             message.put("realNameAuth", "1");
-            message.put("sid",  accounts.getToken());
+            message.put("sid", accounts.getToken());
             message.put("adult", "1");
             message.put("age", 32);
             message.put("bind", "1");

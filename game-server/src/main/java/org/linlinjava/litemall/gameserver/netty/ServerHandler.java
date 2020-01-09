@@ -102,32 +102,6 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
         }else{
             log.error("封包类型{}没有解析类型------------------->", cmd);
         }
-
-//        boolean cos = true;
-//        for (GameHandler waitLine : gameHandlers) {
-//            if (cmd == waitLine.cmd()) {
-//                cos = false;
-//                log.info("waitLine------------------->" + waitLine.getClass().getName());
-//                if (session != null) {
-//                    if (session.lock()) {
-//                        try {
-//                            waitLine.process(ctx, buff);
-//                            break;
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                        } finally {
-//                            session.unlock();
-//                        }
-//                    }
-//                } else {
-//                    waitLine.process(ctx, buff);
-//                    break;
-//                }
-//            }
-//        }
-//        if(cos) {
-//            log.error("封包类型{}没有解析类型------------------->", cmd);
-//        }
     }
 
     @Override

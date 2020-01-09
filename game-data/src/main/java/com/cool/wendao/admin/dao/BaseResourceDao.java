@@ -8,12 +8,6 @@ import java.util.List;
 
 public interface BaseResourceDao {
 
-    /**
-     * 获取系统资源总数
-     * @param pageBean
-     * @return
-     */
-    int getResourcesCount(MgtPageBean<SysResource> pageBean);
 
     /**
      * 分页获取系统资源

@@ -52,7 +52,7 @@
 			<label class="layui-form-label">菜单类型：</label>
 			<div class="layui-input-block">
 				<input type="radio" name="resType" value="0" title="菜单" <#if sysRes.resType == 0>checked</#if> disabled>
-				<#--<input type="radio" name="resType" value="1" title="按钮" <#if sysRes.resType == 1>checked</#if> disabled>-->
+				<input type="radio" name="resType" value="1" title="按钮" <#if sysRes.resType == 1>checked</#if> disabled>
 			</div>
 		</div>
 		<#if sysRes.resType == 0>

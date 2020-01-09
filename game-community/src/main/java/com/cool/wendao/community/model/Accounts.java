@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Data
 @Table(name = "accounts")
-public class Accounts  extends BaseModel {
+public class Accounts extends BaseModel {
 
 
     private String name;
@@ -20,6 +20,11 @@ public class Accounts  extends BaseModel {
     private String password;
     private String token;
 
+    /**
+     * 1 是管理员
+     * 0 不是
+     */
+    private Integer isAdmin = 0;
     private Integer chongzhijifen;
     private Integer chongzhiyuanbao;
     private String yaoqingma;
@@ -38,9 +43,6 @@ public class Accounts  extends BaseModel {
 
     public Accounts() {
     }
-
-
-
 
 
 }

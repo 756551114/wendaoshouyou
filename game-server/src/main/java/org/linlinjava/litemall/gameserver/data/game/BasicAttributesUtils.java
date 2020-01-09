@@ -7,6 +7,7 @@ package org.linlinjava.litemall.gameserver.data.game;
 
 import org.linlinjava.litemall.gameserver.domain.Chara;
 import org.linlinjava.litemall.gameserver.domain.PetShuXing;
+import org.linlinjava.litemall.gameserver.fight.VipAddUils;
 
 public class BasicAttributesUtils {
     public BasicAttributesUtils() {
@@ -74,7 +75,8 @@ public class BasicAttributesUtils {
         return attributes;
     }
 
-    public static void petshuxing(PetShuXing petShuXing, Double add) {
+    public static void petshuxing(PetShuXing petShuXing ) {
+        Double add = VipAddUils.getUserVipAdd();
         if(add == null){
             add = 1D;
         }
@@ -97,7 +99,8 @@ public class BasicAttributesUtils {
         petShuXing.wiz = (int)(attributes[5]* add);
     }
 
-    public static void shuxing(Chara chara, Double add) {
+    public static void shuxing(Chara chara) {
+        Double add = VipAddUils.getUserVipAdd();
         if(add == null){
             add = 1D;
         }

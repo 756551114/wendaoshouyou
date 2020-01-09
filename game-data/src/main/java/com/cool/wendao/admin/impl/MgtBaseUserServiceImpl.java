@@ -326,8 +326,5 @@ public class MgtBaseUserServiceImpl implements MgtBaseUserService {
         return baseUserDao.getJobByUserId(userId);
     }
 
-    @Override
-    public List<SysUser> findManagerUserList() {
-        return baseUserDao.findManagerUserList();
-    }
+
 }

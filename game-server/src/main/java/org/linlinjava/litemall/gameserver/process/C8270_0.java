@@ -15,6 +15,7 @@ import org.linlinjava.litemall.gameserver.data.write.*;
 import org.linlinjava.litemall.gameserver.domain.*;
 import org.linlinjava.litemall.gameserver.game.GameData;
 import org.linlinjava.litemall.gameserver.game.GameObjectChar;
+import org.linlinjava.litemall.gameserver.util.QiangHuaPet;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -34,9 +35,9 @@ public class C8270_0 implements GameHandler {
 
         String para = GameReadTool.readString(buff);
 
-        log.info("---no-------->"+no);
-        log.info("---pos-------->"+pos);
-        log.info("---para-------->"+para);
+        log.info("---no-------->" + no);
+        log.info("---pos-------->" + pos);
+        log.info("---para-------->" + para);
 
         Chara chara = GameObjectChar.getGameObjectChar().chara;
 
@@ -156,36 +157,7 @@ public class C8270_0 implements GameHandler {
 
         //强化
         if ("mag".equals(para)) {
-            for (int i = 0; i < chara.pets.size(); i++) {
-                Petbeibao petbeibao = chara.pets.get(i);
-                if (petbeibao.no == no) {
-                    Pet pet = GameData.that.basePetService.findOneByName(petbeibao.petShuXing.get(0).str);
-                    int[] ints = PetAttributesUtils.upgradePet(true, pet.getMagAttack(), petbeibao.petShuXing.get(0).raw_name, petbeibao.petShuXing.get(0).life_add_temp);
-                    if (petbeibao.petShuXing.get(0).raw_name < ints[0]) {
-                        petbeibao.petShuXing.get(0).pet_life_shape_temp += ints[1];
-                        petbeibao.petShuXing.get(0).rank += ints[1];
-                        petbeibao.petShuXing.get(0).life_add_temp = 0;
-                        petbeibao.petShuXing.get(0).raw_name = ints[0];
-                        Vo_8165_0 vo_8165_0 = new Vo_8165_0();
-                        vo_8165_0.msg = "恭喜强化成功！";
-                        vo_8165_0.active = 0;
-                        GameObjectChar.send(new M8165_0(), vo_8165_0);
-                    } else {
-                        petbeibao.petShuXing.get(0).life_add_temp = ints[2];
-                        Vo_8165_0 vo_8165_0 = new Vo_8165_0();
-                        vo_8165_0.msg = "成长完成度增加了！";
-                        vo_8165_0.active = 0;
-                        GameObjectChar.send(new M8165_0(), vo_8165_0);
-                    }
-                    GameUtil.removemunber(chara, "宠物强化丹", 1);
-                    List list = new ArrayList();
-                    BasicAttributesUtils.petshuxing(petbeibao.petShuXing.get(0));
-                    list.add(petbeibao);
-//更新技能 没写； //32747   //12023
-
-                    GameObjectChar.send(new M65507_0(), list);
-                }
-            }
+            QiangHuaPet.mag(no, chara);
         }
         if ("phy".equals(para)) {
             for (int i = 0; i < chara.pets.size(); i++) {
@@ -377,7 +349,6 @@ public class C8270_0 implements GameHandler {
 
     public int subtraction() {
         Random r = new Random();
-
         return r.nextInt(10);
     }
 

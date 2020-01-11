@@ -38,6 +38,7 @@ public class PetAndHelpSkillUtils {
         br.lines().forEach((f) -> strb.append(f));
         skillJson = strb.toString();
     }
+
     /**
      * 返回技能的最大等级
      *
@@ -64,7 +65,7 @@ public class PetAndHelpSkillUtils {
      * @param attrib  宠物/守护等级
      * @param isMagic 是否是法攻 true  法攻
      */
-    public static List<JSONObject> getNomelSkills(int pet, int pMetal, int attrib, boolean isMagic, String skill_value)  {
+    public static List<JSONObject> getNomelSkills(int pet, int pMetal, int attrib, boolean isMagic, String skill_value) {
         JSONArray jsonArray = JSONArray.parseArray(skillJson);
         //守护
         //"物伤", "法伤", "障碍", "辅助", "被动"
@@ -209,7 +210,7 @@ public class PetAndHelpSkillUtils {
     }
 
 
-    private static JSONObject appendBP(JSONObject jsonObject, String skillType, int skillIndex, int attrib)  {
+    private static JSONObject appendBP(JSONObject jsonObject, String skillType, int skillIndex, int attrib) {
         int[] bp = getBlueAndPoints(skillType, skillIndex, attrib);
         jsonObject.put("skillBlue", bp[0]);
         jsonObject.put("skillPoint", bp[1]);
@@ -358,12 +359,16 @@ public class PetAndHelpSkillUtils {
         String skill_attrib = null;
         for (int i = 0; i < jsonArray.size(); i++) {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
-            int no = jsonObject.getIntValue("skillNo");
-            if (no == skillNo) {
-                leixing = jsonObject.getString("skillType");
-                skillIndex = jsonObject.getIntValue("skillIndex");
-                skill_attrib = jsonObject.getString("skill_attrib");
-                return jsonObject;
+            try {
+                int no = jsonObject.getIntValue("skillNo");
+                if (no == skillNo) {
+                    leixing = jsonObject.getString("skillType");
+                    skillIndex = jsonObject.getIntValue("skillIndex");
+                    skill_attrib = jsonObject.getString("skill_attrib");
+                    return jsonObject;
+                }
+            } catch (Exception e) {
+
             }
         }
         return null;

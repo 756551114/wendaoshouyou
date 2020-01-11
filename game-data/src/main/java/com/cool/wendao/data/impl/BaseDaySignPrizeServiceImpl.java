@@ -17,7 +17,7 @@ public class BaseDaySignPrizeServiceImpl implements BaseDaySignPrizeService {
     @Override
     public DaySignPrize findOneByIndex(Integer index) {
         Example example = new Example(DaySignPrize.class);
-        example.createCriteria().andCondition("deleted=", Deleted.NOT_DELETED.value()).andCondition("index=", index);
+        example.createCriteria().andCondition("deleted=", Deleted.NOT_DELETED.value()).andCondition("t_index=", index);
         return daySignPrizeMapper.selectOneByExample(example);
     }
 }

@@ -1,7 +1,12 @@
 package org.linlinjava.litemall.gameserver.util;
 
 
+import io.netty.buffer.ByteBuf;
+import lombok.extern.log4j.Log4j2;
+
 import java.io.UnsupportedEncodingException;
+
+@Log4j2
 public class ByteUtil {
 
     public ByteUtil() {
@@ -291,9 +296,9 @@ public class ByteUtil {
     }
 
 
-
     /**
      * int到byte[]
+     *
      * @param i
      * @return
      */
@@ -309,6 +314,7 @@ public class ByteUtil {
 
     /**
      * byte[]转int
+     *
      * @param bytes
      * @return
      */
@@ -320,5 +326,19 @@ public class ByteUtil {
             value += (bytes[i] & 0x000000FF) << shift;// 往高位游
         }
         return value;
+    }
+
+
+    public static void cony(ByteBuf buf)  {
+        try {
+            byte[] req = new byte[buf.readableBytes()];
+            buf.readBytes(req);
+            String bodyU = new String(req, "UTF-8");
+            String bodyG = new String(req, "GBK");
+            log.info("UTF-8------------------------->\n" + bodyU);
+            log.info("GBK------------------------->\n" + bodyG);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

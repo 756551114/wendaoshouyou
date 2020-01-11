@@ -74,6 +74,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
             GameObjectChar.GAMEOBJECTCHAR_THREAD_LOCAL.set(session);
         }
         ByteBuf buff = (ByteBuf) msg;
+
         GameReadTool.readInt(buff);
         GameReadTool.readShort(buff);
         int cmd = GameReadTool.readShort(buff);

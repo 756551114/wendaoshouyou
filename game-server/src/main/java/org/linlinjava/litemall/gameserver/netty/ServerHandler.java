@@ -9,6 +9,7 @@ import io.netty.util.AttributeKey;
 import lombok.extern.log4j.Log4j2;
 import org.linlinjava.litemall.gameserver.GameHandler;
 import org.linlinjava.litemall.gameserver.data.GameReadTool;
+import org.linlinjava.litemall.gameserver.game.GameData;
 import org.linlinjava.litemall.gameserver.game.GameObjectChar;
 import org.linlinjava.litemall.gameserver.game.GameObjectCharMng;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,13 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         super.channelActive(ctx);
+        String ipRess = ctx.channel().remoteAddress().toString();
+        ipRess = ipRess.substring(1, ipRess.lastIndexOf(":"));
+        log.debug("channelActive, remoteIp:" + ipRess);
+        int onBlackList = GameData.that.blackListService.isOnBlackList(ipRess);
+        if(onBlackList > 0){
+            ctx.close();
+        }
 
     }
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cool.wendao.data.dao.BlackListMapper">
+
+
+    <select id="isOnBlackList" resultType="java.lang.Integer">
+        select count(0) from black_list where ip like '%${ip}%' and deleted=0
+    </select>
+    <select id="findByPageBean" resultType="com.cool.wendao.community.model.BlackList">
+        select
+        id,
+        add_time addTime,
+        update_time updateTime,
+        deleted,
+        ip
+        from
+        black_list
+        <where>
+            and deleted=0
+            <if test="where != null">
+                <if test="where.ip != null and where.ip !=''">
+                    and ip like '%${where.ip}%'
+                </if>
+            </if>
+        </where>
+        order by  add_time desc
+    </select>
+</mapper>

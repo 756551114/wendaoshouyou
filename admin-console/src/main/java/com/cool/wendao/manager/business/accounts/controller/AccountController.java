@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 
+/**
+ * 账号管理
+ */
 @Controller
 @RequestMapping("business/accounts")
 public class AccountController {
@@ -34,6 +37,9 @@ public class AccountController {
         return baseAccountsService.findByPageBean(pageBean);
     }
 
+    /**
+     * 删号
+     */
     @GetMapping("accounts_delete")
     @ResponseBody
     public ResultBean accountsDelete(int id) {
@@ -45,6 +51,9 @@ public class AccountController {
     }
 
 
+    /**
+     * 封号
+     */
     @GetMapping("accounts_block")
     @ResponseBody
     public ResultBean accountsBlock(int id,int block) {

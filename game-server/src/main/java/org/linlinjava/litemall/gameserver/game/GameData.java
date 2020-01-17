@@ -80,6 +80,9 @@ public class GameData {
     @Inject
     public BaseVipAddService baseVipAddService;
 
+    @Inject
+    public BlackListService blackListService;
+
     public GameData() {
     }
 

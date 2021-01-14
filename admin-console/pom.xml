@@ -22,7 +22,7 @@
         <commons-utils-version>2.0.0</commons-utils-version>
         <mapper.version>3.3.8</mapper.version>
         <page.helper.version>1.2.3</page.helper.version>
-        <poi.version>3.9</poi.version>
+        <poi.version>4.1.2</poi.version>
         <com.alibaba.dubbo.version>2.6.0</com.alibaba.dubbo.version>
         <org.apache.zookeeper.version>3.4.11</org.apache.zookeeper.version>
         <com.101tec.version>0.10</com.101tec.version>
